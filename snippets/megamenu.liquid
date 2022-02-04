@@ -1,0 +1,153 @@
+<div id="Megamenu" class="megamenu">
+  <div class="wrapper">
+    <div class="systems">
+      <span class="bundle-1 mega-heading">3-STEP HAIR CARE SYSTEM</span>
+      <div class="pics-lineup">
+        <div class="bundle-1 hair-care"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/3StepTabImageDeskTop3.png?v=1620237738" /><br />
+            <span class="label">HAIR CARE SYSTEMS</span>
+        </div>
+        <div class="bundle-2 shampoos"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/RPMenu400x400_7d3c85c1-20d7-4c9b-b4f2-87663d8b133f.png?v=1623275647" /><br />
+            <span class="label">CLAY SHAMPOOS</span>
+        </div>
+        <div class="bundle-3 masks"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/MaskMenu400x400.png?v=1623277256" /><br />
+            <span class="label">CR&#96;EME MASKS</span>
+        </div>
+        <div class="bundle-3 conditioner"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/ConditionerMenu400x400.png?v=1623277963" /><br />
+            <span class="label">CONDIITONING BALM</span>
+        </div>
+      </div>
+    </div>
+    <div class="concern">
+      <span class="mega-heading">VIEW PRODUCTS BY CONCERN</span>
+
+    </div>
+    <div class="individual">
+      <span class="mega-heading">BUY INDIVIDUAL PRODUCTS</span>
+
+    </div>
+    <div class="other">
+      <span class="mega-heading">MORE</span>
+
+    </div>
+  </div>
+</div>
+
+<style rel="stylesheet" type="text/css">
+  #Megamenu {
+    position: absolute;
+    z-index: 5;
+    background-color: white;
+    width: 100%;
+    height: 0px;
+    top: 141px;
+    overflow: hidden;
+  }
+  .shopify-section-header-sticky #Megamenu {
+    top: 111px;
+  }
+  #Megamenu .wrapper {
+    display: grid;
+    grid-template: "bundle concern"
+                   "bundle individual"
+                   "bundle other";
+  }
+  .systems {
+    grid-area: bundle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .concern {
+    grid-area: concern;
+  }
+  .individual {
+    grid-area: individual;
+  }
+  .other {
+    grid-area: other;
+  }
+  div[class*="bundle"] {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  div[class*="bundle"] img {
+    width: 100%;
+    padding: 30px 40px 0px 40px;
+    align-items: center;
+  }
+  #Megamenu span.label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgba(18,18,18,1);
+    text-align: center;
+    width: 100%;
+    margin-top: -20px;
+  }
+  .pics-lineup {
+    display: flex;
+    flex-direction: row;
+  }
+.mega-heading .hair-care {
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+</style>
+
+<script>
+(function() {
+  jQuery(document).ready(function( $ ) {
+    var shopMenu = $('.list-menu li:first-child');
+    var megaMenu = $('#Megamenu');
+    var wrapper = $('#Megamenu .wrapper');
+    var header = $('.header');
+    header.on('scroll', function() {
+      if (! $('div#shopify-section-header').hasClass('shopify-section-header-sticky') ) {
+        header.css({
+          backgroundColor: 'transparent'
+        });
+      };
+    });
+    shopMenu.on("mouseover", function() {
+      header.css({
+      borderBottom: '1px solid rgba(18,18,18,.7)',
+      backgroundColor: 'white'
+      });
+      header.addClass('active');
+      megaMenu.css({
+        borderBottom: "1px solid rgba(18,18,18,.2)"
+      });
+      megaMenu.animate({
+        transition: "height .2s ease",
+        height: "300px",
+        padding: "20px 50px",
+      }, .5, function() {
+        wrapper.css('display', 'grid');
+      });
+    });
+    megaMenu.on("mouseenter", function() {
+      header.addClass('active');
+    });
+    megaMenu.on("mouseleave", function() {
+      header.removeClass('active');
+      header.css({
+      borderBottom: '1px solid transparent',
+      borderBottom: "unset"
+      });
+      megaMenu.css({
+        borderBottom: "unset"
+      });
+      megaMenu.animate({
+        height: "0px",
+        padding: "0px 50px"
+      }, .5, function() {
+        wrapper.css('display', 'none');
+      });
+    });
+  });
+})()
+</script>

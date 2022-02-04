@@ -1,14 +1,14 @@
 .image-with-text {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .image-with-text:not(.color-scheme-background-1) {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 @media screen and (min-width: 750px) {
   .image-with-text {
-    margin-bottom: calc(5rem + var(--page-width-margin));
+    margin-bottom: calc(3rem + var(--page-width-margin));
   }
 }
 
@@ -84,6 +84,10 @@
   justify-content: center;
   align-self: center;
   padding: 4rem calc(4rem / var(--font-body-scale)) 5rem;
+  background-color: #edf1f0;
+}
+.color-scheme-background-2 .image-with-text__content {
+  background-color: #E0CEC6;
 }
 
 .image-with-text__content--mobile-right > * {
@@ -99,7 +103,7 @@
 .image-with-text--overlap .image-with-text__content {
   transform: translate(0 , -3rem);
   width: 90%;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 750px) {
@@ -119,7 +123,7 @@
 
   .image-with-text__content--desktop-right > * {
     align-self: flex-end;
-    text-align: right; 
+    text-align: right;
   }
 
   .image-with-text__content--desktop-left > * {
@@ -134,9 +138,9 @@
 
   .image-with-text--overlap .image-with-text__text-item {
     display: flex;
-    padding: 3rem 0; 
+    padding: 3rem 0;
   }
-  
+
   .image-with-text--overlap .image-with-text__content {
     height: auto;
     width: calc(100% + 4rem);
@@ -152,7 +156,7 @@
     justify-content: flex-end;
   }
 
-  .image-with-text--overlap .image-with-text__media-item--top { 
+  .image-with-text--overlap .image-with-text__media-item--top {
     align-self: flex-start;
   }
 
@@ -162,17 +166,19 @@
 
   .image-with-text--overlap .image-with-text__media-item--bottom {
     align-self: flex-end;
-  } 
+  }
 
   .image-with-text__media-item--small,
   .image-with-text__media-item--large + .image-with-text__text-item {
-    flex-grow: 0; 
+    flex-grow: 0;
   }
 }
 
 @media screen and (min-width: 990px) {
   .image-with-text__content {
-    padding: 6rem 7rem 7rem;
+    padding: 6rem 5rem 7rem;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -205,9 +211,14 @@
 
 .image-with-text__heading {
   margin-bottom: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: .1em;
 }
 
 .image-with-text__text p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.1;
 }

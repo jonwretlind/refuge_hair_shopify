@@ -6,7 +6,7 @@
           {%- if block.settings.link != blank -%}
             <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
           {%- endif -%}
-              <p class="announcement-bar__message h5">
+              <p id="Message" class="announcement-bar__message">
                 {{ block.settings.text | escape }}
                 {%- if block.settings.link != blank -%}
                   {% render 'icon-arrow' %}
@@ -16,7 +16,24 @@
             </a>
           {%- endif -%}
         {%- endif -%}
+        {% include 'header-icons'%}
       </div>
+
+      <script type="text/javascript">
+      window.addEventListener('load',
+        handler, false);
+      window.addEventListener('resize',
+        handler, false);
+
+      function handler(event) {
+        var message = document.getElementById('Message');
+        var icons = document.getElementById('Icons');
+        var mwd = message.offsetWidth;
+        var iwd = icons.offsetWidth;
+        message.style.marginLeft = "calc(50% - " + (mwd/2) + "px)";
+        message.style.paddingLeft = iwd/2 + "px";
+      };
+      </script>
   {%- endcase -%}
 {%- endfor -%}
 
@@ -80,3 +97,32 @@
   }
 }
 {% endschema %}
+
+{% style %}
+.announcement-bar {
+    background-color: black;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+  .announcement-bar__message {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    letter-spacing: 1.1px;
+    line-height: 1.27;
+    max-width: 1700px;
+    position: relative;
+    padding-left: unset !important;
+  }
+  #Message {
+    display: inline-block;
+  }
+
+  .header__icons {
+    margin: 0 0 0 auto;
+  }
+{% endstyle %}

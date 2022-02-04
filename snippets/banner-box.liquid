@@ -1,0 +1,75 @@
+<div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
+  <div class="banner__box">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          <h2 class="banner__heading {% if block.settings.heading_size == 'medium' %}h1{% else %}h0{% endif %}" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.heading | escape }}</span>
+          </h2>
+        {%- when 'text' -%}
+          <div class="banner__text" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.text | escape }}</span>
+          </div>
+        {%- when 'buttons' -%}
+          <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.button_label_1 != blank -%}
+              <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}</a>
+            {%- endif -%}
+            {%- if block.settings.button_label_2 != blank -%}
+              <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
+            {%- endif -%}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% style %}
+.banner__box {
+    border: 0;
+    padding: 4rem 4.5rem;
+    position: relative;
+    height: fit-content;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    word-wrap: break-word;
+    background-color: transparent;
+    max-width: 35%;
+    min-width: 19.125rem;
+}
+
+  .banner__box > * {
+    color: white;
+  }
+
+  .h1, h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.25rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .banner__buttons {
+    letter-spacing: 0.1rem;
+    line-height: calc(1 + 0.2 / var(--font-body-scale));
+    width: 100%;
+  }
+
+  .banner__buttons > a {
+    width: inherit;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  .banner__box .banner__text {
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+      letter-spacing: 1.31px;
+      font-weight: 300;
+      margin: 20px 0;
+  }
+
+{% endstyle %}

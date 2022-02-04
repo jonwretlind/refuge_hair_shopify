@@ -25,41 +25,7 @@
     {%- endif -%}
   </div>
 
-  <slider-component class="slider-mobile-gutter">
-    <ul id="Slider-{{ section.id }}" class="grid grid--2-col product-grid{% if products_to_display == 4 or section.settings.collection == blank %} grid--2-col-tablet grid--4-col-desktop{% else %} grid--3-col-tablet{% endif %}{% if products_to_display > 5 %} grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider slider--tablet grid--peek{% endif %}{% if section.settings.show_view_all == false or section.settings.collection.products.size < section.settings.products_to_show %} negative-margin{% endif %}{% if section.settings.show_view_all and section.settings.collection.products.size > section.settings.products_to_show %} negative-margin--small{% endif %}" role="list">
-      {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-        <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__item{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider__slide{% endif %}">
-          {% render 'product-card',
-            product_card_product: product,
-            media_size: section.settings.image_ratio,
-            show_secondary_image: section.settings.show_secondary_image,
-            add_image_padding: section.settings.add_image_padding,
-            show_vendor: section.settings.show_vendor,
-            show_image_outline: section.settings.show_image_outline,
-            show_rating: section.settings.show_rating
-          %}
-        </li>
-      {%- else -%}
-        {%- for i in (1..4) -%}
-          <li class="grid__item">
-            {% render 'product-card-placeholder' %}
-          </li>
-        {%- endfor -%}
-      {%- endfor -%}
-    </ul>
-    {%- if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 -%}
-      <div class="slider-buttons no-js-hidden{% if section.settings.collection.all_products_count < 4 %} medium-hide{% endif %}{% if section.settings.collection.all_products_count < 3 %} small-hide{% endif %}">
-        <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">{% render 'icon-caret' %}</button>
-        <div class="slider-counter caption">
-          <span class="slider-counter--current">1</span>
-          <span aria-hidden="true"> / </span>
-          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-          <span class="slider-counter--total">{{ products_to_display }}</span>
-        </div>
-        <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-caret' %}</button>
-      </div>
-    {%- endif -%}
-  </slider-component>
+  {% include 'slider-hero' %}
 
   {%- if section.settings.show_view_all and more_in_collection -%}
     <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
@@ -72,6 +38,20 @@
     </div>
   {%- endif -%}
 </div>
+
+{% comment %} MANIPULATE PRODUCT TITLE TEXT {% endcomment %}
+<script type="text/javascript" >
+
+  jQuery('.card-title').each(function() {
+    var val = jQuery(this).text();
+    var rep = val.replace("3-STEP HAIR CARE SYSTEM", "<span>3-STEP HAIR CARE SYSTEM</span>");
+    jQuery(this).html(rep);
+  });
+
+
+
+
+</script>
 
 {% schema %}
 {
@@ -95,8 +75,8 @@
       "id": "products_to_show",
       "min": 2,
       "max": 12,
-      "step": 2,
-      "default": 4,
+      "step": 1,
+      "default": 3,
       "label": "t:sections.featured-collection.settings.products_to_show.label"
     },
     {
@@ -174,3 +154,29 @@
   ]
 }
 {% endschema %}
+
+{% style %}
+  h2.title, .title-wrapper-with-link { display: none; }
+  #shopify-section-template--14417539596367__featured_products.spaced-section {
+    margin-top: unset;
+  }
+  .shopify-section.spaced-section .price {
+    display: none;
+  }
+  .card-title {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    font-weight: 700;
+    line-height: 2;
+    font-size: 2.2rem;
+    letter-spacing: .25em;
+    margin-bottom: -80px;
+    padding-top: 20px;
+    z-index: 2;
+  }
+  .card-title span {
+    font-size: 1rem;
+    letter-spacing: .05em;
+  }
+{% endstyle %}
