@@ -1,9 +1,9 @@
-{{ 'section-multicolumn_half.css' | asset_url | stylesheet_tag }}
-<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'section-multicolumn_reviews.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}">
 <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
-  <div class="page-width">
+<div id="ReviewsBlock" class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
+  <div class="full-width">
     <div class="title-wrapper-with-link title-wrapper--self-padded-mobile{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
       <h2 class="title">
         {{ section.settings.title | escape }}
@@ -25,13 +25,44 @@
             endif
           endfor
         -%}
-        {%- for block in section.blocks -%}
-          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}" {{ block.shopify_attributes }}>
-            {% include 'multicolumn-card' %}
+        <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}" {{ block.shopify_attributes }}>
+          <div class="multicolumn-card reviews">
+            <div class="multicolumn-card__info swiper reviews">
+              {% include 'bva-reviews-swiper' %}
+            </div>
+
+            {%- for block in section.blocks -%}
+
+            {% comment %} CARD {% endcomment %}
+              {%- if block.settings.image != blank -%}
+                {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+                  {% assign spaced_image = true %}
+                {% endif %}
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                  <div class="media media--transparent media--{{ section.settings.image_ratio }}"
+                    {% if section.settings.image_ratio == 'adapt' %}
+                      style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
+                    {% endif %}>
+                    <img
+                      id="ModelPic"
+                      srcset="{%- if block.settings.image.width >= 275 -%}{{ block.settings.image | img_url: '275x' }} 275w,{%- endif -%}
+                        {%- if block.settings.image.width >= 550 -%}{{ block.settings.image | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if block.settings.image.width >= 710 -%}{{ block.settings.image | img_url: '710x' }} 710w,{%- endif -%}
+                        {%- if block.settings.image.width >= 1420 -%}{{ block.settings.image | img_url: '1420x' }} 1420w,{%- endif -%}
+                        {{ block.settings.image | img_url: 'master' }} {{ block.settings.image.width }}w"
+                      src="{{ block.settings.image | img_url: '550x' }}"
+                      alt="{{ block.settings.image.alt }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+              {%- endif -%}
+              {%- endfor -%}
+
+            </div>
+
           </li>
-        {%- endfor -%}
       </ul>
-    </div>
 
       {%- if section.settings.swipe_on_mobile -%}
         <div class="slider-buttons no-js-hidden medium-hide{% if section.blocks.size < 2 %} small-hide{% endif %}">
@@ -53,39 +84,20 @@
         </a>
       {%- endif-%}
     </div>
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.multicolumn_half.name",
+  "name": "Reviews Block",
   "class": "spaced-section spaced-section--full-width",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "title",
-      "default": "Multicolumn Half",
-      "label": "t:sections.multicolumn_half.settings.title.label"
-    },
-    {
-      "type": "select",
-      "id": "image_width",
-      "options": [
-        {
-          "value": "third",
-          "label": "t:sections.multicolumn_half.settings.image_width.options__1.label"
-        },
-        {
-          "value": "half",
-          "label": "t:sections.multicolumn_half.settings.image_width.options__2.label"
-        },
-        {
-          "value": "full",
-          "label": "t:sections.multicolumn_half.settings.image_width.options__3.label"
-        }
-      ],
-      "default": "full",
-      "label": "t:sections.multicolumn_half.settings.image_width.label"
+      "default": "Title Text",
+      "label": "Title"
     },
     {
       "type": "select",
@@ -93,23 +105,23 @@
       "options": [
         {
           "value": "adapt",
-          "label": "t:sections.multicolumn_half.settings.image_ratio.options__1.label"
+          "label": "Adapt"
         },
         {
           "value": "portrait",
-          "label": "t:sections.multicolumn_half.settings.image_ratio.options__2.label"
+          "label": "Portrait"
         },
         {
           "value": "square",
-          "label": "t:sections.multicolumn_half.settings.image_ratio.options__3.label"
+          "label": "Square"
         },
         {
           "value": "circle",
-          "label": "t:sections.multicolumn_half.settings.image_ratio.options__4.label"
+          "label": "Circle"
         }
       ],
       "default": "adapt",
-      "label": "t:sections.multicolumn_half.settings.image_ratio.label"
+      "label": "Image Ratio"
     },
     {
       "type": "select",
@@ -117,15 +129,15 @@
       "options": [
         {
           "value": "left",
-          "label": "t:sections.multicolumn_half.settings.column_alignment.options__1.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.multicolumn_half.settings.column_alignment.options__2.label"
+          "label": "Center"
         }
       ],
       "default": "left",
-      "label": "t:sections.multicolumn_half.settings.column_alignment.label"
+      "label": "Alignment"
     },
     {
       "type": "select",
@@ -133,79 +145,79 @@
       "options": [
         {
           "value": "none",
-          "label": "t:sections.multicolumn_half.settings.background_style.options__1.label"
+          "label": "None"
         },
         {
           "value": "primary",
-          "label": "t:sections.multicolumn_half.settings.background_style.options__2.label"
+          "label": "Primary"
         },
         {
           "value": "secondary",
-          "label": "t:sections.multicolumn_half.settings.background_style.options__3.label"
+          "label": "Secondary"
         }
       ],
       "default": "primary",
-      "label": "t:sections.multicolumn_half.settings.background_style.label"
+      "label": "Background Style"
     },
     {
       "type": "text",
       "id": "button_label",
       "default": "Button label",
-      "label": "t:sections.multicolumn_half.settings.button_label.label"
+      "label": "Button Label"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "t:sections.multicolumn_half.settings.button_link.label"
+      "label": "Button Link"
     },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
-      "label": "t:sections.multicolumn_half.settings.swipe_on_mobile.label"
+      "label": "Swipe on Mobile"
     }
   ],
   "blocks": [
     {
       "type": "column",
-      "name": "t:sections.multicolumn_half.blocks.column.name",
+      "name": "Column",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.multicolumn_half.blocks.column.settings.image.label"
+          "label": "Image Picker"
         },
         {
           "type": "text",
           "id": "title",
           "default": "Column",
-          "label": "t:sections.multicolumn_half.blocks.column.settings.title.label"
+          "label": "Title"
         },
         {
           "type": "richtext",
           "id": "text",
           "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-          "label": "t:sections.multicolumn_half.blocks.column.settings.text.label"
+          "label": "Text"
         },
         {
           "type": "text",
           "id": "link_label",
-          "label": "t:sections.multicolumn_half.blocks.column.settings.link_label.label"
+          "label": "Label"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.multicolumn_half.blocks.column.settings.link.label"
+          "label": "Link"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.multicolumn_half.presets.name",
+      "name": "Reviews Block",
       "blocks": [
         {
-          "type": "column" 
+          "type": "column"
         },
         {
           "type": "column"

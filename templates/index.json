@@ -41,82 +41,10 @@
         "collection": "all",
         "image_ratio": "portrait"
       }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "video": {
-          "type": "video",
-          "settings": {}
-        },
-        "product": {
-          "type": "product",
-          "settings": {}
-        },
-        "collection": {
-          "type": "collection",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "video",
-        "product",
-        "collection"
-      ],
-      "settings": {}
-    },
-    "video": {
-      "type": "video",
-      "settings": {}
-    },
-    "multi_column": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {}
-        },
-        "column2": {
-          "type": "column",
-          "settings": {}
-        },
-        "column3": {
-          "type": "column",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {}
-  },
-  "multi_column_half": {
-    "type": "multicolumn",
-    "blocks": {
-      "column1": {
-        "type": "column",
-        "settings": {}
-      },
-      "column2": {
-        "type": "column",
-        "settings": {}
-      }
-    },
-    "block_order": [
-      "column1",
-      "column2"
-    ],
-    "settings": {}
     }
   },
   "order": [
     "image_banner",
-    "featured_products",
-    "collage",
-    "video",
-    "multi_column",
-    "multi_column_half"
+    "featured_products"
   ]
 }
