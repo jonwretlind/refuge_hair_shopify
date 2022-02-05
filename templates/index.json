@@ -144,6 +144,44 @@
       "settings": {
         "enable_widget": true
       }
+    },
+    "1644090947b3720f0a": {
+      "type": "multicolumn-twothirds",
+      "blocks": {
+        "1644090947e53700cd-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/WhitneyReview1024x1024.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1644090947e53700cd-1": {
+          "type": "column",
+          "settings": {
+            "title": "REFUGE REWARDS",
+            "text": "<p>Earn points to redeem for cash towards future self care purchases. Join Refuge Rewards to start collecting points on shopping, social engagement, and friend referrals.<\/p>",
+            "link_label": "Join Now",
+            "link": "shopify:\/\/pages\/rewards"
+          }
+        }
+      },
+      "block_order": [
+        "1644090947e53700cd-0",
+        "1644090947e53700cd-1"
+      ],
+      "settings": {
+        "title": "Multicolumn Two Thirds",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "lt-rose",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false
+      }
     }
   },
   "order": [
@@ -151,6 +189,7 @@
     "featured_products",
     "16440292457d284087",
     "164408536003481d7a",
-    "1644081879cb7506f7"
+    "1644081879cb7506f7",
+    "1644090947b3720f0a"
   ]
 }
