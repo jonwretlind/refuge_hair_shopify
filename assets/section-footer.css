@@ -1,3 +1,7 @@
+#BVAFooter {
+  margin-top: -4.5rem;
+}
+
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
@@ -509,4 +513,17 @@ noscript .localization-selector.link {
 
 .footer .disclosure__link--active {
   text-decoration: underline;
+}
+
+.footer__subfooter-inner .footer__linklist {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.footer__subfooter-inner .footer__linklist li {
+  padding: 0 2rem;
+}
+.footer__subfooter-inner.container {
+  grid-template-columns: 100% !important;
+  padding: 1rem 3rem !important;
 }

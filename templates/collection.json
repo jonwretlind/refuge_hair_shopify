@@ -2,13 +2,11 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
-      "settings": {
-      }
+      "settings": {}
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

@@ -1,5 +1,5 @@
 
-<div class="multicolumn-card">
+<div class="multicolumn-card {{ section.settings.background_style }}"> 
   {%- if block.settings.image != blank -%}
     {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
       {% assign spaced_image = true %}

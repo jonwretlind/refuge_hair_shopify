@@ -72,11 +72,20 @@
   .header:hover .header__icon {
       color: rgba(18,18,18,1);
   }
-  .link--text {
+  .list-menu .link--text {
       color: rgb(255,255,255);
       font-weight: 400;
       padding-bottom: 38px;
       border-bottom: 2px solid rgba(18,18,18,0);
+      font-size: 1.1rem;
+  }
+  .logo.link--text {
+      color: rgb(255,255,255);
+      padding-bottom: 38px;
+      border-bottom: 2px solid rgba(18,18,18,0);
+      padding-bottom: 36px;
+      position: relative;
+      top: 2px;
   }
   .header:hover .link--text, .header.active .link--text {
       color: rgb(18,18,18) !important;
@@ -135,12 +144,14 @@
   div#shopify-section-header.shopify-section-header-sticky .search__button .icon {
     color: rgba(18,18,18,0.5) !important;
   }
-
+  .header-wrapper.gradient {
+    background-color: transparent;
+  }
   .shopify-section-header-sticky {
     top: 30px;
   }
   .shopify-section-header-sticky .header {
-    background-color: white;
+    background-color: transparent;
   }
   div#shopify-section-header:not(.shopify-section-header-sticky) .header:not(.active) {
     background-color: transparent !important;

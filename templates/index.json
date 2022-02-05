@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop hair care",
-            "button_link_1": "shopify://collections/all",
+            "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -35,7 +35,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/HomeBanner1800x1000ALT.jpg",
+        "image": "shopify:\/\/shop_images\/HomeBanner1800x1000ALT.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "adapt_height_first_image": false,
@@ -70,7 +70,7 @@
         "1644029245207c873d-0": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/SageReview1024x1024.jpg",
+            "image": "shopify:\/\/shop_images\/SageReview1024x1024.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -101,27 +101,56 @@
         "swipe_on_mobile": false
       }
     },
-    "Instagram Widget": {
-      "type": "yotopo-instagram-gallery",
+    "164408536003481d7a": {
+      "type": "multicolumn",
       "blocks": {
-        "instgram-feed": {
-          "type": "checkbox",
+        "164408536022a24032-0": {
+          "type": "column",
           "settings": {
-            "type": "checkbox",
-            "id": "enable_widget",
-            "label": "Enable Widget",
-            "default": true
+            "image": "shopify:\/\/shop_images\/Beth690x422.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "164408536022a24032-1": {
+          "type": "column",
+          "settings": {
+            "title": "PHILOSOPHY",
+            "text": "<p>\"We believe that your shower can be your own personal salon. That your lather and rinse should also repair and restore. And that getting professional results should be simple, easy and affordable. Formulated in a salon by expert stylists, each Refuge system gives your hair exactly what it needs to look its healthiest and gives you the simple self-care routine you deserve.\"<br\/><br\/>- Beth Weber | Founder<\/p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "1644029245207c873d-0"
-      ]
+        "164408536022a24032-0",
+        "164408536022a24032-1"
+      ],
+      "settings": {
+        "title": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false
+      }
+    },
+    "1644081879cb7506f7": {
+      "type": "yotopo-instagram-gallery",
+      "settings": {
+        "enable_widget": true
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_products",
-    "16440292457d284087"
+    "16440292457d284087",
+    "164408536003481d7a",
+    "1644081879cb7506f7"
   ]
 }

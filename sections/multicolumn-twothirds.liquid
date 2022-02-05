@@ -1,8 +1,8 @@
-{{ 'section-multicolumn_half.css' | asset_url | stylesheet_tag }}
+{{ 'section-multicolumn_twothirds.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div id="MultiColumnHalf" class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
+<div id="MultiColumnTwoThirds" class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
   <div class="full-width">
     <div class="title-wrapper-with-link title-wrapper--self-padded-mobile{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
       <h2 class="title">
@@ -57,14 +57,14 @@
 
 {% schema %}
 {
-  "name": "Multicolumn Half",
+  "name": "Multicolumn Two Thirds",
   "class": "spaced-section spaced-section--full-width",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "title",
-      "default": "Multicolumn Half",
+      "default": "Multicolumn Two Thirds",
       "label": "Title"
     },
     {
@@ -78,6 +78,10 @@
         {
           "value": "half",
           "label": "Half"
+        },
+        {
+          "value": "two-thirds",
+          "label": "Two-Thirds"
         },
         {
           "value": "full",
@@ -140,8 +144,8 @@
           "label": "Primary"
         },
         {
-          "value": "secondary",
-          "label": "Secondary"
+          "value": "lt-rose",
+          "label": "Light Rose"
         }
       ],
       "default": "primary",
@@ -202,7 +206,7 @@
   ],
   "presets": [
     {
-      "name": "Multicolumn Half",
+      "name": "Multicolumn Two Thirds",
       "blocks": [
         {
           "type": "column"

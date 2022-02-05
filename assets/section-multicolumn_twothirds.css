@@ -1,4 +1,4 @@
-#MultiColumnHalf {
+#MultiColumnTwoThirds {
   margin-top: -2.8em;
 }
 
@@ -31,7 +31,7 @@
     /*margin-bottom: 3rem;*/
   }
 }
-/*
+
 .multicolumn-card__image-wrapper--third-width {
   width: 33%;
 }
@@ -39,7 +39,9 @@
  .multicolumn-card__image-wrapper--half-width {
   width: 50%;
 }
-*/
+ .multicolumn-card__image-wrapper--two-thirds-width {
+  width: 66%;
+}
 
 .multicolumn-list__item.center
   .multicolumn-card__image-wrapper:not(.multicolumn-card__image-wrapper--full-width),
@@ -50,7 +52,7 @@
 .multicolumn-list .grid__item {
   padding: unset;
 }
-#MultiColumnHalf .multicolumn-list .grid__item .multicolumn-card {
+#MultiColumnTwoThirds .multicolumn-list .grid__item .multicolumn-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,8 +83,10 @@
 }
 
 .multicolumn.background-secondary .multicolumn-card {
-  background: rgb(var(--color-background));
-
+  background: rgb(var(--color-base-background-2));
+}
+.multicolumn-card.lt-rose {
+  background: rgb(var(--light-rose));
 }
 
 .multicolumn.background-secondary {
@@ -112,15 +116,15 @@
   }
 }
 
-#MultiColumnHalf .multicolumn-list h3 {
+#MultiColumnTwoThirds .multicolumn-list h3 {
   line-height: calc(1 + 0.5 / max(1, var(--font-heading-scale)));
   font-size: 2.5rem !important;
   font-weight: 700;
   letter-spacing: .1em;
 }
 
-#MultiColumnHalf .multicolumn-list h3,
-#MultiColumnHalf .multicolumn-list p {
+#MultiColumnTwoThirds .multicolumn-list h3,
+#MultiColumnTwoThirds .multicolumn-list p {
   margin: 0;
   font-size: calc(var(--font-body-scale) * 85%);
 }
@@ -187,7 +191,7 @@
 
   .grid--2-col-tablet .multicolumn-list__item {
     /*margin-top: 1rem;*/
-    max-width: 50%;
+    max-width: 100%;
   }
 
   .background-none .grid--2-col-tablet .multicolumn-list__item {
@@ -196,6 +200,14 @@
 
   .grid--2-col-tablet .multicolumn-list__item:nth-of-type(-n + 2) {
     margin-top: 0;
+  }
+
+  #MultiColumnTwoThirds .grid--3-col-tablet .grid__item {
+    width: 66.66%;
+  }
+
+  #MultiColumnTwoThirds .grid__item:last-child {
+    max-width: 33.33%
   }
 }
 
@@ -215,7 +227,7 @@
   margin: 0;
 }
 
-#MultiColumnHalf .multicolumn-card__info {
+#MultiColumnTwoThirds .multicolumn-card__info {
   padding: 6rem;
 }
 
@@ -278,8 +290,8 @@
 
 .multicolumn-card__info .link {
   text-decoration: none;
-  font-size: inherit;
-  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
 }
 
 .multicolumn-card__info .icon-wrap {
