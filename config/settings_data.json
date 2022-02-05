@@ -25,14 +25,13 @@
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "header": {
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "https://cdn.shopify.com/s/files/1/2380/1623/files/refuge-logo.svg?v=1640034058",
-          "logo_width": 100,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "show_line_separator": true,
@@ -40,7 +39,9 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
@@ -67,7 +68,8 @@
           "block_order": [
             "announcement-bar-0"
           ],
-          "settings": {}
+          "settings": {
+          }
         }
       }
     },
@@ -87,11 +89,13 @@
           "blocks": {
             "menu": {
               "type": "link_list",
-              "settings": {}
+              "settings": {
+              }
             },
             "text": {
               "type": "text",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [

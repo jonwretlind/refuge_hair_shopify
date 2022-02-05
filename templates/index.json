@@ -6,21 +6,26 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "POWERFUL CLEAN BEAUTY HAIR CARE SYSTEMS"
+            "heading": "POWERFUL CLEAN BEAUTY HAIR CARE SYSTEMS",
+            "heading_size": "medium"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Developed and tested through over 1 million consultations with real clients."
+            "text": "Developed and tested through over 1 million consultations with real clients.",
+            "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop hair care",
-            "button_link_1": "shopify://collections/all",
-            "button_label_2": ""
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
@@ -30,8 +35,17 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/HomeBanner1800x1000ALT.jpg",
-        "desktop_content_position": "middle-left"
+        "image": "shopify:\/\/shop_images\/HomeBanner1800x1000ALT.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
     "featured_products": {
@@ -39,12 +53,58 @@
       "settings": {
         "title": "",
         "collection": "all",
-        "image_ratio": "portrait"
+        "products_to_show": 3,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": false,
+        "show_vendor": false,
+        "show_rating": false
+      }
+    },
+    "16440292457d284087": {
+      "type": "reviews-block",
+      "blocks": {
+        "1644029245207c873d-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/SageReview1024x1024.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1644029245207c873d-1": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1644029245207c873d-0",
+        "1644029245207c873d-1"
+      ],
+      "settings": {
+        "title": "",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_products"
+    "featured_products",
+    "16440292457d284087"
   ]
 }
