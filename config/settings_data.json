@@ -34,7 +34,7 @@
         "settings": {
           "color_scheme": "background-1",
           "logo_position": "middle-left",
-          "menu": "main-menu",
+          "menu": "megamenu-2-5-2022",
           "show_line_separator": false,
           "enable_sticky_header": true
         }
@@ -74,7 +74,15 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "7570552984445421165": {
+        "type": "shopify:\/\/apps\/yotpo-product-reviews-photos\/blocks\/settings\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
