@@ -1,0 +1,40 @@
+{%- if section.settings.enable_widget -%}
+  <div id= "Shopify-section-[id]" class="shopify-section container">
+    <div class="yotpo yotpo-pictures-widget" data-gallery-id="606f57cdd655344f88b46471"></div>
+  </div>
+{%- endif -%}
+
+<script type="text/javascript">
+  jQuery(document).ready(function( $ ) {
+    console.log('Yotopo Instagram Widget Script');
+    var e = document.createElement("script");
+    (e.type = "text/javascript"),
+      (e.async = true),
+      (e.src =
+        "https://staticw2.yotpo.com/ez6nRbrdaedTQ0TX8crHRzBciUh97yqIdEszU4JI/widget.js");
+    var t = document.getElementsByTagName("script")[0];
+    t.parentNode.insertBefore(e);
+  });
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Yotpo Instagram Gallery",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_widget",
+      "label": "Enable Widget",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Yotpo Instagram Gallery",
+      "category": "Instagram Feed"
+    }
+  ]
+}
+{% endschema %}
