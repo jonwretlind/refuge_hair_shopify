@@ -1,0 +1,8 @@
+{% if page.metafields.custom_fields["image"] != blank %}
+  <div class="custom-field custom-field__image custom-field__type--image">
+    <h3 class="custom-field--title">Image</h3>
+    <div class="custom-field--value">  
+      {% render 'cf-image' with image: page.metafields.custom_fields["image"], print: 'url' %}
+    </div>
+  </div>
+{% endif %}

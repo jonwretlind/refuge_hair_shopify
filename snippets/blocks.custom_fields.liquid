@@ -1,0 +1,76 @@
+<div class="custom-fields-section">
+  
+    {% if resource_type == "pages" %}
+    <div class="custom-fields-section__pages">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "accordions" %}
+            {% render "custom_fields.pages.accordions" %}
+        
+          {% when "image" %}
+            {% render "custom_fields.pages.image" %}
+        
+          {% when "quote_new" %}
+            {% render "custom_fields.pages.quote_new" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+    {% if resource_type == "products" %}
+    <div class="custom-fields-section__products">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "alternate_image" %}
+            {% render "custom_fields.products.alternate_image" %}
+        
+          {% when "carousel_products" %}
+            {% render "custom_fields.products.carousel_products" %}
+        
+          {% when "collection_fields" %}
+            {% render "custom_fields.products.collection_fields" %}
+        
+          {% when "fifty_fifty" %}
+            {% render "custom_fields.products.fifty_fifty" %}
+        
+          {% when "promo_banner" %}
+            {% render "custom_fields.products.promo_banner" %}
+        
+          {% when "recommendation_fields" %}
+            {% render "custom_fields.products.recommendation_fields" %}
+        
+          {% when "recommended_products" %}
+            {% render "custom_fields.products.recommended_products" %}
+        
+          {% when "short_description" %}
+            {% render "custom_fields.products.short_description" %}
+        
+          {% when "steps" %}
+            {% render "custom_fields.products.steps" %}
+        
+          {% when "tabs" %}
+            {% render "custom_fields.products.tabs" %}
+        
+          {% when "tabs_headline" %}
+            {% render "custom_fields.products.tabs_headline" %}
+        
+          {% when "title_headline_style" %}
+            {% render "custom_fields.products.title_headline_style" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+</div>

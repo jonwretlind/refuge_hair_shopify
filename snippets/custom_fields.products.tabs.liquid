@@ -1,0 +1,27 @@
+{% if product.metafields.custom_fields["tabs"] != blank %}
+  <div class="custom-field custom-field__tabs custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">tabs</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["tabs"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["heading"] != blank %}
+             <div class="fc-field field__heading field-type--text">
+               <h4 class="custom-field--title">heading</h4>
+               <div class="custom-field--value">
+                 {{ item["heading"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["copy"] != blank %}
+             <div class="fc-field field__copy field-type--html">
+               <h4 class="custom-field--title">copy</h4>
+               <div class="custom-field--value">
+                 {{ item["copy"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

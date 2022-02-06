@@ -1,0 +1,91 @@
+{% if product.metafields.custom_fields["fifty_fifty"] != blank %}
+  <div class="custom-field custom-field__fifty-fifty custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">Fifty Fifty</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["fifty_fifty"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["layout"] != blank %}
+             <div class="fc-field field__layout field-type--text-list">
+               <h4 class="custom-field--title">Layout</h4>
+               <div class="custom-field--value">
+                 {{ item["layout"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["reverse_layout"] != blank %}
+             <div class="fc-field field__reverse-layout field-type--checkbox">
+               <h4 class="custom-field--title">Reverse Layout</h4>
+               <div class="custom-field--value">
+                 {{ item["reverse_layout"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["desktop_image"] != blank %}
+             <div class="fc-field field__desktop-image field-type--image">
+               <h4 class="custom-field--title">Desktop Image</h4>
+               <div class="custom-field--value">
+                 {{ item["desktop_image"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["mobile_image"] != blank %}
+             <div class="fc-field field__mobile-image field-type--image">
+               <h4 class="custom-field--title">Mobile Image</h4>
+               <div class="custom-field--value">
+                 {{ item["mobile_image"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["alt_text"] != blank %}
+             <div class="fc-field field__alt-text field-type--text">
+               <h4 class="custom-field--title">Alt Text</h4>
+               <div class="custom-field--value">
+                 {{ item["alt_text"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["header"] != blank %}
+             <div class="fc-field field__header field-type--text">
+               <h4 class="custom-field--title">Header</h4>
+               <div class="custom-field--value">
+                 {{ item["header"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["copy"] != blank %}
+             <div class="fc-field field__copy field-type--html">
+               <h4 class="custom-field--title">Copy</h4>
+               <div class="custom-field--value">
+                 {{ item["copy"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["cta_text"] != blank %}
+             <div class="fc-field field__cta-text field-type--text">
+               <h4 class="custom-field--title">CTA Text</h4>
+               <div class="custom-field--value">
+                 {{ item["cta_text"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["cta_url"] != blank %}
+             <div class="fc-field field__cta-url field-type--url">
+               <h4 class="custom-field--title">CTA Url</h4>
+               <div class="custom-field--value">
+                 {{ item["cta_url"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["cta_style"] != blank %}
+             <div class="fc-field field__cta-style field-type--text-list">
+               <h4 class="custom-field--title">CTA Style</h4>
+               <div class="custom-field--value">
+                 {{ item["cta_style"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

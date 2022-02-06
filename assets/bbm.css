@@ -38,3 +38,17 @@
     font-family: "Riviera Nights",Arial,sans-serif;
     text-decoration: none;
 }
+body {
+    letter-spacing: 0.02rem;
+}
+.price--large {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.safety {
+  font-size: 1rem;
+}
+.button {
+    display: flex !important;
+    max-width: 250px;
+}

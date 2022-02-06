@@ -48,13 +48,19 @@
           "type": "price",
           "settings": {
           }
+        },
+        "adaf351b-ae0e-45fb-bf19-aea5a0f72e3f": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "164411431697b0efcb-0",
         "164411431697b0efcb-1",
         "164411431697b0efcb-2",
-        "164411431697b0efcb-3"
+        "164411431697b0efcb-3",
+        "adaf351b-ae0e-45fb-bf19-aea5a0f72e3f"
       ],
       "settings": {
         "product": "repair-protect",

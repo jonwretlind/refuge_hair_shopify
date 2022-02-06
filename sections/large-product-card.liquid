@@ -8,12 +8,12 @@
 {%- assign product = section.settings.product -%}
 
 <section class="{% if section.settings.secondary_background %}background-secondary{% else %}spaced-section{% endif %}">
-  <div class="page-width">
-    <div class="featured-product product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <div class="full-width">
+    <div class="featured-product product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %} {% if section.settings.image_position == 'right' %}align-right{% else %}align-left{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% if product.metafields.custom_fields["alternate_image"] != blank %}
         <div class="custom-field custom-field__alternate-image custom-field__type--image">
-          <div class="custom-field--value">
+          <div class="custom-field--value section-img">
             {% render 'cf-image' with image: product.metafields.custom_fields["alternate_image"] %}
           </div>
         </div>
@@ -81,11 +81,49 @@
 </section>
 
 <style>
+  .featured-product-section .background-secondary {
+    padding: unset;
+  }
+  .featured-product-section .featured-product {
+    padding: unset;
+  }
   .featured-product-section {
     margin: 2.5rem auto 7rem auto !important;
   }
   .featured-product-section .background-secondary {
     background-color: #E4E4E4;
+  }
+  .featured-product-section .product__info-wrapper {
+    padding: 5rem 6rem !important;
+    max-width: 450px;
+    position: relative;
+    margin: 0 auto;
+  }
+  .featured-product-section .product__media-wrapper {
+    width: 100%;
+    max-width: 50%;
+  }
+  .button.product__view-details {
+    margin-top: 3rem
+  }
+  .align-left
+  {
+    flex-direction: row;
+    align-items: center;
+  }
+  .align-right
+  {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .custom-field--value.section-img > img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+  .featured-product-section .h1, .featured-product-section .h2, .featured-product-section .h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 </style>
 
@@ -204,6 +242,22 @@
       "id": "secondary_background",
       "default": false,
       "label": "t:sections.featured-product.settings.secondary_background.label"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Image on Left"
+        },
+        {
+          "value": "right",
+          "label": "Image on Right"
+        }
+      ],
+      "default": "left",
+      "label": "Image Position"
     },
     {
       "type": "header",

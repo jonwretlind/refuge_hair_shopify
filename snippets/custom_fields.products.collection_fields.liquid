@@ -1,0 +1,43 @@
+{% if product.metafields.custom_fields["collection_fields"] != blank %}
+  <div class="custom-field custom-field__collection-fields custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">Collection Fields</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["collection_fields"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["desktop_listing_image"] != blank %}
+             <div class="fc-field field__desktop-listing-image field-type--image">
+               <h4 class="custom-field--title">Desktop Listing Image</h4>
+               <div class="custom-field--value">
+                 {{ item["desktop_listing_image"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["mobile_listing_image"] != blank %}
+             <div class="fc-field field__mobile-listing-image field-type--image">
+               <h4 class="custom-field--title">Mobile Listing Image</h4>
+               <div class="custom-field--value">
+                 {{ item["mobile_listing_image"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["reversed_desktop_listing_image"] != blank %}
+             <div class="fc-field field__reversed-desktop-listing-image field-type--image">
+               <h4 class="custom-field--title">Reversed Desktop Listing Image</h4>
+               <div class="custom-field--value">
+                 {{ item["reversed_desktop_listing_image"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["description"] != blank %}
+             <div class="fc-field field__description field-type--html">
+               <h4 class="custom-field--title">Description</h4>
+               <div class="custom-field--value">
+                 {{ item["description"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

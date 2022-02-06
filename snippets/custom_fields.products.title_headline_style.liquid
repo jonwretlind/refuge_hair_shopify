@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["title_headline_style"] != blank %}
+  <div class="custom-field custom-field__title-headline-style custom-field__type--text-list">
+    <h3 class="custom-field--title">Title Headline Style</h3>
+    <div class="custom-field--value">  
+      {{ product.metafields.custom_fields["title_headline_style"] }}
+    </div>
+  </div>
+{% endif %}

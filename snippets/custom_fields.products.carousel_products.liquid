@@ -1,0 +1,27 @@
+{% if product.metafields.custom_fields["carousel_products"] != blank %}
+  <div class="custom-field custom-field__carousel-products custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">Carousel Products</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["carousel_products"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["product"] != blank %}
+             <div class="fc-field field__product field-type--product-reference">
+               <h4 class="custom-field--title">product</h4>
+               <div class="custom-field--value">
+                 {{ item["product"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["caption"] != blank %}
+             <div class="fc-field field__caption field-type--text">
+               <h4 class="custom-field--title">Caption</h4>
+               <div class="custom-field--value">
+                 {{ item["caption"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

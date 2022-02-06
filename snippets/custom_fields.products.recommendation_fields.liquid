@@ -1,0 +1,19 @@
+{% if product.metafields.custom_fields["recommendation_fields"] != blank %}
+  <div class="custom-field custom-field__recommendation-fields custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">Recommendation Fields</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["recommendation_fields"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["background_image"] != blank %}
+             <div class="fc-field field__background-image field-type--image">
+               <h4 class="custom-field--title">Background Image</h4>
+               <div class="custom-field--value">
+                 {{ item["background_image"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

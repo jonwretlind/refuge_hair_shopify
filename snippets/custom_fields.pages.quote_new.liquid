@@ -1,0 +1,30 @@
+{% if page.metafields.custom_fields["quote_new"] != blank %}
+{% assign data_attr = shop.metafields._cf_pages["quote_new"].data_attr %}
+<div class="cf-widget-quote-new cf-widget__testimonials cf-auto-init" {{ data_attr }}>
+  <div class="cf-widget-items-wrapper cf-slider">
+    <div class="cf-slides-wrapper">
+      {% for item in page.metafields.custom_fields["quote_new"] %}
+      <div class="cf-widget-item cf-slide">
+        <div class="inner">
+          <div class="inner-padding">
+            
+              {% if item.quote != blank %}
+              <div class="cf-widget-field cf-widget-field__quote cf-widget-field--text">
+                {{ item.quote }}
+              </div>
+              {% endif %}
+            
+              {% if item.author != blank %}
+              <div class="cf-widget-field cf-widget-field__author cf-widget-field--text">
+                {{ item.author }}
+              </div>
+              {% endif %}
+            
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
