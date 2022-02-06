@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop hair care",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/hair-care-systems",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -35,7 +35,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/HomeBanner1800x1000ALT.jpg",
+        "image": "shopify://shop_images/HomeBanner1800x1000ALT.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "adapt_height_first_image": false,
@@ -70,7 +70,7 @@
         "1644029245207c873d-0": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/SageReview1024x1024.jpg",
+            "image": "shopify://shop_images/SageReview1024x1024.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -107,7 +107,7 @@
         "164408536022a24032-0": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Beth690x422.jpg",
+            "image": "shopify://shop_images/Beth690x422.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -118,7 +118,7 @@
           "type": "column",
           "settings": {
             "title": "PHILOSOPHY",
-            "text": "<p>\"We believe that your shower can be your own personal salon. That your lather and rinse should also repair and restore. And that getting professional results should be simple, easy and affordable. Formulated in a salon by expert stylists, each Refuge system gives your hair exactly what it needs to look its healthiest and gives you the simple self-care routine you deserve.\"<br\/><br\/>- Beth Weber | Founder<\/p>",
+            "text": "<p>\"We believe that your shower can be your own personal salon. That your lather and rinse should also repair and restore. And that getting professional results should be simple, easy and affordable. Formulated in a salon by expert stylists, each Refuge system gives your hair exactly what it needs to look its healthiest and gives you the simple self-care routine you deserve.\"<br/><br/>- Beth Weber | Founder</p>",
             "link_label": "",
             "link": ""
           }
@@ -151,7 +151,7 @@
         "1644090947e53700cd-0": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/WhitneyReview1024x1024.jpg",
+            "image": "shopify://shop_images/WhitneyReview1024x1024.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -162,9 +162,9 @@
           "type": "column",
           "settings": {
             "title": "REFUGE REWARDS",
-            "text": "<p>Earn points to redeem for cash towards future self care purchases. Join Refuge Rewards to start collecting points on shopping, social engagement, and friend referrals.<\/p>",
+            "text": "<p>Earn points to redeem for cash towards future self care purchases. Join Refuge Rewards to start collecting points on shopping, social engagement, and friend referrals.</p>",
             "link_label": "Join Now",
-            "link": "shopify:\/\/pages\/rewards"
+            "link": "shopify://pages/rewards"
           }
         }
       },
