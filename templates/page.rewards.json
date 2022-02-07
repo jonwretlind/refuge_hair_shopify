@@ -9,7 +9,7 @@
       "type": "html-section",
       "settings": {
         "title": "",
-        "custom_html": "<script src=\"https:\/\/cdn-widgetsrepository.yotpo.com\/v1\/loader\/5FROBwiTMOts_B-1sG-VtQ\" async><\/script>\n<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"34504\"><\/div>"
+        "custom_html": "<div class=\"dark\"><\/div>\n<script src=\"https:\/\/cdn-widgetsrepository.yotpo.com\/v1\/loader\/5FROBwiTMOts_B-1sG-VtQ\" async><\/script>\n<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"34504\"><\/div>"
       }
     }
   },
