@@ -15,14 +15,21 @@
   padding-left: 0;
   padding-bottom: 0;
 }
+.product-section {
+  background-color: #ccd5d3;
+}
 
 @media screen and (max-width: 749px) {
   .product-section {
-    margin-top: 0;
+    margin-top: 0px;
   }
 }
 
 @media screen and (min-width: 750px) {
+  .product-section {
+    padding-top: 140px;
+  }
+
   .product--thumbnail .product__media-gallery,
   .product--thumbnail_slider .product__media-gallery,
   .product--stacked .product__info-container--sticky {
@@ -170,7 +177,7 @@ variant-selects {
 fieldset.product-form__input .form__label {
   margin-bottom: 0.2rem;
 }
-
+/*
 .product-form__input input[type='radio'] {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
@@ -222,13 +229,16 @@ fieldset.product-form__input .form__label {
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0 0.5rem rgba(var(--color-foreground), 0.55);
 }
+*/
 
 /* Fallback */
+/*
 .product-form__input input[type='radio'].focused + label,
 .no-js .shopify-payment-button__button [role="button"]:focus + label {
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0 0.5rem rgba(var(--color-foreground), 0.55);
 }
+*/
 
 /* No outline when focus-visible is available in the browser */
 .no-js .product-form__input input[type='radio']:focus:not(:focus-visible) + label {
@@ -298,6 +308,7 @@ a.product__text {
 .product__title {
   word-break: break-word;
   margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .product__title + .product__text.caption-with-letter-spacing {

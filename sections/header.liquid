@@ -90,11 +90,13 @@
   }
 
 
-  body.rewards .list-menu .link--text {
+  body.rewards .list-menu .link--text,
+  body.product-page .list-menu .link--text {
       color: rgba(18,18,18,1);
   }
-  body.rewards .logo.link--text {
-      color: rgba(18,18,18,1);
+  body.rewards .logo.link--text,
+  body.product-page .logo.link--text {
+      color: rgba(18,18,18,1) !important;
   }
   .header:hover .link--text, .header.active .link--text,
   .header:hover .list-menu__item.link, .header.active .list-menu__item.link {
@@ -111,7 +113,8 @@
     text-decoration: none;
   }
   .header:hover .header__menu-item:hover span,
-  .header:hover .header__menu-item.link--text:hover .header__active-menu-item,  {
+  .header:hover .header__menu-item.link--text:hover .header__active-menu-item,
+  body.product-page .header__active-menu-item  {
       color: rgba(18,18,18,.8);
   }
   .field__label, .customer .field label {
@@ -132,7 +135,8 @@
   div#shopify-section-header .color-background-1,
   div#shopify-section-header .field__input,
   div#shopify-section-header .field__label,
-  div#shopify-section-header .link--text:hover {
+  div#shopify-section-header .link--text:hover
+  {
       color: rgb(255,255,255);
   }
   div#shopify-section-header .header:hover .color-background-1,
@@ -140,8 +144,20 @@
   div#shopify-section-header .header:hover .field__label,
   div#shopify-section-header .header:hover .link--text:hover,
   div#shopify-section-header .header:hover .predictive-search__item.link--text,
-  div#shopify-section-header .header:hover .search__button .icon {
+  div#shopify-section-header .header:hover .search__button .icon,
+  body.product-page div#shopify-section-header .header:hover .search__button .icon,
+  body.product-page div#shopify-section-header .color-background-1,
+  body.product-page div#shopify-section-header .field__input,
+  body.product-page div#shopify-section-header .field__label,
+  body.product-page div#shopify-section-header .link--text:hover,
+  body.product-page div#shopify-section-header .header:hover .predictive-search__item.link--text,
+  body.product-page div#shopify-section-header .header:hover .search__button .icon,
+  body.product-page div#shopify-section-header .field__button .icon {
     color: rgba(18,18,18,0.5) !important;
+  }
+
+  body.product-page div#shopify-section-header .search-modal {
+    border-bottom: 0.1rem solid rgba(18,18,18,.5) !important;
   }
 
   div#shopify-section-header .header.active .color-background-1,
@@ -448,6 +464,21 @@
       "default": true,
       "label": "t:sections.header.settings.enable_sticky_header.label",
       "info": "t:sections.header.settings.enable_sticky_header.info"
+    },
+    {
+      "type": "url",
+      "id": "hair_care_system_link_1",
+      "label": "Hair Care System Link 1"
+    },
+    {
+      "type": "url",
+      "id": "hair_care_system_link_2",
+      "label": "Hair Care System Link 2"
+    },
+    {
+      "type": "url",
+      "id": "hair_care_system_link_3",
+      "label": "Hair Care System Link 3"
     }
   ]
 }
