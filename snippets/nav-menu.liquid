@@ -8,8 +8,9 @@
               <details id="Details-HeaderMenu-{{ forloop.index }}">
                 <summary class="header__menu-item list-menu__item link focus-inset">
                   <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
-                  {% render 'icon-caret' %}
+                  {% comment %}{% render 'icon-caret' %}{% endcomment %}
                 </summary>
+                {% comment %}
                 <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                   {%- for childlink in link.links -%}
                     <li>
@@ -37,6 +38,8 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+                {% endcomment %}
+
               </details>
             </details-disclosure>
           {%- else -%}
@@ -47,6 +50,7 @@
         </li>
       {%- endfor -%}
     </ul>
+
   </nav>
 {%- endif -%}
 
@@ -79,5 +83,6 @@
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
+
 
 {% endstyle %}

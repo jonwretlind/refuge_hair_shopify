@@ -1,0 +1,177 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "collapse_on_larger_devices": false
+      }
+    },
+    "1644180883a6f05acd": {
+      "type": "large-product-card",
+      "blocks": {
+        "1644180883093cffa2-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "1644180883093cffa2-1": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "1644180883093cffa2-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "1644180883093cffa2-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "9d323e43-b256-407f-97f8-962e03fc8784": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "1644180883093cffa2-0",
+        "1644180883093cffa2-1",
+        "1644180883093cffa2-2",
+        "1644180883093cffa2-3",
+        "9d323e43-b256-407f-97f8-962e03fc8784"
+      ],
+      "settings": {
+        "product": "hydrate-balance",
+        "secondary_background": true,
+        "image_position": "right",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "16441143165b987e41": {
+      "type": "large-product-card",
+      "blocks": {
+        "164411431697b0efcb-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "164411431697b0efcb-1": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "164411431697b0efcb-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "164411431697b0efcb-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "adaf351b-ae0e-45fb-bf19-aea5a0f72e3f": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "164411431697b0efcb-0",
+        "164411431697b0efcb-1",
+        "164411431697b0efcb-2",
+        "164411431697b0efcb-3",
+        "adaf351b-ae0e-45fb-bf19-aea5a0f72e3f"
+      ],
+      "settings": {
+        "product": "repair-protect",
+        "secondary_background": true,
+        "image_position": "left",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "1644180982067aa72f": {
+      "type": "large-product-card",
+      "blocks": {
+        "1644180982db86b458-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "1644180982db86b458-1": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "1644180982db86b458-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "1644180982db86b458-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "51bee3f1-f811-4c24-af19-bb78c62a6848": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "1644180982db86b458-0",
+        "1644180982db86b458-1",
+        "1644180982db86b458-2",
+        "1644180982db86b458-3",
+        "51bee3f1-f811-4c24-af19-bb78c62a6848"
+      ],
+      "settings": {
+        "product": "nourish-grow",
+        "secondary_background": true,
+        "image_position": "right",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "1644180883a6f05acd",
+    "16441143165b987e41",
+    "1644180982067aa72f"
+  ]
+}

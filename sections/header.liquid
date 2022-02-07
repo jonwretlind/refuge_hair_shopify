@@ -72,7 +72,8 @@
   .header:hover .header__icon {
       color: rgba(18,18,18,1);
   }
-  .list-menu .link--text {
+  .list-menu .link--text,
+  .list-menu__item.link {
       color: rgb(255,255,255);
       font-weight: 400;
       padding-bottom: 38px;
@@ -87,16 +88,23 @@
       position: relative;
       top: 2px;
   }
+
+
   body.rewards .list-menu .link--text {
       color: rgba(18,18,18,1);
   }
   body.rewards .logo.link--text {
       color: rgba(18,18,18,1);
   }
-  .header:hover .link--text, .header.active .link--text {
+  .header:hover .link--text, .header.active .link--text,
+  .header:hover .list-menu__item.link, .header.active .list-menu__item.link {
       color: rgb(18,18,18) !important;
   }
-  .header:hover .link--text:not(.logo):hover, .header.active .link--text:not(.logo):hover {
+  .header:hover .link--text:not(.logo):hover,
+  .header.active .link--text:not(.logo):hover,
+  .header:hover .list-menu__item.link:hover,
+  .header.active .list-menu__item.link:hover
+   {
       border-bottom: 2px solid rgba(18,18,18,1);
   }
   .header__menu-item:hover span, .header__menu-item.link--text:hover {
