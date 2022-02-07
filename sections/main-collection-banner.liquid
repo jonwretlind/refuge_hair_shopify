@@ -35,6 +35,23 @@
   </div>
 </div>
 
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    var ht = $('.collection-hero').height();
+    console.log('banner ht = ' + ht);
+    $('.collection-hero--with-image .collection-hero__title').css({
+      top: (ht - 60) + "px"
+    });
+  });
+  $(window).resize(function() {
+    var ht = $('.collection-hero').height();
+    console.log('banner ht = ' + ht);
+    $('.collection-hero--with-image .collection-hero__title').css({
+      top: (ht - 60) + "px"
+    });
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-collection-banner.name",

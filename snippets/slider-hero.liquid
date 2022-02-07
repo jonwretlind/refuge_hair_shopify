@@ -1,5 +1,5 @@
-<slider-component class="slider-mobile-gutter">
-  <ul id="Slider-{{ section.id }}" class="grid grid--2-col product-grid{% if products_to_display == 4 or section.settings.collection == blank %} grid--2-col-tablet grid--4-col-desktop{% else %} grid--3-col-tablet{% endif %}{% if products_to_display > 5 %} grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider slider--tablet grid--peek{% endif %}{% if section.settings.show_view_all == false or section.settings.collection.products.size < section.settings.products_to_show %} negative-margin{% endif %}{% if section.settings.show_view_all and section.settings.collection.products.size > section.settings.products_to_show %} negative-margin--small{% endif %}" role="list">
+<slider-component class="slider-mobile-gutter home-slider">
+  <ul id="Slider-{{ section.id }}" class="grid grid--2-col product-grid{% if products_to_display == 4 or section.settings.collection == blank %} grid--2-col-tablet grid--4-col-desktop{% else %} grid--3-col-tablet{% endif %}{% if products_to_display > 5 %} grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider slider--tablet grid--peek{% endif %}{% if section.settings.show_view_all == false or section.settings.collection.products.size < section.settings.products_to_show %} negative-margin{% endif %}{% if section.settings.show_view_all and section.settings.collection.products.size > section.settings.products_to_show %} negative-margin--small{% endif %} swipe-view" role="list">
     {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
       <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__item{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider__slide{% endif %}">
         {% render 'product-card',
@@ -33,3 +33,23 @@
     </div>
   {%- endif -%}
 </slider-component>
+
+<style>
+body.mobile .swipe-view {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-coordinate: 0 0;
+  scroll-snap-points-x: repeat(100%);
+  scroll-snap-type: x mandatory;
+  flex: 1;
+  display:flex;
+  -webkit-overflow-scrolling: touch;
+  justify-content: flex-start !important;
+}
+body.mobile .swipe-view li {
+    width: 360px;
+    height: 100%;
+    flex:0 0 360px;
+    scroll-snap-align: start;
+}
+</style>
