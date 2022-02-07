@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "164419891354eb602f": {
+      "type": "image-banner",
+      "blocks": {
+        "1644198913e09d536f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "JOIN THE CLUB",
+            "heading_size": "medium"
+          }
+        },
+        "1644198913e09d536f-1": {
+          "type": "text",
+          "settings": {
+            "text": "Become a member and earn points & exclusive rewards every time you shop.",
+            "text_style": "body"
+          }
+        },
+        "1644198913e09d536f-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "JOIN NOW",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Login",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "1644198913e09d536f-0",
+        "1644198913e09d536f-1",
+        "1644198913e09d536f-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/HomeBanner1700ALT_1258c238-ee91-42e6-90fe-de86da6b4b7b.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164419891354eb602f"
+  ]
+}

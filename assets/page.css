@@ -1,0 +1,31 @@
+/* STYLES FOR PAGES */
+.main-page-template .button,
+.main-page-banner .button {
+    background-color: rgba(18,18,18,1);
+    opacity: 1;
+}
+.main-page-template .button:hover,
+.main-page-banner .button:hover {
+    background-color: rgba(18,18,18,.75);
+}
+.banner__box .button--primary {
+  color: rgba(255,255,255,1) !important;
+}
+.banner__box .button--secondary {
+  color: rgba(18,18,18, 1);
+}
+.banner__box .button--secondary {
+  background-color: rgba(255,255,255,.2);
+}
+.banner__text {
+  font-size: 1.5rem !important;
+}
+/* REWARDS page */
+body.rewards .banner__box * {
+  color: rgba(18,18,18, 1);
+}
+body.rewards .main-page-template .button,
+body.rewards .main-page-banner .button {
+  min-width: 15rem;
+  max-width: 20rem;
+}

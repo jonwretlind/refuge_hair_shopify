@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'page.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
@@ -7,7 +8,7 @@
 <div class="page-width page-width--narrow">
   {% include 'slider-hero' %}
 
-  <div class="rte">
+  <div class="rte main-page-template">
     {%- if section.settings.page.content != blank -%}
       {{ section.settings.page.content }}
     {%- else -%}
@@ -17,6 +18,7 @@
     {%- endif -%}
   </div>
 </div>
+
 
 {% schema %}
 {
