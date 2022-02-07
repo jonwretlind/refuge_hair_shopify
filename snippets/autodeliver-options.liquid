@@ -1,0 +1,43 @@
+<div id="rc_autodeliver_options" class="rc_block rc_block__type__options">
+  <label for="rc_shipping_interval_frequency" class="rc_label rc_label__deliver_every" aria-label="Subscription frequency options">
+    <span class="rc_label__delivery">{{ label_deliver_every }}</span>
+    {% if shipping_interval_frequency.size == 1 %}
+      <span class="rc_label__frequency">
+        {{ shipping_interval_frequency[0] }}
+        {% if shipping_interval_frequency[0] == "1" and label_unit_type_legacy == 'Months' or label_unit_type_legacy == 'Weeks' %}
+          {% if label_unit_type_singular %}
+            {{ label_unit_type_singular }}
+          {% else %}
+            {{ label_unit_type_legacy | remove: 's' }}
+          {% endif %}
+        {% else %}
+          {% if label_unit_type_plural %}
+            {{ label_unit_type_plural }}
+          {% else %}
+            {{ label_unit_type_legacy }}
+          {% endif %}
+        {% endif %}
+      </span>
+    {% endif %}
+    <select name="" id="rc_shipping_interval_frequency" class="rc_select rc_select__frequency styled replaced" {% if shipping_interval_frequency.size == 1 %}style="display: none;"{% endif %}>
+      {% for frequency in shipping_interval_frequency %}
+        <option value="{{ frequency }}">
+          {{ frequency }}
+          {% if frequency == "1" and label_unit_type_legacy != 'Days' %}
+            {% if label_unit_type_singular %}
+              {{ label_unit_type_singular }}
+            {% else %}
+              {{ label_unit_type_legacy | remove: 's' }}
+            {% endif %}
+          {% else %}
+            {% if label_unit_type_plural %}
+              {{ label_unit_type_plural }}
+            {% else %}
+              {{ label_unit_type_legacy }}
+            {% endif %}
+          {% endif %}
+        </option>
+      {% endfor %}
+    </select>
+  </label>
+</div>

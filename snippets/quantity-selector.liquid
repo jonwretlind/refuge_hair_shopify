@@ -1,205 +1,42 @@
-<div id="ProductQty" class="product-display__form">
-    <div class="product-form">
-        <form  method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="novalidate" class="">
-            <!---->
-            <div  class="product-form__grid border-grey">
-                <div  class="product-form__row input"><input  type="radio" name="type" value="otp" id="type_otp_94" class="input input--radio"><label  for="type_otp_94">One-Time Purchase</label></div>
-                <div  class="product-form__row input"><input  type="radio" name="type" value="sub" id="type_sub_94" class="input input--radio"><label  for="type_sub_94">Subscribe and Save 10%</label></div>
-                <div  class="product-form__row input input--number"><label  for="qty">Qty</label>
-                    <div data-v-2eab3896=""  id="Quantity" class="quantity product-form__quantity">
-                      <button data-v-2eab3896="" type="button" label="Decrement Count" disabled="disabled" aria-label="Decrease count" class="quantity__change">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24" width="13px" height="13px">
-                        	<path d="M 5 11 L 5 13 L 19 13 L 19 11 L 5 11 z" overflow="visible" enable-background="accumulate"/>
-                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#minus"></use>
-                        </svg>
-                      </button>
-                        <input data-v-2eab3896="" id="qty" type="number" aria-labelledby="Quantity" class="quantity__label text-center">
-                        <button data-v-2eab3896="" type="button" label="Increment Count" aria-label="Increase count" class="quantity__change">
-                          <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" enable-background="new 0 0 24 24" width="13px" height="13px">
-                            <path d="M 11 5 L 11 11 L 5 11 L 5 13 L 11 13 L 11 19 L 13 19 L 13 13 L 19 13 L 19 11 L 13 11 L 13 5 L 11 5 z" overflow="visible" enable-background="accumulate"/>
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
-                          </svg>
-                        </button>
-                      </div>
-                    <!---->
-                </div>
-                <div  class="product-form__row">
-                    <div  class="recharge-select flex flex-align-center vs--disabled"><label for="v_select" class="recharge-select__label">Frequency Every</label>
-                        <div class="recharge-select__v-select select-input input input--select">
-                            <div dir="auto" class="v-select vs--single vs--unsearchable vs--disabled" id="v_select">
-                                <div id="vs1__combobox" role="combobox" aria-expanded="false" aria-owns="vs1__listbox" aria-label="Search for option" class="vs__dropdown-toggle">
-                                    <div class="vs__selected-options"><span class="vs__selected">
-                          1 Month(s)
-                         <!----></span> <input disabled="disabled" readonly="readonly" aria-autocomplete="list" aria-labelledby="vs1__combobox" aria-controls="vs1__listbox" type="search" autocomplete="off" class="vs__search"></div>
-                                    <div class="vs__actions"><button disabled="disabled" type="button" title="Clear Selected" aria-label="Clear Selected" class="vs__clear" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><path d="M6.895455 5l2.842897-2.842898c.348864-.348863.348864-.914488 0-1.263636L9.106534.261648c-.348864-.348864-.914489-.348864-1.263636 0L5 3.104545 2.157102.261648c-.348863-.348864-.914488-.348864-1.263636 0L.261648.893466c-.348864.348864-.348864.914489 0 1.263636L3.104545 5 .261648 7.842898c-.348864.348863-.348864.914488 0 1.263636l.631818.631818c.348864.348864.914773.348864 1.263636 0L5 6.895455l2.842898 2.842897c.348863.348864.914772.348864 1.263636 0l.631818-.631818c.348864-.348864.348864-.914489 0-1.263636L6.895455 5z"></path></svg></button> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" role="presentation" class="vs__open-indicator"><path d="M9.211364 7.59931l4.48338-4.867229c.407008-.441854.407008-1.158247 0-1.60046l-.73712-.80023c-.407008-.441854-1.066904-.441854-1.474243 0L7 5.198617 2.51662.33139c-.407008-.441853-1.066904-.441853-1.474243 0l-.737121.80023c-.407008.441854-.407008 1.158248 0 1.600461l4.48338 4.867228L7 10l2.211364-2.40069z"></path></svg>
-                                    </div>
-                                </div>
-                                <ul id="vs1__listbox" role="listbox" style="display: none; visibility: hidden;"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+<div class="qty-wrapper">
+  <label class="form__label" for="Quantity-{{ section.id }}">
+    {{ 'products.product.quantity.label' | t }}
+  </label>
+  <quantity-input class="quantity">
+    <button class="quantity__button no-js-hidden minus" name="minus" type="button">
+      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+      {% render 'icon-minus' %}
+    </button>
+    <input class="quantity__input"
+        type="number"
+        name="quantity"
+        id="Quantity-{{ section.id }}"
+        min="1"
+        value="1"
+        form="{{ product_form_id }}"
+      >
+    <button class="quantity__button no-js-hidden plus" name="plus" type="button">
+      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+      {% render 'icon-plus' %}
+    </button>
+  </quantity-input>
 </div>
 
-<script type='text/javascript'>
+<script type="text/javascript">
+  jQuery(document).ready(function( $ ) {
+    var val = Number($('.quantity__input').val());
+
+    $('.quantity__button.plus').click(function() {
+      val = val +  1;
+      $('.quantity__input').val(val);
+      console.log(val);
+    });
+
+    $('.quantity__button.minus').click(function() {
+      val = val - 1;
+      if ( val <= 1 ) val = 1;
+      $('.quantity__input').val(val);
+      console.log(val);
+    });
+  });
 </script>
-
-<style>
-#ProductQty .fill-brand-secondary {
-    fill: #000;
-}
-#ProductQty .product-form__grid.border-grey {
-  border: 1px solid rgba(18,18,18,.2);
-}
-#ProductQty .product-form__row {
-    border: 0;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-color: inherit;
-}
-#ProductQty .product-form__grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-bottom-style: solid;
-    border-left-style: solid;
-}
-#ProductQty .product-form__row > * {
-  font-size: 1.2rem;
-}
-#ProductQty .product-form__row:not(.input--number) {
-    padding: .75rem 1.125rem;
-    display: flex;
-    align-items: center;
-}
-#ProductQty .product-form__row.input--number {
-    justify-content: center;
-    padding: .0625rem 1.125rem;
-    display: flex;
-    align-items: center;
-}
-
-#ProductQty .quantity {
-    position: relative;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 0;
-    z-index: 1
-}
-
-#ProductQty .quantity .quantity__change,
-#ProductQty .quantity,
-#ProductQty .quantity input {
-    background-color: transparent;
-    border: none;
-}
-#ProductQty .quantity__change {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 37px;
-    border-radius: 100%;
-    margin: 0;
-    height: 42px;
-    box-shadow: none;
-    position: relative;
-    border: none;
-}
-
-#ProductQty .quantity__label {
-    width: 27px;
-    font-size: .8125rem;
-    font-weight: 500;
-    line-height: 1.307;
-    letter-spacing: .12625rem;
-    color: #4c4741;
-    text-align: center;
-    margin: 0;
-    border: 0;
-    outline: none;
-    appearance: textfield;
-    -moz-appearance: textfield
-}
-
-#ProductQty .cart-item__quantity .quantity__label {
-    color: #000;
-    font-size: .6875rem;
-    line-height: 1.27273;
-    letter-spacing: .10687rem
-}
-
-#ProductQty .quantity__label::-webkit-inner-spin-button {
-    display: none;
-    appearance: none;
-    -webkit-appearance: none
-}
-
-#ProductQty .quantity__label:focus {
-    outline: none
-}
-
-#ProductQty .quantity__change {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    border-radius: 100%;
-    padding: 8px 0;
-    margin: 0;
-    height: 42px;
-    box-shadow: none;
-    position: relative
-}
-
-@media (min-width: 767px) {
-    #ProductQty .quantity__change {
-        width:37px
-    }
-}
-
-#ProductQty .cart-item__quantity .quantity__change {
-    height: 2.1875rem
-}
-
-#ProductQty .quantity__change[disabled] {
-    background-color: transparent;
-    opacity: .3
-}
-
-#ProductQty .quantity__change:not(:disabled):after {
-    opacity: 0;
-    content: "";
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    box-shadow: 1px 1px 8px rgba(0,0,0,.1);
-    z-index: -1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #fff;
-    transform: translate(-50%,-50%);
-    transition: opacity .2s ease-out
-}
-
-@media (min-width: 767px) {
-    #ProductQty .quantity__change:not(:disabled):hover:after {
-        opacity:1;
-        transition: opacity .2s ease-in
-    }
-}
-
-#ProductQty .quantity__change {
-    z-index: 2
-}
-
-</style>

@@ -59,6 +59,10 @@ body {
     border-bottom: 1px solid rgba(18,18,18,.75) !important;
 }
 
+/* === INELEGANT HACKS === */
+#shopify-section-template--14417539498063__cart-items {
+  margin-top: 150px;
+}
 
 /* ===============================
        MOBILE OPTIMIZATIONS
