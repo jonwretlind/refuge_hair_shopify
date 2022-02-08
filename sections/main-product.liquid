@@ -23,7 +23,7 @@
     <div class="grid__item product__media-wrapper">
 
       {%- include 'media-gallery' -%}
-      
+
     </div>
     <div class="product__info-wrapper grid__item">
 
@@ -165,9 +165,22 @@
                 .qty-wrapper .form__label {
                   padding-top: 2px;
                 }
+                .product-section {
+                  margin-bottom: 5rem;
+                }
                 .product__info-container .product-form {
                     margin: 2.5rem 0 0 0;
                 }
+                @media screen and (min-width: 1100px) {
+                  .product-section.spaced-section .product {
+                    width: 80%;
+                    max-width: 1400px;
+                    position: relative;
+                    margin: 0 auto;
+                    padding-bottom: 10rem;
+                  }
+                }
+
                 </style>
 
               {% include 'quantity-selector' %}

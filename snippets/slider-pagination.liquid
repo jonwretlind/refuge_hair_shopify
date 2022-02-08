@@ -1,0 +1,25 @@
+<div class="product-gallery__pagination swiper-pagination flex flex-justify-center flex-align-end swiper-pagination-clickable swiper-pagination-bullets">
+    <span class='swiper-pagination-bullet active'></span>
+</div>
+
+
+<script type="text/javascript">
+  jQuery(window).ready(function( $ ) {
+    var paginationWd = $('.carousel-window').width() - 10;
+    var winWd = $('.carousel-window').width();
+    var bullet = "<span class='swiper-pagination-bullet'></span>";
+    var ct = $('.slider__slide').length;
+    var bulletWd = winWd / ct;
+    for (i=1; i < ct; i++) {
+      $('.swiper-pagination-bullets').append(bullet);
+    }
+    console.log('Number of swiper bullets: ' + ct);
+    $('.swiper-pagination').css({
+      maxWidth: paginationWd+"px",
+      marginLeft: "-10px"
+    });
+    $('.swiper-pagination-bullet').css({
+      maxWidth: bulletWd+"px"
+    });
+  });
+</script>

@@ -55,10 +55,11 @@
 
       {% comment %} LARGE GALLERY LAYOUT {% endcomment %}
       <slider-component id="LargeCarouselViewer-{{ section.id }}" class="slider-mobile-gutter large-carousel">
-        <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
-          {{ "accessibility.skip_to_product_info" | t }}
-        </a>
-        <ul id="Slider-Gallery-{{ section.id }}" class="product__media-list grid grid--peek list-unstyled slider slider--mobile" role="list">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret left" viewBox="0 0 10 6">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+        </svg>
+
+        <ul id="Carousel-Gallery-{{ section.id }}" class="product__media-list grid grid--peek list-unstyled slider slider--mobile carousel-window" role="list">
           {%- liquid
             assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
             assign media_count = product.media.size
@@ -82,13 +83,71 @@
               </li>
           {%- endfor -%}
         </ul>
-
-        <style type="text/css">
-
-        </style>
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret right" viewBox="0 0 10 6">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+        </svg>
       </slider-component>
 
+      {%- include 'slider-pagination' -%}
 
+      <style type="text/css">
+        .large-carousel .grid {
+          flex-wrap: nowrap;
+        }
+        .large-carousel .product__media-item.grid__item {
+          width: 100%;
+        }
+        .large-carousel .product__media-item.grid__item:not(.is-active) {
+          visibility: hidden;
+        }
+        .large-carousel {
+          overflow: hidden;
+          max-width: 800px;
+          display: flex;
+          margin-left: -10rem;
+          align-items: center;
+        }
+        .large-carousel .carousel-window {
+          max-width: 600px;
+          width: 100%;
+          margin: 0 5rem;
+        }
+        .icon-caret {
+          position: relative;
+          z-index: 2;
+          width: 30px;
+          height: fit-content;
+        }
+        .icon-caret:hover {
+          opacity: .5;
+          cursor: pointer;
+        }
+        .icon-caret.right {
+          transform: rotate(-90deg);
+        }
+        .icon-caret.left {
+          transform: rotate(90deg);
+        }
+        .swiper-pagination {
+          margin-top: 2rem;
+        }
+        .swiper-pagination.flex {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          grid-gap: 20px;
+        }
+        .swiper-pagination-bullet {
+          border-top: 2px solid rgba(18,18,18,.2);
+          height: 20px;
+        }
+        .swiper-pagination-bullet:hover:not(.active) {
+          border-top: 2px solid rgba(18,18,18,.5);
+          cursor: pointer;
+        }
+        .swiper-pagination-bullet.active {
+          border-top: 4px solid rgba(18,18,18,1);
+        }
+      </style>
   {%- endif -%}
 
   {%- if section.settings.gallery_layout == 'thumnail' or section.settings.gallery_layout == 'thumbnail_slider' -%}
