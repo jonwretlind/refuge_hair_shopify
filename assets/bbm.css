@@ -78,7 +78,7 @@ body.mobile .shopify-section-header-sticky .header {
     border-bottom: 1px solid rgba(18,18,18,.75);
 }
 body.mobile .header__icon {
-    /*color: rgba(18,18,18, .75);*/
+    color: rgba(18,18,18, .75);
     border-bottom: unset;
     height: 4.4rem;
     width: 4.4rem;

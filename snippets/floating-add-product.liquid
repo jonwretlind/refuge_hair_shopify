@@ -1,0 +1,77 @@
+<div id="FloatingAdd" class="floating">
+  {% comment %} QUANTITY {% endcomment %}
+  {%- include 'quantity-selector' -%}
+
+  {% comment %} ADD TO CART BUTTON {% endcomment %}
+  {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+    <div class="product-form__buttons">
+      <button
+        type="submit"
+        name="add"
+        class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+      {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+      >
+          <span>
+            {%- if product.selected_or_first_available_variant.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </span>
+          <div class="loading-overlay__spinner hidden">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+      </button>
+      {%- if block.settings.show_dynamic_checkout -%}
+        {{ form | payment_button }}
+      {%- endif -%}
+    </div>
+  {%- endform -%}
+</div>
+
+<style type="text/css">
+  #FloatingAdd {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    align-content: flex-start;
+    align-items: baseline;
+    justify-content: space-between;
+    height: 46px;
+  }
+  #FloatingAdd .qty-wrapper {
+    background-color: white;
+    width: inherit;
+  }
+  #FloatingAdd .button--primary {
+    position: relative;
+    width: 33%;
+    min-width: 320px;
+    top: 1px;
+  }
+</style>
+
+<script type="text/javascript">
+  $(window).on("scroll", function() {
+    var flTop = $('#FloatingAdd').offset().top;
+    var scrPos = $(window).scrollTop();
+    var menuBarBottom = $('sticky-header.header-wrapper').height() + 30;
+    var stickyPos = flTop - scrPos;
+    var anchor = 140;
+    console.log(scrPos, stickyPos);
+    if ( stickyPos < anchor ) {
+      $('#FloatingAdd').css({
+        'position': 'fixed',
+        'top': menuBarBottom + "px"
+      });
+    } else {
+      $('#FloatingAdd').css({
+        'position': 'unset',
+        'top': "unset"
+      });
+    };
+  });
+</script>

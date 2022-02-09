@@ -1,5 +1,4 @@
 <div class="product-gallery__pagination swiper-pagination flex flex-justify-center flex-align-end swiper-pagination-clickable swiper-pagination-bullets">
-    <span class='swiper-pagination-bullet active'></span>
 </div>
 
 
@@ -7,10 +6,14 @@
   jQuery(window).ready(function( $ ) {
     var paginationWd = $('.carousel-window').width() - 10;
     var winWd = $('.carousel-window').width();
-    var bullet = "<span class='swiper-pagination-bullet'></span>";
     var ct = $('.slider__slide').length;
     var bulletWd = winWd / ct;
-    for (i=1; i < ct; i++) {
+    for (i=1; i <= ct; i++) {
+      if ( i == 1 ) {
+        var bullet = "<span class='swiper-pagination-bullet active index-"+ i + "'></span>";
+      } else {
+        var bullet = "<span class='swiper-pagination-bullet index-"+ i + "'></span>";
+      }
       $('.swiper-pagination-bullets').append(bullet);
     }
     console.log('Number of swiper bullets: ' + ct);
@@ -21,5 +24,71 @@
     $('.swiper-pagination-bullet').css({
       maxWidth: bulletWd+"px"
     });
+    // Active slide selection
+    var idx = 1;
+
+    // Bullets
+    $('.swiper-pagination-bullet').click(function() {
+      removeActive();
+      var classList = $(this).attr("class").split(/\s+/);
+      var bullIdx = Number(classList[1].substr(-1, 1));
+      idx = bullIdx;
+      addActive();
+    });
+
+    // Arrows
+    $('.large-carousel .icon, .product__media img').click(function() {
+      removeActive();
+      changeSlide(this);
+      addActive();
+    });
+
+    // Swipes todo
+    $('body.mobile .product__media img').swipe(function() {
+      console.log("swipe detected");
+      removeActive();
+      changeSlide(this);
+      addActive();
+    });
+
+    function removeActive() {
+      $('li.slider__slide').removeClass("is-active");
+      $('.swiper-pagination-bullet').removeClass("active");
+    }
+    function addActive() {
+      $('li.slider__slide.index-'+idx).addClass("is-active");
+      $('.swiper-pagination-bullet.index-'+idx).addClass("active");
+    }
+    function changeSlide(slide) {
+      if ( $(slide).hasClass('left') ) {
+        idx -= 1;
+        if (idx < 1) idx = ct;
+      } else {
+        idx += 1;
+        if (idx > ct) idx = 1;
+      };
+    }
   });
+
 </script>
+
+<style type="text/css">
+    li.slider__slide:not(.is-active) {
+      display: none;
+      opacity: 0;
+    }
+    li.slider__slide.is-active {
+      animation-name: fade;
+      animation-iteration-count: 1;
+    	animation-timing-function: ease-in;
+    	animation-duration: 0.5s;
+    }
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+</style>

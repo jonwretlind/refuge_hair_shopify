@@ -31,6 +31,9 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js">
+    </script>
 
     {{ content_for_header }}
 
@@ -86,7 +89,9 @@
         font-size: 1.5rem;
         letter-spacing: 0.06rem;
       }
-
+      svg {
+        visibility: hidden;
+      }
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
@@ -166,13 +171,31 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     <script type="text/javascript">
-    jQuery(document).ready( function( $ ) {
+
+    jQuery(document).ready(function( $ ) {
       const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
       const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
       console.log("Viewport Dimensions", vw, vh);
       if ( vw <= 1100  ) $('body').addClass('mobile');
       if ( vh <= 700 ) $('body').addClass('small-ht');
+
+      if ($('body').hasClass('mobile')) {
+        var cd = "<script src='../assets/swipe.js' />";
+        $('body').append(cd);
+      }
     });
+
+    jQuery(window).resize(function() {
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+      const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      console.log("Viewport Dimensions", vw, vh);
+      if ( vw <= 1100  ) { $('body').addClass('mobile') } else { $('body').removeClass('mobile') };
+      if ( vh <= 700 ) { $('body').addClass('small-ht') } else { $('body').removeClass('small-ht') };
+    });
+
+    jQuery(window).ready(function() {
+      $('svg').css('visibility', 'visible');
+    })
     </script>
     {% include 'subscription-theme-footer' %}
   </body>
