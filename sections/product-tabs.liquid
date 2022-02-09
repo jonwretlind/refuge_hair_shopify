@@ -76,6 +76,9 @@
     opacity: .3;
     cursor: pointer;
   }
+  #ProductTabs .tab-btn:not(.active):hover {
+    background-color: rgba(18,18,18,.05);
+  }
   #ProductTabs .tab-section:not(.active) {
     display: none;
   }
@@ -95,6 +98,7 @@
   }
   #ProductTabs accordion > div:hover {
     cursor: pointer;
+    background-color: rgba(18,18,18,.05);
   }
   #ProductTabs accordion > div p {
     display: block;
@@ -107,6 +111,22 @@
   #ProductTabs accordion.collapse > div p {
     height: 0px;
   }
+  #ProductTabs accordion.collapse .wysiwyg::before {
+      content: "+";
+      font-weight: 700;
+      font-size: 4rem;
+      position: absolute;
+      left: 88%;
+      margin-top: -1.8rem;
+  }
+  #ProductTabs accordion:not(.collapse) .wysiwyg::before {
+      content: "\2014";
+      font-weight: 700;
+      font-size: 4rem;
+      position: absolute;
+      left: 88%;
+      margin-top: -1.8rem;
+  }
 </style>
 
 <script type="text/javascript">
@@ -116,7 +136,8 @@
 
   $('accordion').addClass('collapse');
   $('accordion > div').click(function(event) {
-    $(event.target).parent().toggleClass("collapse");
+    var t = $(event.target).parent();
+    t.toggleClass("collapse");
   });
 
   $('.tab-btn').click(function() {
