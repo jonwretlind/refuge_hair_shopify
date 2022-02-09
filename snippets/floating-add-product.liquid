@@ -1,3 +1,4 @@
+<div class="anchor-point">Anchor</div>
 <div id="FloatingAdd" class="floating">
   {% comment %} QUANTITY {% endcomment %}
   {%- include 'quantity-selector' -%}
@@ -40,7 +41,10 @@
     align-content: flex-start;
     align-items: baseline;
     justify-content: space-between;
-    height: 46px;
+    height: 0px;
+    z-index: 2;
+    position: relative;
+    margin-bottom: -4px;
   }
   #FloatingAdd .qty-wrapper {
     background-color: white;
@@ -52,26 +56,26 @@
     min-width: 320px;
     top: 1px;
   }
+  #FloatingAdd.anchored {
+    position: fixed;
+    top: 140px;
+  }
+  .anchor-point { visibility: hidden; }
 </style>
 
 <script type="text/javascript">
+var a = 120; // top anchor pt
+
   $(window).on("scroll", function() {
-    var flTop = $('#FloatingAdd').offset().top;
-    var scrPos = $(window).scrollTop();
-    var menuBarBottom = $('sticky-header.header-wrapper').height() + 30;
-    var stickyPos = flTop - scrPos;
-    var anchor = 140;
-    console.log(scrPos, stickyPos);
-    if ( stickyPos < anchor ) {
-      $('#FloatingAdd').css({
-        'position': 'fixed',
-        'top': menuBarBottom + "px"
-      });
-    } else {
-      $('#FloatingAdd').css({
-        'position': 'unset',
-        'top': "unset"
-      });
+    var apos = $('.anchor-point').position(),
+        ap = apos.top - $(window).scrollTop();
+
+    switch(ap < a) {
+      case true:
+        $('#FloatingAdd').addClass('anchored');
+        break;
+      default:
+        $('#FloatingAdd').removeClass('anchored');
     };
   });
 </script>

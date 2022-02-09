@@ -1,0 +1,40 @@
+{% assign tabs = product.metafields.custom_fields.tabs %}
+{% assign headline = product.metafields.custom_fields.tabs_headline %}
+
+{% capture schema %}
+  {
+    "context": "product",
+    "backgroundColor": "bg-accent-3",
+    "headerColor": "color-black",
+    "bodyColor": "color-black",
+  }
+{% endcapture %}
+
+<tabs class="container" :schema="{{ schema | escape | strip }}" id="product-tabs">
+  <template #heading>
+    <h2 class="h1">{{ headline }}</h2>
+  </template>
+  <template #tabs>
+    {% for tab in tabs %}
+      <tab heading="{{ tab.heading }}" {% if forloop.first %}selected{% endif %} class="body-sm">
+        {{ tab.copy }}
+      </tab>
+    {% endfor %}
+  </template>
+</tabs>
+
+{% schema %}
+{
+  "name": "Product Tabs",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product-tabs",
+      "label": "Product Tabs"
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

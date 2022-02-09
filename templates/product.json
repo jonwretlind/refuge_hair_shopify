@@ -54,6 +54,42 @@
         "enable_video_looping": false
       }
     },
+    "16443733720776e058": {
+      "type": "image-banner",
+      "blocks": {
+        "1644373372e695c188-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "HEALTHY HAIR STARTS HERE",
+            "heading_size": "medium"
+          }
+        },
+        "1644373372e695c188-1": {
+          "type": "text",
+          "settings": {
+            "text": "Turn your shower into your own personal salon with Hydrate + Balance, the 3-Step Hair Care system that targets your specific hair challenges and nurtures each strand back to its healthy best.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "1644373372e695c188-0",
+        "1644373372e695c188-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/7a126def8be4--HBPromobanner-2a2773.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -61,7 +97,7 @@
         "image_ratio": "adapt",
         "show_secondary_image": false,
         "add_image_padding": false,
-        "show_image_outline": true,
+        "show_image_outline": false,
         "show_vendor": false,
         "show_rating": false
       }
@@ -69,6 +105,7 @@
   },
   "order": [
     "main",
+    "16443733720776e058",
     "product-recommendations"
   ]
 }
