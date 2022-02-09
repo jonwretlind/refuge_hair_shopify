@@ -1,27 +1,139 @@
-{% assign tabs = product.metafields.custom_fields.tabs %}
-{% assign headline = product.metafields.custom_fields.tabs_headline %}
+{% assign tabs = product.metafields.custom_fields["tabs"] %}
+{% assign headline = product.metafields.custom_fields["tabs_headline"] %}
 
-{% capture schema %}
-  {
-    "context": "product",
-    "backgroundColor": "bg-accent-3",
-    "headerColor": "color-black",
-    "bodyColor": "color-black",
+
+<div id="ProductTabs" class="tabbed-section">
+  <tabs class="container" id="product-tabs">
+      {%- if headline != blank -%}
+        <div class="custom-field custom-field__tabs-headline custom-field__type--text">
+          <div class="custom-field--value heading">
+            <h3>{{ headline }}</h3>
+          </div>
+        </div>
+      {%- endif -%}
+      <div class="tab-labels">
+        {%- for tab in tabs -%}
+          <div class="tab-label">
+            <button class="tab-btn tab-btn-{{ forloop.index }} {%- if forloop.first -%}active{%- endif -%}">{{ tab["heading"] }}</button>
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- for tab in tabs -%}
+        <tab heading="{{ tab['heading'] }}" class="tab-section tab-{{ forloop.index }} {%- if forloop.first -%}active{%- endif -%}">
+          <div class="tab-content">
+            {{ tab["copy"] }}
+          </div>
+        </tab>
+      {%- endfor -%}
+  </tabs>
+</div>
+
+<style type="text/css">
+  #ProductTabs {
+    width: 100%;
+    background-color: rgb(246, 246,246);
+    margin: 0;
+    padding: 5rem;
   }
-{% endcapture %}
+  #ProductTabs tabs {
+    display: block;
+    border: 1px solid rgba(18,18,18,.2);
+    min-height: 200px;
+    width: 100%;
+    max-width: 1600px;
+    background-color: white;
+    padding: 3rem;
+    margin: 0 auto;
+  }
+  #ProductTabs .tab-section:not(.active) {
+    display: none;
+  }
+  #ProductTabs .tab-content {
+    padding: 2rem 0;
+  }
+  #ProductTabs .tab-labels {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+      flex-direction: row;
+      margin-top: 5rem;
+      border-bottom: 1px solid rgba(18,18,18,.75);
+  }
+  #ProductTabs .tab-btn {
+    background-color: transparent;
+    border: 1px solid rgba(18,18,18,.75);
+    border-bottom: 1px solid white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 100%;
+    min-width: 300px;
+    display: inline-block;
+    padding: 1rem 5rem;
+    position: relative;
+    top: 1px;
+  }
+  #ProductTabs .tab-btn:not(.active) {
+    opacity: .3;
+    cursor: pointer;
+  }
+  #ProductTabs .tab-section:not(.active) {
+    display: none;
+  }
+  #ProductTabs .heading h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  #ProductTabs p {
+    margin: 0;
+  }
+  #ProductTabs accordion > div {
+    padding: 1.5rem 0 .5rem 0;
+    border-top: 1px solid silver;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  #ProductTabs accordion > div:hover {
+    cursor: pointer;
+  }
+  #ProductTabs accordion > div p {
+    display: block;
+    overflow: hidden;
+    height: fit-content;
+    font-weight: 400;
+    font-size: 1.3rem !important;
+    margin-top:  1rem;
+  }
+  #ProductTabs accordion.collapse > div p {
+    height: 0px;
+  }
+</style>
 
-<tabs class="container" :schema="{{ schema | escape | strip }}" id="product-tabs">
-  <template #heading>
-    <h2 class="h1">{{ headline }}</h2>
-  </template>
-  <template #tabs>
-    {% for tab in tabs %}
-      <tab heading="{{ tab.heading }}" {% if forloop.first %}selected{% endif %} class="body-sm">
-        {{ tab.copy }}
-      </tab>
-    {% endfor %}
-  </template>
-</tabs>
+<script type="text/javascript">
+  var btns = document.getElementsByClassName('tab-btn'),
+      ln = btns.length,
+      tabIdx = 1;
+
+  $('accordion').addClass('collapse');
+  $('accordion > div').click(function(event) {
+    $(event.target).parent().toggleClass("collapse");
+  });
+
+  $('.tab-btn').click(function() {
+    removeActive();
+    var classList = $(this).attr("class").split(/\s+/);
+    tabIdx = Number(classList[1].substr(-1, 1));
+    addActive(tabIdx);
+  });
+
+  function removeActive() {
+    $('.tab-btn, .tab-section').removeClass("active");
+  }
+  function addActive() {
+    $('.tab-btn-'+tabIdx+', .tab-section.tab-'+tabIdx).addClass("active");
+  }
+
+</script>
 
 {% schema %}
 {
