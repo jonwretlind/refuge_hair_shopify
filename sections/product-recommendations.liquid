@@ -1,3 +1,6 @@
+
+{%- if section.settings.disable == false -%}
+
 <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-product-grid.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -29,36 +32,39 @@
   {% endif %}
 </product-recommendations>
 
-{% javascript %}
-  class ProductRecommendations extends HTMLElement {
-    constructor() {
-      super();
 
-      const handleIntersection = (entries, observer) => {
-        if (!entries[0].isIntersecting) return;
-        observer.unobserve(this);
+    <script type="text/javascript">
+      class ProductRecommendations extends HTMLElement {
+        constructor() {
+          super();
 
-        fetch(this.dataset.url)
-          .then(response => response.text())
-          .then(text => {
-            const html = document.createElement('div');
-            html.innerHTML = text;
-            const recommendations = html.querySelector('product-recommendations');
-            if (recommendations && recommendations.innerHTML.trim().length) {
-              this.innerHTML = recommendations.innerHTML;
-            }
-          })
-          .catch(e => {
-            console.error(e);
-          });
+          const handleIntersection = (entries, observer) => {
+            if (!entries[0].isIntersecting) return;
+            observer.unobserve(this);
+
+            fetch(this.dataset.url)
+              .then(response => response.text())
+              .then(text => {
+                const html = document.createElement('div');
+                html.innerHTML = text;
+                const recommendations = html.querySelector('product-recommendations');
+                if (recommendations && recommendations.innerHTML.trim().length) {
+                  this.innerHTML = recommendations.innerHTML;
+                }
+              })
+              .catch(e => {
+                console.error(e);
+              });
+          }
+
+          new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
+        }
       }
 
-      new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
-    }
-  }
+      customElements.define('product-recommendations', ProductRecommendations);
+    </script>
 
-  customElements.define('product-recommendations', ProductRecommendations);
-{% endjavascript %}
+{%- endif -%}
 
 {% schema %}
 {
@@ -130,6 +136,13 @@
       "default": false,
       "label": "t:sections.product-recommendations.settings.show_rating.label",
       "info": "t:sections.product-recommendations.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable",
+      "default": false,
+      "label": "Disable Recommendations",
+      "info": "Click to Disable this section"
     }
   ]
 }

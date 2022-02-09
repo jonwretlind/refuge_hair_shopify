@@ -99,13 +99,21 @@
         "add_image_padding": false,
         "show_image_outline": false,
         "show_vendor": false,
-        "show_rating": false
+        "show_rating": false,
+        "disable": true
+      }
+    },
+    "164441910638377b3a": {
+      "type": "product-tabs",
+      "settings": {
+        "product-tabs": true
       }
     }
   },
   "order": [
     "main",
     "16443733720776e058",
-    "product-recommendations"
+    "product-recommendations",
+    "164441910638377b3a"
   ]
 }
