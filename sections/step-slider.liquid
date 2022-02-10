@@ -1,0 +1,124 @@
+{% if product.metafields.custom_fields["steps"] != blank %}
+  <div id="Steps" class="custom-field custom-field__steps custom-field__type--field-collection-json {{ item['background_color'] }}">
+    <div class="custom-field--value container">
+      {% for item in product.metafields.custom_fields["steps"] %}
+        <div class="slide {% if forloop.first == true %}open{% else %} closed{% endif %}">
+          <div class="fc-item fc-index--{{ forloop.index0 }} card {% if forloop.first == true %}open{% else %} closed{% endif %}">
+              <div class="interior-container">
+               {% if item["copy"] != blank %}
+                <div class="step-pane pane-{{ forloop.index }}">
+                  <h3>STEP</h3>
+                </div>
+                 <div class="fc-field field__copy field-type--html step-copy">
+                   <div class="custom-field--value">
+                     {{ item["copy"] }}
+                   </div>
+                 </div>
+               {% endif %}
+               {% if item["image"] != blank %}
+                 <div class="fc-field field__image field-type--image">
+                   <div class="custom-field--value">
+                     <img src='{{ item["image"] }}' class='step-image' alt='{{ item["alt_text"] }}'/>
+                   </div>
+                 </div>
+               {% endif %}
+             </div>
+           </div>
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+
+<style type="text/css">
+  #Steps {
+    padding: 20rem;
+    background-color: rgb(246, 246,246);
+  }
+  #Steps .step-image {
+    max-height: 600px;
+  }
+  #Steps .container {
+    width: 100%;
+    display: flex;
+  }
+  #Steps .card {
+    border: 1px solid silver;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  #Steps .card .interior-container{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+  }
+  #Steps .slide {
+    overflow: hidden;
+  }
+  #Steps .card.closed {
+    width: 10%;
+    min-width: 150px;
+  }
+  #Steps .card.open {
+    width: 100%;
+  }
+  #Steps .slide.closed {
+    flex-grow: 1;
+    flex-basis: 10%;
+  }
+  #Steps .slide.open {
+    flex-grow: 4;
+    flex-basis: 80%;
+  }
+  #Steps .step-pane h3 {
+    font-size: 1.5rem;
+    padding-left: 10rem;
+  }
+  #Steps .card.closed h3 {
+    transform: rotate(90deg);
+  }
+  #Steps .card.open h3 {
+    padding-left: unset;
+    text-align: center;
+    min-width: 150px;
+  }
+  #Steps .step-copy {
+    padding: 5rem;
+    margin-right: 10%;
+    align-self: flex-end;
+  }
+  #Steps .step-copy p {
+    margin: 0;
+    font-size: 1.3rem !important;
+  }
+
+</style>
+
+<script type="text/javascript">
+  var panelWd = $('#Steps .container').width();
+  $('#Steps .card.open').css("width", panelWd+"px");
+
+</script>
+
+{% schema %}
+{
+  "name": "Step Slider",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "step-slider",
+        "default": false,
+        "label": "Show Step Slider"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Step Slider"
+    }
+  ]
+}
+{% endschema %}

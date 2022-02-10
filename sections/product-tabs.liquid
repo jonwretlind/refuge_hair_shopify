@@ -59,6 +59,12 @@
       margin-top: 5rem;
       border-bottom: 1px solid rgba(18,18,18,.75);
   }
+  @media screen and (max-width: 768px) {
+    #ProductTabs .tab-labels {
+      grid-template-columns: unset;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+  }
   #ProductTabs .tab-btn {
     background-color: transparent;
     border: 1px solid rgba(18,18,18,.75);
@@ -71,6 +77,11 @@
     padding: 1rem 5rem;
     position: relative;
     top: 1px;
+  }
+  @media screen and (max-width: 1100px) {
+    #ProductTabs .tab-btn {
+      min-width: unset;
+    }
   }
   #ProductTabs .tab-btn:not(.active) {
     opacity: .3;
@@ -95,6 +106,11 @@
     border-top: 1px solid silver;
     font-weight: 700;
     font-size: 1.5rem;
+  }
+  @media screen and (max-width: : 768px) {
+    #ProductTabs accordion > div {
+        padding: 1.5rem 3rem .5rem 0;
+    }
   }
   #ProductTabs accordion > div:hover {
     cursor: pointer;
@@ -126,6 +142,22 @@
       position: absolute;
       left: 88%;
       margin-top: -1.8rem;
+  }
+  @media screen and (max-width: 1100px) {
+    #ProductTabs accordion.collapse .wysiwyg::before {
+        left: 85%;
+    }
+    #ProductTabs accordion:not(.collapse) .wysiwyg::before {
+        left: 85%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    #ProductTabs accordion.collapse .wysiwyg::before {
+        left: 80%;
+    }
+    #ProductTabs accordion:not(.collapse) .wysiwyg::before {
+        left: 80%;
+    }
   }
 </style>
 

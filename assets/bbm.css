@@ -112,8 +112,8 @@ body.mobile #shopify-section-header.shopify-section-header-sticky {
     border-bottom: 1px solid rgb(18,18,18) !important;
 }
 body.mobile #shopify-section-header.shopify-section-header-sticky.shopify-section-header-hidden {
-  margin-top: -10px;
-  transition: transform 0.25s ease;
+  margin-top: -40px;
+  transition: margin-top 0.25s ease;
 }
 body.mobile .header {
     grid-template-columns: 10% 90%;
@@ -168,6 +168,16 @@ body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
     order: 2;
     margin-top: -100%;
 }
+@media screen and ( max-width: 1100px ) {
+  body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
+      margin-top: unset;
+  }
+}
+@media screen and ( max-width: 768px ) {
+  body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
+      margin-top: -50%;
+  }
+}
 body.mobile .banner__box {
     padding: 4rem 5rem;
     max-width: 95%;
@@ -191,4 +201,10 @@ body.mobile slider-component.home-slider .grid {
 
 body.mobile slider-component.home-slider .card-title {
   font-size: 2rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .cart-count-bubble {
+    left: unset;
+  }
 }

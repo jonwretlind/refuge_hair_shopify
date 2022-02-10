@@ -86,7 +86,10 @@
   background: rgb(var(--color-base-background-2));
 }
 .multicolumn-card.lt-rose {
-  background: rgb(var(--light-rose));
+  background: #E0CEC6 !important;
+}
+.multicolumn-card.lt-sage {
+  background: #CCD5D3 !important;
 }
 
 .multicolumn.background-secondary {

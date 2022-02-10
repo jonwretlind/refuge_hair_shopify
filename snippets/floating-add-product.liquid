@@ -58,24 +58,37 @@
   }
   #FloatingAdd.anchored {
     position: fixed;
-    top: 140px;
+  }
+  #FloatingAdd:not(.anchored) {
+    top: 0px !important;
   }
   .anchor-point { visibility: hidden; }
 </style>
 
 <script type="text/javascript">
+$(window).ready(function() {
+  stickIt();
+});
+$(window).resize(function() {
+  stickIt();
+});
+function stickIt() {
 var a = 120; // top anchor pt
+var Ht = $('sticky-header').height() + $('.announcement-bar').height() - 14;
+console.log("Sticky Header Ht: " + Ht);
 
   $(window).on("scroll", function() {
     var apos = $('.anchor-point').position(),
         ap = apos.top - $(window).scrollTop();
+        $('#FloatingAdd.anchored').css("top", Ht+"px");
 
     switch(ap < a) {
       case true:
-        $('#FloatingAdd').addClass('anchored');
+        $('body:not(.mobile) #FloatingAdd').addClass('anchored');
         break;
       default:
-        $('#FloatingAdd').removeClass('anchored');
+        $('body:not(.mobile) #FloatingAdd').removeClass('anchored');
     };
   });
+};// stickIt()
 </script>

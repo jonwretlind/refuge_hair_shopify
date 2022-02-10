@@ -90,6 +90,12 @@
         "show_text_below": true
       }
     },
+    "164441910638377b3a": {
+      "type": "product-tabs",
+      "settings": {
+        "product-tabs": true
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -103,17 +109,57 @@
         "disable": true
       }
     },
-    "164441910638377b3a": {
-      "type": "product-tabs",
+    "16444586258c6899d4": {
+      "type": "step-slider",
       "settings": {
-        "product-tabs": true
+        "step-slider": true
+      }
+    },
+    "1644451483b45b75ef": {
+      "type": "multicolumn-twothirds",
+      "blocks": {
+        "1644451483014c7c65-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/WhitneyReview1024x1024.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1644451483014c7c65-1": {
+          "type": "column",
+          "settings": {
+            "title": "REFUGE REWARDS",
+            "text": "<p>Earn points to redeem for cash towards future self care purchases. Join Refuge Rewards to start collecting points on shopping, social engagement, and friend referrals.<\/p>",
+            "link_label": "Join Now",
+            "link": "shopify:\/\/pages\/rewards-feb2022"
+          }
+        }
+      },
+      "block_order": [
+        "1644451483014c7c65-0",
+        "1644451483014c7c65-1"
+      ],
+      "settings": {
+        "title": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "lt-sage",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false
       }
     }
   },
   "order": [
     "main",
     "16443733720776e058",
+    "164441910638377b3a",
     "product-recommendations",
-    "164441910638377b3a"
+    "16444586258c6899d4",
+    "1644451483b45b75ef"
   ]
 }

@@ -6,6 +6,7 @@
   jQuery(window).ready(function( $ ) {
     var paginationWd = $('.carousel-window').width() - 10;
     var winWd = $('.carousel-window').width();
+    var viewPort = $(window).width();
     var ct = $('.slider__slide').length;
     var bulletWd = winWd / ct;
     for (i=1; i <= ct; i++) {
@@ -16,11 +17,20 @@
       }
       $('.swiper-pagination-bullets').append(bullet);
     }
-    console.log('Number of swiper bullets: ' + ct);
-    $('.swiper-pagination').css({
-      maxWidth: paginationWd+"px",
-      marginLeft: "-10px"
-    });
+    console.log('Number of swiper bullets: ' + ct + ", Window Width: " + viewPort);
+    if ( viewPort > 768 ) {
+      console.log("not small mobile device");
+      $('.swiper-pagination').css({
+        maxWidth: paginationWd+"px",
+        marginLeft: "-10px"
+      });
+    } else {
+      console.log("small mobile device");
+      $('.swiper-pagination').css({
+        marginLeft: "3rem",
+        marginRight: "3rem"
+      });
+    }
     $('.swiper-pagination-bullet').css({
       maxWidth: bulletWd+"px"
     });
@@ -92,4 +102,11 @@
         opacity: 1;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
+          margin-top: 15rem;
+      }
+    }
+
 </style>
