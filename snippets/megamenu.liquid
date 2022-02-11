@@ -1,25 +1,6 @@
 <div id="Megamenu" class="megamenu">
   <div class="wrapper">
-    <div class="systems">
-      <span class="bundle-1 mega-heading">3-STEP HAIR CARE SYSTEM</span>
-      <div class="pics-lineup">
-        <a href="{{ section.settings.hair_care_system_link_1 }}" class="system-link">
-          <div class="bundle-1 hair-care"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/3StepTabImageDeskTop3.png?v=1620237738" /><br />
-              <span class="label">HAIR CARE SYSTEMS</span>
-          </div>
-        </a>
-        <a href="{{ section.settings.hair_care_system_link_2 }}" class="system-link">
-          <div class="bundle-2 shampoos"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/RPMenu400x400_7d3c85c1-20d7-4c9b-b4f2-87663d8b133f.png?v=1623275647" /><br />
-              <span class="label">CLAY SHAMPOOS</span>
-          </div>
-        </a>
-        <a href="{{ section.settings.hair_care_system_link_3 }}" class="system-link">
-          <div class="bundle-3 masks"><img src="https://cdn.shopify.com/s/files/1/2380/1623/files/MaskMenu400x400.png?v=1623277256" /><br />
-              <span class="label">CR&#96;EME MASKS</span>
-          </div>
-        </a>
-      </div>
-    </div>
+      {%- include 'sub-nav' -%}
   </div>
 </div>
 
@@ -48,51 +29,13 @@
     flex-direction: column;
     align-items: center;
   }
-  .concern {
-    grid-area: concern;
-  }
-  .individual {
-    grid-area: individual;
-  }
-  .other {
-    grid-area: other;
-  }
-  div[class*="bundle"] {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
 
-  div[class*="bundle"] img {
-    width: 100%;
-    padding: 30px 40px 0px 40px;
-    align-items: center;
-  }
-  #Megamenu span.label {
-    font-weight: 700;
-    font-size: 1rem;
-    color: rgba(18,18,18,1);
-    text-align: center;
-    width: 100%;
-    margin-top: -20px;
-  }
-  .pics-lineup {
-    display: flex;
-    flex-direction: row;
-  }
-.mega-heading .hair-care {
-  font-weight: 500;
-  font-size: 1.2rem;
-  text-align: center;
-  width: 100%;
-}
 </style>
 
 <script>
 (function() {
   jQuery(document).ready(function( $ ) {
-    var shopMenu = $('.list-menu li:first-child');
+    var shopMenu = $('.list-menu');
     var megaMenu = $('#Megamenu');
     var wrapper = $('#Megamenu .wrapper');
     var header = $('.header');

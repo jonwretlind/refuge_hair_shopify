@@ -1,0 +1,41 @@
+{%- if section.settings.menu != blank -%}
+<div class="submenu">
+  {%- for link in section.settings.menu.links -%}
+        <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
+          {%- for childlink in link.links -%}
+            <li>
+              {%- if childlink.links == blank -%}
+                <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                  {{ childlink.title | escape }}
+                </a>
+          {% comment %}
+              {%- else -%}\
+                <details id="Details-HeaderSubMenu-{{ forloop.index }}">
+                  <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
+                    {{ childlink.title | escape }}
+                  </summary>\
+                  <ul id="HeaderMenu-SubMenuList-{{ forloop.index }}" class="header__submenu list-menu motion-reduce">
+                    {%- for grandchildlink in childlink.links -%}
+                      <li>
+                        <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                          {{ grandchildlink.title | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+
+                </details>
+          {% endcomment %}
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    <style type="text/css">
+      .submenu li a.link {
+        color: rgba(18,18,18,1);
+      }
+    </style>
