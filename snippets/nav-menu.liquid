@@ -2,7 +2,7 @@
   <nav class="header__inline-menu">
     <ul class="list-menu list-menu--inline" role="list">
       {%- for link in section.settings.menu.links -%}
-        <li>
+        <li class="{%- if section.settings.color_scheme == 'dark'-%}dark{%- else -%}light{%- endif -%}">
           {%- if link.links != blank -%}
             <details-disclosure>
               <details id="Details-HeaderMenu-{{ forloop.index }}">
@@ -68,7 +68,7 @@
   }
 
   summary.list-menu__item {
-    padding-right: 2.7rem;
+    padding-right: 1.7rem;
   }
 
   .list-menu__item {

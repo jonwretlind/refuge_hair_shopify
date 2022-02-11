@@ -1,13 +1,29 @@
 {
   "sections": {
+    "1644546203c04544ef": {
+      "type": "collection-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/HomeBannerMobile_c787dc27-49f7-49e7-8b59-d9d3f61e20c8.jpg",
+        "image_height": "large",
+        "adapt_height_first_image": true,
+        "desktop_content_position": "middle-left",
+        "show_collection_description": true,
+        "show_collection_image": true
+      }
+    },
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "image_ratio": "square"
+        "title": "Collections",
+        "sort": "alphabetical",
+        "image_ratio": "square",
+        "color_scheme": "background-1",
+        "image_padding": false
       }
     }
   },
   "order": [
+    "1644546203c04544ef",
     "main"
   ]
 }

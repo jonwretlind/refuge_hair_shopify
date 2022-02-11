@@ -555,9 +555,6 @@ table:not([class]) th {
   text-transform: uppercase;
 }
 
-.light {
-  opacity: 0.7;
-}
 
 a:empty,
 ul:empty,

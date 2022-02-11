@@ -57,7 +57,7 @@
     max-width: unset;
   }
   .header:hover {
-      background-color: rgb(255,255,255) !important;
+      background-color: rgba(255,255,255,1) !important;
       border-bottom: 1px solid rgba(18,18,18,.7);
   }
   .header.active  {
@@ -67,18 +67,26 @@
       height: 23px;
   }
   .header__icon {
-      color: rgba(255,255,255, .75);
+      color: rgba(255,255,255,1);
   }
   .header:hover .header__icon {
       color: rgba(18,18,18,1);
   }
   .list-menu .link--text,
   .list-menu__item.link {
-      color: rgb(255,255,255);
+      color: rgba(255,255,255,1);
       font-weight: 400;
       padding-bottom: 38px;
       border-bottom: 2px solid rgba(18,18,18,0);
       font-size: 1.1rem;
+  }
+  .shopify-section-header-sticky .list-menu .link--text,
+  .shopify-section-header-sticky .list-menu__item.link,
+  li.dark .list-menu .link--text,
+  li.dark .list-menu__item.link,
+  body.product-page .list-menu .link--text,
+  body.product-page .list-menu__item.link {
+      color: rgba(18,18,18,1);
   }
   .logo.link--text {
       color: rgb(255,255,255);
@@ -88,14 +96,18 @@
       position: relative;
       top: 2px;
   }
-
+  header.dark .logo.link--text,
+  body.product-page .logo.link--text
+   {
+     color: rgba(18,18,18,1) !important;
+  }
 
   body.rewards .list-menu .link--text,
-  body.product-page .list-menu .link--text {
+  header.dark .list-menu .link--text {
       color: rgba(18,18,18,1);
   }
   body.rewards .logo.link--text,
-  body.product-page .logo.link--text {
+  header.dark .logo.link--text {
       color: rgba(18,18,18,1) !important;
   }
   .header:hover .link--text, .header.active .link--text,
@@ -114,7 +126,7 @@
   }
   .header:hover .header__menu-item:hover span,
   .header:hover .header__menu-item.link--text:hover .header__active-menu-item,
-  body.product-page .header__active-menu-item  {
+  header.dark .header__active-menu-item  {
       color: rgba(18,18,18,.8);
   }
   .field__label, .customer .field label {
@@ -135,7 +147,9 @@
   div#shopify-section-header .color-background-1,
   div#shopify-section-header .field__input,
   div#shopify-section-header .field__label,
-  div#shopify-section-header .link--text:hover
+  div#shopify-section-header .link--text:hover,
+  div#shopify-section-header .predictive-search__item.link--text,
+  div#shopify-section-header .search__button .icon
   {
       color: rgb(255,255,255);
   }
@@ -145,18 +159,27 @@
   div#shopify-section-header .header:hover .link--text:hover,
   div#shopify-section-header .header:hover .predictive-search__item.link--text,
   div#shopify-section-header .header:hover .search__button .icon,
-  body.product-page div#shopify-section-header .header:hover .search__button .icon,
-  body.product-page div#shopify-section-header .color-background-1,
-  body.product-page div#shopify-section-header .field__input,
-  body.product-page div#shopify-section-header .field__label,
-  body.product-page div#shopify-section-header .link--text:hover,
-  body.product-page div#shopify-section-header .header:hover .predictive-search__item.link--text,
-  body.product-page div#shopify-section-header .header:hover .search__button .icon,
-  body.product-page div#shopify-section-header .field__button .icon {
-    color: rgba(18,18,18,0.5) !important;
+  header.dark div#shopify-section-header .header:hover .search__button .icon,
+  header.dark div#shopify-section-header .color-background-1,
+  header.dark div#shopify-section-header .field__input,
+  header.dark div#shopify-section-header .field__label,
+  header.dark div#shopify-section-header .link--text:hover,
+  header.dark div#shopify-section-header .header:hover .predictive-search__item.link--text,
+  header.dark div#shopify-section-header .header:hover .search__button .icon,
+  header.dark div#shopify-section-header .field__button .icon,
+  div#shopify-section-header .search-modal.dark .header:hover .search__button .icon,
+  div#shopify-section-header .search-modal.dark .color-background-1,
+  div#shopify-section-header .search-modal.dark .field__input,
+  div#shopify-section-header .search-modal.dark .field__label,
+  div#shopify-section-header .search-modal.dark .link--text:hover,
+  div#shopify-section-header .search-modal.dark .header:hover .predictive-search__item.link--text,
+  div#shopify-section-header .search-modal.dark .header:hover .search__button .icon,
+  div#shopify-section-header .search-modal.dark .field__button .icon {
+    color: rgba(18,18,18,1) !important;
   }
 
-  body.product-page div#shopify-section-header .search-modal {
+  div#shopify-section-header .search-modal.dark,
+  body.product-page .search-modal {
     border-bottom: 0.1rem solid rgba(18,18,18,.5) !important;
   }
 
@@ -174,6 +197,19 @@
   div#shopify-section-header.shopify-section-header-sticky .search__button .icon {
     color: rgba(18,18,18,0.5) !important;
   }
+
+  body.product-page .search-modal .header:hover .search__button .icon,
+  body.product-page .search-modal .color-background-1,
+  body.product-page .search-modal .field__input,
+  body.product-page .search-modal .field__label,
+  body.product-page .search-modal .link--text:hover,
+  body.product-page .search-modal .header:hover .predictive-search__item.link--text,
+  body.product-page .search-modal .header:hover .search__button .icon,
+  body.product-page .search-modal .field__button .icon {
+    color: rgba(18,18,18,1) !important;
+  }
+
+
   div#shopify-section-header:not(.shopify-section-header-sticky) .header-wrapper.gradient {
     background-color: transparent;
   }
@@ -231,7 +267,7 @@
   </symbol>
 </svg>
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %} {% if section.settings.color_scheme == 'accent-1' %}light{% else %}dark{% endif %}">
+  <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %} {% if section.settings.color_scheme == 'light' %}light{% else %}dark{% endif %}">
     {%- if section.settings.menu != blank -%}
       <header-drawer data-breakpoint="tablet">
         <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -414,15 +450,15 @@
       "id": "color_scheme",
       "options": [
         {
-          "value": "accent-1",
+          "value": "light",
           "label": "Light"
         },
         {
-          "value": "accent-2",
+          "value": "dark",
           "label": "Dark"
         }
       ],
-      "default": "accent-1",
+      "default": "light",
       "label": "t:sections.header.settings.color_scheme.label"
     },
     {
