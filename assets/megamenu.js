@@ -1,4 +1,3 @@
-(function() {
   jQuery(document).ready(function( $ ) {
     var shopMenu = $('.list-menu li:first-child');
     var megaMenu = $('#Megamenu');
@@ -48,4 +47,3 @@
       });
     });
   });
-})()

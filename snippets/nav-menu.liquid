@@ -1,8 +1,8 @@
 {%- if section.settings.menu != blank -%}
   <nav class="header__inline-menu">
-    <ul class="list-menu list-menu--inline" role="list">
+    <ul class="list-menu list-menu--inline">
       {%- for link in section.settings.menu.links -%}
-        <li class="{%- if section.settings.color_scheme == 'dark'-%}dark{%- else -%}light{%- endif -%} {%- if link.levels > 1 -%} has-children{%- endif -%}">
+        <li class="menu menu-{{ forloop.index }} {%- if section.settings.color_scheme == 'dark'-%}dark{%- else -%}light{%- endif -%}">
           {%- if link.links != blank -%}
             <details-disclosure>
               <details id="Details-HeaderMenu-{{ forloop.index }}">
@@ -25,7 +25,7 @@
   </nav>
 {%- endif -%}
 
-{% style %}
+<style type="text/css">
 
   .list-menu {
     list-style: none;
@@ -56,4 +56,4 @@
   }
 
 
-{% endstyle %}
+</style>

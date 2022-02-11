@@ -11,6 +11,22 @@
   <div class="rte main-page-template">
     {%- if section.settings.page.content != blank -%}
       {{ section.settings.page.content }}
+      {% if page.metafields.custom_fields["categories"] != blank %}
+        <div class="custom-field custom-field__categories custom-field__type--collection-reference">
+          <h3 class="custom-field--title">Categories</h3>
+          <div class="custom-field--value">
+            {% assign collection_refs = page.metafields.custom_fields["categories"] | split: "|" %}
+            <ul>
+              {% for collection_handle in collection_refs %}
+                <li>
+                  {% assign collection_ref = collections[collection_handle] %}
+                  {{ collection_ref.title | link_to: collection_ref.url }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
     {%- else -%}
       <div class='page-placeholder-wrapper placeholder'>
         {{ 'page' | placeholder_svg_tag: 'page-placeholder' }}

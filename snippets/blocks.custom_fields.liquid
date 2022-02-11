@@ -10,11 +10,31 @@
           {% when "accordions" %}
             {% render "custom_fields.pages.accordions" %}
         
+          {% when "categories" %}
+            {% render "custom_fields.pages.categories" %}
+        
           {% when "image" %}
             {% render "custom_fields.pages.image" %}
         
           {% when "quote_new" %}
             {% render "custom_fields.pages.quote_new" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+    {% if resource_type == "collections" %}
+    <div class="custom-fields-section__collections">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "alternate_image" %}
+            {% render "custom_fields.collections.alternate_image" %}
         
         {% endcase %}
       </div>

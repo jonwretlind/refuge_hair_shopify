@@ -1,4 +1,4 @@
-{% render "blocks.custom_fields" with resource_type: "pages", blocks: section.blocks %}
+{% render "blocks.custom_fields" with resource_type: "collections", blocks: section.blocks %}
 {% schema %}
   {
     "name": {
@@ -11,11 +11,11 @@
         },
         {
             "type": "paragraph",
-            "content": "[Edit Custom Fields](https:\/\/customfields.bonify.io\/dashboard\/refugeshop.myshopify.com\/pages\/configure)"
+            "content": "[Edit Custom Fields](https:\/\/customfields.bonify.io\/dashboard\/refugeshop.myshopify.com\/collections\/configure)"
         }
     ],
     "templates": [
-        "page"
+        "collection"
     ],
     "presets": [
         {
@@ -25,9 +25,9 @@
     ],
     "blocks": [
         {
-            "type": "cf_f_cr",
+            "type": "cf_f_img",
             "name": {
-                "en": "Collection Reference"
+                "en": "Image"
             },
             "settings": [
                 {
@@ -36,8 +36,8 @@
                     "label": "Select a Field",
                     "options": [
                         {
-                            "value": "categories",
-                            "label": "Categories"
+                            "value": "alternate_image",
+                            "label": "Alternate image"
                         }
                     ]
                 }

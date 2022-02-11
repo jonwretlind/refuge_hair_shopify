@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "1644592036a919ca71": {
+      "type": "collection-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/HomeBanner_1ef20a56-93f3-4161-be36-c1e402f2f572.jpg",
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-left",
+        "show_collection_description": true,
+        "show_collection_image": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "16445934510eb8ba28": {
+      "type": "collection-list",
+      "blocks": {
+        "1644593451a627b525-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "shampoo",
+            "alt_image": "shopify:\/\/shop_images\/RP3ShopNow794x935.jpg"
+          }
+        },
+        "63567b40-c486-4f7e-804a-05c3c81c2b72": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mask"
+          }
+        },
+        "ddcd8445-4a93-420a-9630-dea86d712831": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "conditioner"
+          }
+        }
+      },
+      "block_order": [
+        "1644593451a627b525-0",
+        "63567b40-c486-4f7e-804a-05c3c81c2b72",
+        "ddcd8445-4a93-420a-9630-dea86d712831"
+      ],
+      "settings": {
+        "title": "",
+        "image_ratio": "adapt",
+        "color_scheme": "background-1",
+        "swipe_on_mobile": false,
+        "image_padding": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "1644592036a919ca71",
+    "main",
+    "16445934510eb8ba28"
+  ]
+}
