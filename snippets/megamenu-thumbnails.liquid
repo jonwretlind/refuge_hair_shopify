@@ -1,0 +1,91 @@
+<div id="MegamenuThumbs{{ tag.index }}" class="megathumb">
+  <h3 class="megamenu-heading">SHOP FEATURED ITEMS</h3>
+  <div class="thumbs">
+  {%- for product in collections.all.products -%}
+    {%- for tag in product.tags -%}
+      {%- if tag contains "megamenu-featured" -%}
+          <div class="thumb">
+            <a href="#" class="thumb-link" />
+            <img
+              srcset="{{ product.featured_image | img_url: '165x' }}"
+              src="{{ product.featured_image | img_url: '165x' }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
+              alt="{{ product.title | escape }}"
+              height="{{ product.featured_image.height }}"
+              width="{{ product.featured_image.width }}"
+              loading="lazy"
+              class="thumb-image"
+              >
+              <span>{{ product.title }}</span>
+          </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  </div>
+</div>
+
+
+
+
+{% comment %}
+{%- for link in section.settings.menu.links -%}
+<div id="MegamenuThumbs{{ link.index }}" class="megathumb-{{ forloop.index }}">
+  <div class="thumbs">
+    {%- for childlink in link.links -%}
+      <div class="thumb thumb-{{ forloop.index }}">
+        <a href="#" class="thumb-link" />
+          <img src="{%- if collection.metafields.custom_fields['alternate_image'] != blank -%}{%- render 'cf-image' with image: collection.metafields.custom_fields['alternate_image'] -%}{%- else -%}https://cdn.shopify.com/s/files/1/2380/1623/files/Mark240x240.png?v=1620159759{%- endif -%}" class="thumb-image" />
+          <span>THUMB-{{ forloop.index }}</span>
+        </a>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+{%- endfor -%}
+{% endcomment %}
+
+
+<style type="text/css">
+div[id*="MegamenuThumbs"] .thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 100px;
+    width: 100%;
+    align-items: baseline;
+}
+  div[id*="MegamenuThumbs"] .thumb {
+    min-height: 100px;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+  }
+  div[id*="MegamenuThumbs"] .thumb-image {
+      max-width: 200px;
+      margin-bottom: 1rem;
+      height: auto;
+  }
+  .thumb-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  div[id*="MegamenuThumbs"] .thumb-link {
+    margin-bottom: 1rem;
+  }
+  div[id*="MegamenuThumbs"] .thumb-link:hover {
+    font-weight: 900;
+    opacity: .8;
+  }
+  div[id*="MegamenuThumbs"] h3.megamenu-heading {
+    font-size: 1.2rem;
+    letter-spacing: 0.08812rem;
+    line-height: 1.125rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+</style>

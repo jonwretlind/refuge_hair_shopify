@@ -135,64 +135,76 @@
 
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 
-{% style %}
-.header__inline-menu {
-  display: block;
-  width: 66vw;
-}
-details[open] .modal-overlay::after {
-  display: none;
-}
-.search-modal {
-  opacity: 1;
-  grid-area: icons;
-}
-.search-modal__content {
-  padding: unset;
-}
-.modal__content {
-  background: transparent;
-  top: 27px;
-  left: unset;
-  right: 20px;
-}
-.header__icon .icon-search, .modal__close-button {
-    display: none !important;
-}
-.search-modal__content .search__input.field__input{
-  box-shadow: unset;
-}
-div#shopify-section-header .search-modal {
-    border-bottom: 0.1rem solid rgba(255,255,255,0.5);
-    height: 50px;
-}
-div#shopify-section-header.shopify-section-header-sticky .search-modal {
-    border-bottom: 0.1rem solid rgba(18,18,18,.7);
-    height: 50px;
-}
-div#shopify-section-header .predictive-search {
-  border: unset;
-}
+<style type="text/css">
+    .header__inline-menu {
+      display: block;
+      width: 66vw;
+    }
+    details[open] .modal-overlay::after {
+      display: none;
+    }
+    .search-modal {
+      opacity: 1;
+      grid-area: icons;
+    }
+    .search-modal__content {
+      padding: unset;
+    }
+    .modal__content {
+      background: transparent;
+      top: 27px;
+      left: unset;
+      right: 20px;
+    }
+    .header__icon .icon-search, .modal__close-button {
+        display: none !important;
+    }
+    .search-modal__content .search__input.field__input{
+      box-shadow: unset;
+    }
+    div#shopify-section-header .search-modal {
+        border-bottom: 0.1rem solid rgba(255,255,255,0.5);
+        height: 50px;
+    }
+    div#shopify-section-header.shopify-section-header-sticky .search-modal {
+        border-bottom: 0.1rem solid rgba(18,18,18,.7);
+        height: 50px;
+    }
+    div#shopify-section-header .predictive-search {
+      border: unset;
+    }
 
-.field__button {
-    top: 7px;
-    right: -10px;
-}
-div#shopify-section-header .header__search {
-  /*left: calc(50% - 45px);*/
-  top: 10px;
-  grid-area: icons;
-}
-div#shopify-section-header .header:hover .search-modal {
-    border-bottom: 0.1rem solid rgba(18,18,18,0.5);
-}
-.icon-search:hover {
-  color: rgba(18,18,18,0.5);
-}
-.field__input, .customer .field input {
-  padding-left: 0px;
-}
-.field__label {
-  left: unset;
-}
-{% endstyle %}
+    .field__button {
+        top: 7px;
+        right: -10px;
+    }
+    div#shopify-section-header .header__search {
+      /*left: calc(50% - 45px);*/
+      top: 10px;
+      grid-area: icons;
+    }
+    div#shopify-section-header .header:hover .search-modal {
+        border-bottom: 0.1rem solid rgba(18,18,18,0.5);
+    }
+    .icon-search:hover {
+      color: rgba(18,18,18,0.5);
+    }
+    .field__input, .customer .field input {
+      padding-left: 0px;
+    }
+    .field__label {
+      left: unset;
+    }
+    @media screen and (max-width: 1350px) {
+      .search-modal {
+        transform: scale(0.95);
+        transform-origin: right;
+      }
+    }
+    @media screen and (max-width: 1250px) {
+      .search-modal {
+        transform: scale(0.9);
+        transform-origin: right;
+      }
+    }
+</style>

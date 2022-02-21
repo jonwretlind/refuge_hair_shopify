@@ -1,13 +1,13 @@
 {%- if section.settings.menu != blank -%}
   <nav class="header__inline-menu">
-    <ul class="list-menu list-menu--inline">
+    <ul class="list-menu list-menu--inline top-menu">
       {%- for link in section.settings.menu.links -%}
         <li class="menu menu-{{ forloop.index }} {%- if section.settings.color_scheme == 'dark'-%}dark{%- else -%}light{%- endif -%}">
           {%- if link.links != blank -%}
             <details-disclosure>
               <details id="Details-HeaderMenu-{{ forloop.index }}">
                 <summary class="header__menu-item list-menu__item link focus-inset">
-                  <a href="{{ link.url }}" style="text-decoration: none;">
+                  <a href="{{ link.url }}" style="text-decoration: none;" class="menu-link menu-link-{{ forloop.index }} {% if link.levels >= 1 %}has-children{% else %}childless{% endif %}">
                     <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                   </a>
                 </summary>
@@ -42,6 +42,10 @@
     padding-right: 1.7rem;
   }
 
+  li.menu details-disclosure > details{
+    top: 1px;
+  }
+
   .list-menu__item {
     display: flex;
     align-items: center;
@@ -54,6 +58,23 @@
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
-
+  .menu-link {
+    height: 40px;
+    margin-bottom: -25px;
+    display: inline-block;
+  }
 
 </style>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var header = $('.header');
+    header.on('scroll', function() {
+      if (! $('div#shopify-section-header').hasClass('shopify-section-header-sticky') ) {
+        header.css({
+          backgroundColor: 'transparent'
+        });
+      };
+    });
+  });
+</script>

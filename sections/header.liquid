@@ -43,6 +43,17 @@
     text-decoration: none;
   }
 
+  @media screen and (max-width: 1350px) {
+    .header__menu-item {
+      padding: 1.2rem 1.5rem;
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    .header__menu-item {
+      padding: 1.2rem 1rem;
+    }
+  }
+
   .header__menu-item span {
     text-transform: uppercase;
     text-decoration: none;
@@ -85,7 +96,10 @@
   li.dark .list-menu .link--text,
   li.dark .list-menu__item.link,
   body.product-page .list-menu .link--text,
-  body.product-page .list-menu__item.link {
+  body.product-page .list-menu__item.link,
+  div#shopify-section-header.shopify-section-header-sticky .header .menu-link span,
+  .header:hover .menu-link span,
+  .header.active .menu-link span {
       color: rgba(18,18,18,1);
   }
   .logo.link--text {

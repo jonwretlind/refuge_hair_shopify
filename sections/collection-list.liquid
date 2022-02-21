@@ -5,7 +5,7 @@
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 
-<div class="collection-list-wrapper full-width{% if section.settings.swipe_on_mobile == true %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %}">
+<div class="collection-list-wrapper full-width{% if section.settings.swipe_on_mobile == true %} full-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %}">
   <div class="title-wrapper-with-link{% if section.settings.swipe_on_mobile == true %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
     <h2 class="collection-list-title">{{ section.settings.title | escape }}</h2>
 
@@ -38,32 +38,24 @@
                   {% if section.settings.image_padding %}<div class="overlay-card"></div>{% endif %}
                   <div class="media{% if section.blocks.size > 1 %} media--{{ section.settings.image_ratio }}{% endif %} media--hover-effect overflow-hidden"
                     {% if section.settings.image_ratio == 'adapt' and section.blocks.size > 1 %}style="padding-bottom: {{ 1 | divided_by: block.settings.collection.featured_image.aspect_ratio | times: 100 }}%;"{% endif %}>
-
-                    {%- if collection.metafields.custom_fields["alternate_image"] == blank -%}
+                    {%- if block.settings.collection.metafields.custom_fields['alternate_image'] != blank -%}
+                      {% render 'cf-image' with image: block.settings.collection.metafields.custom_fields["alternate_image"] %}
+                    {%- else -%}
                     <img
                       srcset="{%- if block.settings.collection.featured_image.width >= 165 -%}{{ block.settings.collection.featured_image | img_url: '165x' }} 165w,{%- endif -%}
-                        {%- if block.settings.collection.featured_image.width >= 330 -%}{{ block.settings.collection.featured_image | img_url: '330x' }} 330w,{%- endif -%}
+                        {%- if block.settings.collection.featured_image.width >= 360 -%}{{ collection.featured_image | img_url: '360x' }} 360w,{%- endif -%}
                         {%- if block.settings.collection.featured_image.width >= 535 -%}{{ block.settings.collection.featured_image | img_url: '535x' }} 535w,{%- endif -%}
                         {%- if block.settings.collection.featured_image.width >= 750 -%}{{ block.settings.collection.featured_image | img_url: '750x' }} 750w,{%- endif -%}
                         {%- if block.settings.collection.featured_image.width >= 1000 -%}{{ block.settings.collection.featured_image | img_url: '1000x' }} 1000w,{%- endif -%}
                         {%- if block.settings.collection.featured_image.width >= 1500 -%}{{ block.settings.collection.featured_image | img_url: '1500x' }} 1500w,{%- endif -%}
-                        {%- if block.settings.collection.featured_image.width >= 3000 -%}{{ block.settings.collection.featured_image | img_url: '3000x' }} 3000w,{%- endif -%}
-                        {{ block.settings.collection.featured_image | img_url: 'master' }} {{ block.settings.collection.featured_image.width }}w"
+                        {{ block.settings.collection.featured_image| img_url: 'master' }} {{ block.settings.collection.featured_image.width }}w"
                       src="{{ block.settings.collection.featured_image | img_url: '1500x' }}"
-                      sizes="
-                      (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
-                      (min-width: 750px) {% if section.blocks.size > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
-                      calc(100vw - 3rem)"
-                      alt="{{ block.settings.collection.title | escape }}"
-                      height="{{ block.settings.collection.featured_image.height }}"
-                      width="{{ block.settings.collection.featured_image.width }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
+                      alt="{{ collection.title | escape }}"
+                      height="{{ collection.featured_image.height }}"
+                      width="{{ collection.featured_image.width }}"
                       loading="lazy"
-                      class="motion-reduce"
                     >
-                    {%- else -%}
-
-                    {% render 'cf-image' with image: collection.metafields.custom_fields["alternate_image"] %}
-
                     {%- endif -%}
                   </div>
                 </div>
@@ -122,6 +114,23 @@
     </div>
   {%- endif -%}
 </div>
+
+<style type="text/css">
+  .collection-list li[class*='collection-list'] {
+      width: 100%;
+      min-height: 250px;
+  }
+  .card__text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .card--media .media {
+    padding-bottom: unset !important;
+    padding: 4rem;
+    min-height: 400px;
+  }
+
+</style>
 
 {% schema %}
 {

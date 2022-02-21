@@ -1,6 +1,6 @@
 {%- if section.settings.menu != blank -%}
-<div class="submenu">
-  {%- for link in section.settings.menu.links -%}
+  <div class="submenu">
+    {%- for link in section.settings.menu.links -%}
         <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu submenu list-menu--disclosure caption-large motion-reduce {%- if link.current %} active{% endif %}  submenu-{{ forloop.index }}" role="list" tabindex="-1">
           {%- for childlink in link.links -%}
             <li>
@@ -33,14 +33,31 @@
       {%- endfor -%}
     </div>
     {%- endif -%}
+    {%- include "megamenu-thumbnails" -%}
+
 
     <style type="text/css">
       .submenu li a.link {
-        color: rgba(18,18,18,1);
+        color: rgba(18,18,18,.75);
       }
-    </style>
+
+      .submenu li a.link:hover {
+          color: rgba(18,18,18,1) !important;
+          font-weight: 900 !important;
+      }
+      .submenu ul:not(.active) {
+        display: none;
+      }
+      .submenu ul.active {
+        display: block;
+      }
+      .submenu .link {
+        padding-bottom: 20px;
+      }
+      </style>
 
     <script type="text/javascript">
+    /*
       $(document).ready(function(){
         var ml = $('.header__inline-menu .menu').length;
         console.log("menus="+ml);
@@ -50,4 +67,5 @@
           console.log("submenu-"+i);
         }
       }); // document.ready
+      */
     </script>

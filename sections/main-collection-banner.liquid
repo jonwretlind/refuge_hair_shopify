@@ -5,7 +5,7 @@
     <div class="collection-hero__text-wrapper">
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
+        {{- section.settings.title | escape -}}
       </h1>
 
       {%- if section.settings.show_collection_description -%}
@@ -57,6 +57,12 @@
   "name": "Main Collection Banner",
   "class": "spaced-section spaced-section--full-width",
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Collection Title",
+      "label": "Collection Title"
+    },
     {
       "type": "paragraph",
       "content": "t:sections.main-collection-banner.settings.paragraph.content"

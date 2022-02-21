@@ -3,46 +3,54 @@
     "1644592036a919ca71": {
       "type": "collection-banner",
       "settings": {
-        "title": "Shop By Category",
+        "title": "Shop By Hair Type",
         "image": "shopify:\/\/shop_images\/HomeBanner_1ef20a56-93f3-4161-be36-c1e402f2f572.jpg",
         "image_height": "medium",
-        "adapt_height_first_image": false,
+        "adapt_height_first_image": true,
         "desktop_content_position": "middle-left",
-        "show_collection_description": true,
+        "show_collection_description": false,
         "show_collection_image": true
       }
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
       }
     },
     "16445934510eb8ba28": {
       "type": "collection-list",
       "blocks": {
-        "1644593451a627b525-0": {
+        "82feb9c0-12c2-408b-b074-2372b7f80af5": {
           "type": "featured_collection",
           "settings": {
-            "collection": "shampoo"
+            "collection": "hydrate-balance"
           }
         },
-        "63567b40-c486-4f7e-804a-05c3c81c2b72": {
+        "e3de1d70-7a13-483c-9585-89f8a1c03c02": {
           "type": "featured_collection",
           "settings": {
-            "collection": "mask"
+            "collection": "repair-protect"
           }
         },
-        "ddcd8445-4a93-420a-9630-dea86d712831": {
+        "65bf52d8-893e-4d0a-9830-516cf8442653": {
           "type": "featured_collection",
           "settings": {
-            "collection": "conditioner"
+            "collection": "nourish-grow"
+          }
+        },
+        "8d795c1c-6aec-497c-ae27-a014a7e1c9bc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "combination"
           }
         }
       },
       "block_order": [
-        "1644593451a627b525-0",
-        "63567b40-c486-4f7e-804a-05c3c81c2b72",
-        "ddcd8445-4a93-420a-9630-dea86d712831"
+        "82feb9c0-12c2-408b-b074-2372b7f80af5",
+        "e3de1d70-7a13-483c-9585-89f8a1c03c02",
+        "65bf52d8-893e-4d0a-9830-516cf8442653",
+        "8d795c1c-6aec-497c-ae27-a014a7e1c9bc"
       ],
       "settings": {
         "title": "",

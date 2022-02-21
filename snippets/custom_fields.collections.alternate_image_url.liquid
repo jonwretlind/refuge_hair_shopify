@@ -1,0 +1,8 @@
+{% if collection.metafields.custom_fields["alternate_image_url"] != blank %}
+  <div class="custom-field custom-field__alternate-image-url custom-field__type--url">
+    <h3 class="custom-field--title">Alternate_image_url</h3>
+    <div class="custom-field--value">
+      {{ collection.metafields.custom_fields["alternate_image_url"] }}
+    </div>
+  </div>
+{% endif %}
