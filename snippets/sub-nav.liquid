@@ -1,39 +1,49 @@
 {%- if section.settings.menu != blank -%}
   <div class="submenu">
-    {%- for link in section.settings.menu.links -%}
-        <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu submenu list-menu--disclosure caption-large motion-reduce {%- if link.current %} active{% endif %}  submenu-{{ forloop.index }}" role="list" tabindex="-1">
-          {%- for childlink in link.links -%}
-            <li>
-              {%- if childlink.links == blank -%}
-                <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                  {{ childlink.title | escape }}
-                </a>
-          {% comment %}
-              {%- else -%}\
-                <details id="Details-HeaderSubMenu-{{ forloop.index }}">
-                  <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
-                    {{ childlink.title | escape }}
-                  </summary>\
-                  <ul id="HeaderMenu-SubMenuList-{{ forloop.index }}" class="header__submenu list-menu motion-reduce">
-                    {%- for grandchildlink in childlink.links -%}
-                      <li>
-                        <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
-                          {{ grandchildlink.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
+    {% comment %} FOR AN ICON-DRIVEN MENU {% endcomment %}
+      {%- for link in section.settings.menu.links -%}
+        {%- if link.title == "SHOP BY HAIR TYPE" -%}
+          <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu submenu list-menu--disclosure caption-large motion-reduce {%- if link.current %} active{% endif %}  submenu-{{ forloop.index }} icon-menu" role="list" tabindex="-1">
+            {%- for childlink in link.links -%}
+              <li>
+                {%- if childlink.links == blank -%}
+                  <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                    <img
+                      srcset="{{ collection.featured_image | img_url: '165x' }}"
+                      src="{{ collection.featured_image | img_url: '165x' }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
+                      alt="{{ product.title | escape }}"
+                      height="auto"
+                      width="100%"
+                      loading="lazy"
+                      class="thumb-image"
+                      >
+                    <div>{{ childlink.title | escape }}</div>
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- else -%}
 
-                </details>
-          {% endcomment %}
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endfor -%}
-    </div>
+        {% comment %} FOR DEFAULT TEXT MENU {% endcomment %}
+            <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu submenu list-menu--disclosure caption-large motion-reduce {%- if link.current %} active{% endif %}  submenu-{{ forloop.index }} text-menu" role="list" tabindex="-1">
+              {%- for childlink in link.links -%}
+                <li>
+                  {%- if childlink.links == blank -%}
+                    <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                      {{ childlink.title | escape }}
+                      {%- assign menuType="text" -%}
+                    </a>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
     {%- endif -%}
-    {%- include "megamenu-thumbnails" -%}
+  {%- endfor -%}
+</div>
+{%- endif -%}
+{%- include "megamenu-thumbnails" -%}
 
 
     <style type="text/css">
@@ -54,18 +64,19 @@
       .submenu .link {
         padding-bottom: 20px;
       }
+      .submenu .icon-menu.active {
+          display: flex;
+          width: 90%;
+          justify-content: space-around;
+          flex-direction: row;
+      }
+      .icon-menu a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          align-content: center;
+      }
+      .icon-menu .thumb-image {
+        max-width: 160px;
+      }
       </style>
-
-    <script type="text/javascript">
-    /*
-      $(document).ready(function(){
-        var ml = $('.header__inline-menu .menu').length;
-        console.log("menus="+ml);
-
-        for (i=1; i < ml; i++) {
-          $('.submenu-'+i+':not(.active)').hide();
-          console.log("submenu-"+i);
-        }
-      }); // document.ready
-      */
-    </script>

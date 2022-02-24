@@ -24,43 +24,26 @@
   </div>
 </div>
 
-
-
-
-{% comment %}
-{%- for link in section.settings.menu.links -%}
-<div id="MegamenuThumbs{{ link.index }}" class="megathumb-{{ forloop.index }}">
-  <div class="thumbs">
-    {%- for childlink in link.links -%}
-      <div class="thumb thumb-{{ forloop.index }}">
-        <a href="#" class="thumb-link" />
-          <img src="{%- if collection.metafields.custom_fields['alternate_image'] != blank -%}{%- render 'cf-image' with image: collection.metafields.custom_fields['alternate_image'] -%}{%- else -%}https://cdn.shopify.com/s/files/1/2380/1623/files/Mark240x240.png?v=1620159759{%- endif -%}" class="thumb-image" />
-          <span>THUMB-{{ forloop.index }}</span>
-        </a>
-      </div>
-    {%- endfor -%}
-  </div>
-</div>
-{%- endfor -%}
-{% endcomment %}
-
-
 <style type="text/css">
-div[id*="MegamenuThumbs"] .thumbs {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    min-height: 100px;
-    width: 100%;
-    align-items: baseline;
-}
+  div[id*="MegamenuThumbs"] .thumbs {
+      margin: 2rem auto 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      min-height: 100px;
+      width: min-content;
+      grid-column-gap: 5rem;
+  }
   div[id*="MegamenuThumbs"] .thumb {
-    min-height: 100px;
-    display: block;
-    text-align: center;
-    font-size: 1rem;
+      min-height: 100px;
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
   div[id*="MegamenuThumbs"] .thumb-image {
-      max-width: 200px;
+      max-width: 160px;
       margin-bottom: 1rem;
       height: auto;
   }
@@ -72,6 +55,7 @@ div[id*="MegamenuThumbs"] .thumbs {
   }
   div[id*="MegamenuThumbs"] .thumb-link {
     margin-bottom: 1rem;
+    max-width: 160px;
   }
   div[id*="MegamenuThumbs"] .thumb-link:hover {
     font-weight: 900;

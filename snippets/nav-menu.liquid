@@ -7,16 +7,16 @@
             <details-disclosure>
               <details id="Details-HeaderMenu-{{ forloop.index }}">
                 <summary class="header__menu-item list-menu__item link focus-inset">
-                  <a href="{{ link.url }}" style="text-decoration: none;" class="menu-link menu-link-{{ forloop.index }} {% if link.levels >= 1 %}has-children{% else %}childless{% endif %}">
-                    <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                  <a href="{{ link.url }}" style="text-decoration: none;" class="menu-link menu-link-{{ forloop.index }} {% if link.levels >= 1 %}has-children{% endif %}">
+                    <span class="menu-link menu-link-{{ forloop.index }} {% if link.levels >= 1 %}has-children{% endif %}">{{ link.title | escape }}</span>
                   </a>
                 </summary>
               </details>
             </details-disclosure>
           {%- else -%}
-            <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
-              <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
-            </a>
+              <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link--text focus-inset menu-link no-sublinks"{% if link.current %} aria-current="page"{% endif %}>
+                <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+              </a>
           {%- endif -%}
         </li>
       {%- endfor -%}
@@ -25,7 +25,73 @@
   </nav>
 {%- endif -%}
 
+<script src="{{ 'megamenu.js' | asset_url }}"></script>
+
 <style type="text/css">
+
+  .list-menu .link--text,
+  .list-menu__item.link {
+      color: rgba(255,255,255,1);
+      font-weight: 400;
+      padding-bottom: 38px;
+      border-bottom: 2px solid rgba(18,18,18,0);
+      font-size: 1.1rem;
+  }
+  .list-menu__item.no-sublinks {
+    padding-bottom: 54px;
+  }
+  .shopify-section-header-sticky .list-menu .link--text,
+  .shopify-section-header-sticky .list-menu__item.link,
+  li.dark .list-menu .link--text,
+  li.dark .list-menu__item.link,
+  body.product-page .list-menu .link--text,
+  body.product-page .list-menu__item.link,
+  div#shopify-section-header.shopify-section-header-sticky .header .menu-link span,
+  .header:hover .menu-link span,
+  .header.active .menu-link span {
+      color: rgba(18,18,18,1);
+  }
+  .logo.link--text {
+      color: rgb(255,255,255);
+      padding-bottom: 38px;
+      border-bottom: 2px solid rgba(18,18,18,0);
+      padding-bottom: 36px;
+      position: relative;
+      top: 2px;
+  }
+  header.dark .logo.link--text,
+  body.product-page .logo.link--text
+   {
+     color: rgba(18,18,18,1) !important;
+  }
+
+  body.rewards .list-menu .link--text,
+  header.dark .list-menu .link--text {
+      color: rgba(18,18,18,1);
+  }
+  body.rewards .logo.link--text,
+  header.dark .logo.link--text {
+      color: rgba(18,18,18,1) !important;
+  }
+  .header:hover .link--text, .header.active .link--text,
+  .header:hover .list-menu__item.link, .header.active .list-menu__item.link {
+      color: rgb(18,18,18) !important;
+  }
+  .header:hover .link--text:not(.logo):hover,
+  .header.active .link--text:not(.logo):hover,
+  .header:hover .list-menu__item.link:hover,
+  .header.active .list-menu__item.link:hover
+   {
+      border-bottom: 2px solid rgba(18,18,18,1);
+  }
+  .header__menu-item:hover span, .header__menu-item.link--text:hover {
+    text-decoration: none;
+  }
+  .header:hover .header__menu-item:hover span,
+  .header:hover .header__menu-item.link--text:hover .header__active-menu-item,
+  header.dark .header__active-menu-item  {
+      color: rgba(18,18,18,.8);
+  }
 
   .list-menu {
     list-style: none;
@@ -62,6 +128,11 @@
     height: 40px;
     margin-bottom: -25px;
     display: inline-block;
+  }
+
+ .header .menu-link > span {
+      display: inline-block;
+      height: 0px;
   }
 
 </style>
