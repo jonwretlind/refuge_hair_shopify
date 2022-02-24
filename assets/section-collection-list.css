@@ -116,7 +116,7 @@
 }
 
 /* CUSTOM */
-/*
+
 .card-container {
   display: flex;
   flex-direction: row;
@@ -149,4 +149,3 @@ li.collection-list__item:nth-child(even)  .card-container{
 .link.card--media {
   border-bottom: unset;
 }
-*/

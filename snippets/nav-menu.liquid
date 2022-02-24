@@ -1,5 +1,5 @@
 {%- if section.settings.menu != blank -%}
-  <nav class="header__inline-menu">
+  <nav id="Nav" class="header__inline-menu">
     <ul class="list-menu list-menu--inline top-menu">
       {%- for link in section.settings.menu.links -%}
         <li class="menu menu-{{ forloop.index }} {%- if section.settings.color_scheme == 'dark'-%}dark{%- else -%}light{%- endif -%}">
@@ -24,7 +24,6 @@
 
   </nav>
 {%- endif -%}
-
 <script src="{{ 'megamenu.js' | asset_url }}"></script>
 
 <style type="text/css">

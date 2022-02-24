@@ -1,11 +1,11 @@
 <div id="MegamenuThumbs{{ tag.index }}" class="megathumb">
   <h3 class="megamenu-heading">SHOP FEATURED ITEMS</h3>
-  <div class="thumbs">
+  <div class="mega-thumbs">
   {%- for product in collections.all.products -%}
     {%- for tag in product.tags -%}
       {%- if tag contains "megamenu-featured" -%}
-          <div class="thumb">
-            <a href="#" class="thumb-link" />
+          <div class="mega-thumb">
+            <a href="{{ product.url }}" class="mega-thumb-link">
             <img
               srcset="{{ product.featured_image | img_url: '165x' }}"
               src="{{ product.featured_image | img_url: '165x' }}"
@@ -14,8 +14,9 @@
               height="{{ product.featured_image.height }}"
               width="{{ product.featured_image.width }}"
               loading="lazy"
-              class="thumb-image"
+              class="mega-thumb-image"
               >
+            </a>
               <span>{{ product.title }}</span>
           </div>
       {%- endif -%}
@@ -25,7 +26,8 @@
 </div>
 
 <style type="text/css">
-  div[id*="MegamenuThumbs"] .thumbs {
+
+  div[id*="MegamenuThumbs"] .mega-thumbs {
       margin: 2rem auto 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -33,7 +35,7 @@
       width: min-content;
       grid-column-gap: 5rem;
   }
-  div[id*="MegamenuThumbs"] .thumb {
+  div[id*="MegamenuThumbs"] .mega-thumb {
       min-height: 100px;
       display: block;
       text-align: center;
@@ -41,23 +43,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
   }
-  div[id*="MegamenuThumbs"] .thumb-image {
+  div[id*="MegamenuThumbs"] .mega-thumb-image {
       max-width: 160px;
       margin-bottom: 1rem;
       height: auto;
   }
-  .thumb-link {
+  div[id*="MegamenuThumbs"] .mega-thumb-link {
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  div[id*="MegamenuThumbs"] .thumb-link {
+  div[id*="MegamenuThumbs"] .mega-thumb-link {
     margin-bottom: 1rem;
     max-width: 160px;
   }
-  div[id*="MegamenuThumbs"] .thumb-link:hover {
+  div[id*="MegamenuThumbs"] .mega-thumb-link:hover {
     font-weight: 900;
     opacity: .8;
   }

@@ -51,11 +51,6 @@
       menuOff();
     });
 
-    function menuOn(target) {
-
-
-    }
-
     function menuOff() {
       header.removeClass('active');
       header.css({

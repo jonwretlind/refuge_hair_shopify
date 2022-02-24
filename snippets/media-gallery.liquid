@@ -91,63 +91,63 @@
       {%- include 'slider-pagination' -%}
 
       <style type="text/css">
-        .large-carousel .grid {
+        media-gallery[id^="MediaGallery-"] .large-carousel .grid {
           flex-wrap: nowrap;
         }
-        .large-carousel .product__media-item.grid__item {
+        media-gallery[id^="MediaGallery-"] .large-carousel .product__media-item.grid__item {
           width: 100%;
         }
-        .large-carousel {
+        media-gallery[id^="MediaGallery-"] .large-carousel {
           overflow: hidden;
           max-width: 800px;
           display: flex;
           margin-left: -10rem;
           align-items: center;
         }
-        .large-carousel .carousel-window {
+        media-gallery[id^="MediaGallery-"] .large-carousel .carousel-window {
           max-width: 600px;
           width: 100%;
           margin: 0 5rem;
         }
-        .icon-caret {
+        media-gallery[id^="MediaGallery-"] .icon-caret {
           position: relative;
           z-index: 2;
           width: 30px;
           height: fit-content;
         }
-        .icon-caret:hover {
+        media-gallery[id^="MediaGallery-"] .icon-caret:hover {
           opacity: .5;
           cursor: pointer;
         }
-        .icon-caret.right {
+        media-gallery[id^="MediaGallery-"] .icon-caret.right {
           transform: rotate(-90deg);
         }
-        .icon-caret.left {
+        media-gallery[id^="MediaGallery-"] .icon-caret.left {
           transform: rotate(90deg);
         }
-        .swiper-pagination {
+        media-gallery[id^="MediaGallery-"] .swiper-pagination {
           margin-top: 2rem;
         }
-        .swiper-pagination.flex {
+        media-gallery[id^="MediaGallery-"] .swiper-pagination.flex {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
           grid-gap: 20px;
         }
-        .swiper-pagination-bullet {
+        media-gallery[id^="MediaGallery-"] .swiper-pagination-bullet {
           border-top: 2px solid rgba(18,18,18,.2);
           height: 20px;
         }
-        .swiper-pagination-bullet:hover:not(.active) {
+        media-gallery[id^="MediaGallery-"] .swiper-pagination-bullet:hover:not(.active) {
           border-top: 2px solid rgba(18,18,18,.5);
           cursor: pointer;
         }
-        .swiper-pagination-bullet.active {
+        media-gallery[id^="MediaGallery-"] .swiper-pagination-bullet.active {
           border-top: 4px solid rgba(18,18,18,1);
         }
       </style>
   {%- endif -%}
 
-  {%- if section.settings.gallery_layout == 'thumnail' or section.settings.gallery_layout == 'thumbnail_slider' -%}
+  {%- if section.settings.gallery_layout == 'thumbnail' or section.settings.gallery_layout == 'thumbnail_slider' -%}
       {%- include "thumbnail-carousel" -%}
   {%- endif -%}
 </media-gallery>

@@ -211,3 +211,7 @@ body.mobile slider-component.home-slider .card-title {
     left: unset;
   }
 }
+
+.product-page a.menu-link:visited, .product-page a.menu-link span {
+  color: rgba(18,18,18,.75);
+}

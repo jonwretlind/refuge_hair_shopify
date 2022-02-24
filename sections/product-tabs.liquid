@@ -101,6 +101,9 @@
   #ProductTabs p {
     margin: 0;
   }
+  #ProductTabs accordion .wysiwyg {
+    color: rgba(18,18,18,1) !important;
+  }
   #ProductTabs accordion > div {
     padding: 1.5rem 0 .5rem 0;
     border-top: 1px solid silver;
@@ -167,6 +170,11 @@
       tabIdx = 1;
 
   $('accordion').addClass('collapse');
+  var accordions = $('accordion .wysiwyg');
+  for (i=0; i < accordions.length; i++) {
+    var accHeading = $(accordions.eq(i)).parent().attr('heading');
+    $(accordions.eq(i)).prepend("<span>" + accHeading + "</span>");
+  }
   $('accordion > div').click(function(event) {
     var t = $(event.target).parent();
     t.toggleClass("collapse");
