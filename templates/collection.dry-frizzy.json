@@ -3,7 +3,7 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "title": "New Arrivals",
+        "title": "Dry + Frizzy Hair",
         "show_collection_description": true,
         "show_collection_image": true
       }
@@ -11,15 +11,16 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 16,
+        "products_per_page": 8,
         "image_ratio": "adapt",
+        "layout": "ping_pong",
         "show_secondary_image": false,
         "add_image_padding": false,
-        "show_image_outline": true,
+        "show_image_outline": false,
         "show_vendor": false,
         "show_rating": false,
-        "enable_filtering": true,
-        "enable_sorting": true,
+        "enable_filtering": false,
+        "enable_sorting": false,
         "collapse_on_larger_devices": false
       }
     }

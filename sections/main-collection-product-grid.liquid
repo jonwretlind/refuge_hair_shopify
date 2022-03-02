@@ -12,12 +12,12 @@
   {{ 'component-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
   <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
-    {% comment %}
     {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
-    {% endcomment %}
   </div>
 {%- endif -%}
 
+{%- if section.settings.layout == 'product_card' -%}
+{% comment %} PRODUCT CARD LAYOUT {% endcomment %}
 <div id="ProductGridContainer">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- if collection.products.size == 0 -%}
@@ -34,9 +34,6 @@
       <div class="collection page-width">
         <div class="loading-overlay gradient"></div>
 
-        {% comment %}
-
-
         <ul id="product-grid" data-id="{{ section.id }}" class="
           grid grid--2-col negative-margin product-grid
           {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
@@ -46,7 +43,7 @@
 
           {%- for product in collection.products -%}
             <li class="grid__item">
-              {% render 'product-card',
+              {% render 'collection-product-card',
                 product_card_product: product,
                 media_size: section.settings.image_ratio,
                 show_secondary_image: section.settings.show_secondary_image,
@@ -64,11 +61,57 @@
         {%- if paginate.pages > 1 -%}
           {% render 'pagination', paginate: paginate, anchor: '' %}
         {%- endif -%}
-        {% endcomment %}
       </div>
     {%- endif -%}
   {%- endpaginate -%}
 </div>
+
+{%- else -%}
+{% comment %} PING-PONG LAYOUT {% endcomment %}
+<div id="ProductGridContainer" class="ping-pong">
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- if collection.products.size == 0 -%}
+      <div class="collection collection--empty full-width" id="product-grid" data-id="{{ section.id }}">
+        <div class="loading-overlay gradient"></div>
+        <div class="title-wrapper center">
+          <h3 class="title title--primary">
+            {{ 'sections.collection_template.empty' | t }}<br>
+            {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+          </h3>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="collection full-width">
+        <div class="loading-overlay gradient"></div>
+
+        <ul id="product-grid" data-id="{{ section.id }}" class="
+          grid ping-pong__full-width product-grid">
+          {%- for product in collection.products -%}
+            <li class="grid__item ping-pong__item">
+              {% render 'ping-pong-product-card',
+                product_card_product: product,
+                media_size: section.settings.image_ratio,
+                show_secondary_image: section.settings.show_secondary_image,
+                add_image_padding: section.settings.add_image_padding,
+                show_vendor: section.settings.show_vendor,
+                show_image_outline: section.settings.show_image_outline,
+                show_rating: section.settings.show_rating
+              %}
+            </li>
+          {%- endfor -%}
+        </ul>
+
+
+
+        {%- if paginate.pages > 1 -%}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+
+{%- endif -%}
 
 {% schema %}
 {
@@ -107,6 +150,22 @@
       ],
       "default": "adapt",
       "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "product_card",
+          "label": "Product Card Layout"
+        },
+        {
+          "value": "ping_pong",
+          "label": "Ping Pong Layout"
+        }
+      ],
+      "default": "product_card",
+      "label": "Product Card Layout"
     },
     {
       "type": "checkbox",

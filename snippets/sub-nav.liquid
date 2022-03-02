@@ -2,22 +2,13 @@
   <div class="submenu">
     {% comment %} FOR AN ICON-DRIVEN MENU {% endcomment %}
       {%- for link in section.settings.menu.links -%}
-        {%- if link.title == "SHOP BY HAIR TYPE" -%}
+        {%- if link.title == "SHOP CONCERNS" -%}
           <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu submenu list-menu--disclosure caption-large motion-reduce {%- if link.current %} active{% endif %}  submenu-{{ forloop.index }} icon-menu" role="list" tabindex="-1">
             {%- for childlink in link.links -%}
               <li>
                 {%- if childlink.links == blank -%}
                   <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                    <img
-                      srcset="{{ collection.featured_image | img_url: '165x' }}"
-                      src="{{ collection.featured_image | img_url: '165x' }}"
-                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 3 }}px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
-                      alt="{{ product.title | escape }}"
-                      height="auto"
-                      width="100%"
-                      loading="lazy"
-                      class="thumb-image"
-                      >
+                    <div style="width: 160px">{%- include 'icon-unavailable' -%}</div>
                     <div>{{ childlink.title | escape }}</div>
                   </a>
                 {%- endif -%}
@@ -79,4 +70,9 @@
       .submenu .icon-menu .thumb-image {
         max-width: 160px;
       }
+      .submenu .list-menu .link--text,
+      .submenu .list-menu__item.link {
+        font-size: 1rem;
+      }
+
       </style>

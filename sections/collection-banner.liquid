@@ -5,9 +5,8 @@
     <div class="collection-hero__text-wrapper">
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {%- if section.settings.title != blank -%}{{- section.settings.title | escape -}}{%- else -%}SHOP ALL{%- endif -%}
+        {%- if section.settings.title != blank -%}{{ section.settings.title | escape }}{%- else -%}SHOP ALL{%- endif -%}
       </h1>
-
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}

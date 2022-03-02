@@ -1,4 +1,4 @@
-/*.product-grid .grid__item {
+.product-grid .grid__item {
   padding-bottom: 2rem;
 }
 
@@ -18,10 +18,4 @@
   .product-grid.negative-margin--small {
     margin-bottom: calc(-1rem - var(--page-width-margin));
   }
-}
-*/
-
-
-#shopify-section-template--14417539530831__product-grid {
-  display: none;
 }
