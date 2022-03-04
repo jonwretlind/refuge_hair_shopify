@@ -211,6 +211,186 @@
       width: 100px;
   }
 
+  .list-menu .link--text,
+  .list-menu__item.link {
+      color: rgba(255,255,255,1);
+      font-weight: 400;
+      padding-bottom: 38px;
+      border-bottom: 2px solid rgba(18,18,18,0);
+      font-size: 1.1rem;
+  }
+  .list-menu__item.no-sublinks {
+    padding-bottom: 54px;
+  }
+  .shopify-section-header-sticky .list-menu .link--text,
+  .shopify-section-header-sticky .list-menu__item.link,
+  li.dark .list-menu .link--text,
+  li.dark .list-menu__item.link,
+  body.product-page .list-menu .link--text,
+  body.product-page .list-menu__item.link,
+  div#shopify-section-header.shopify-section-header-sticky .header .menu-link span,
+  .header:hover .menu-link span,
+  .header.active .menu-link span {
+      color: rgba(18,18,18,1);
+  }
+  .logo.link--text {
+      color: rgb(255,255,255);
+      padding-bottom: 38px;
+      border-bottom: 2px solid rgba(18,18,18,0);
+      padding-bottom: 36px;
+      position: relative;
+      top: 2px;
+  }
+  header.dark .logo.link--text,
+  body.product-page .logo.link--text
+   {
+     color: rgba(18,18,18,1) !important;
+  }
+
+  body.rewards .list-menu .link--text,
+  header.dark .list-menu .link--text {
+      color: rgba(18,18,18,1);
+  }
+  body.rewards .logo.link--text,
+  header.dark .logo.link--text {
+      color: rgba(18,18,18,1) !important;
+  }
+  .header:hover .link--text, .header.active .link--text,
+  .header:hover .list-menu__item.link, .header.active .list-menu__item.link {
+      color: rgb(18,18,18) !important;
+  }
+  .header:hover .link--text:not(.logo):hover,
+  .header.active .link--text:not(.logo):hover,
+  .header:hover .list-menu__item.link:hover,
+  .header.active .list-menu__item.link:hover
+   {
+      border-bottom: 2px solid rgba(18,18,18,1);
+  }
+  .header__menu-item:hover span, .header__menu-item.link--text:hover {
+    text-decoration: none;
+  }
+  .header:hover .header__menu-item:hover span,
+  .header:hover .header__menu-item.link--text:hover .header__active-menu-item,
+  header.dark .header__active-menu-item  {
+      color: rgba(18,18,18,.8);
+  }
+
+
+  /* ===============================
+         MOBILE OPTIMIZATIONS
+         USES: body.mobile
+         BREAKPOINT: 1100px
+     ===============================
+  */
+  body.mobile .announcement-bar__message {
+    margin: 0 auto !important;
+    font-size: 1rem;
+  }
+  body.mobile .shopify-section-header-sticky .header {
+      background-color: white;
+      border-bottom: 1px solid rgba(18,18,18,.75);
+  }
+  body.mobile .header__icon {
+      color: white;
+      border-bottom: unset;
+      height: 4.4rem;
+      width: 4.4rem;
+      top: 2px;
+      position: relative !important;
+  }
+  body.mobile #shopify-section-header {
+    position: fixed !important;
+  }
+  body.mobile #shopify-section-header.shopify-section-header-sticky .header__icon {
+    color: rgba(18,18,18,.75);
+  }
+  body.mobile .announcement-bar .header__icon {
+    color: white !important;
+    top: unset;
+    position: unset !important;
+  }
+  body.mobile #shopify-section-header:not(.shopify-section-header-sticky) .header {
+    border-bottom: 1px solid transparent !important;
+  }
+  body.mobile #shopify-section-header:not(.shopify-section-header-sticky) {
+      width: 100%;
+      margin-top: 30px;
+  }
+  body.mobile #shopify-section-header.shopify-section-header-sticky {
+      width: 100%;
+      margin-top: 0px;
+      border-bottom: 1px solid rgb(18,18,18) !important;
+  }
+  body.mobile #shopify-section-header.shopify-section-header-sticky.shopify-section-header-hidden {
+    margin-top: -40px;
+    transition: margin-top 0.25s ease;
+  }
+  body.mobile .header {
+      grid-template-areas: 'a1 a2 a3'
+                           'nav nav nav';
+      grid-template-columns: 20% 60% 20%;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+  }
+  body.mobile header-drawer {
+    display: block;
+    grid-area: a3;
+  }
+  body.mobile nav.header__inline-menu {
+    grid-area: nav;
+    display: none;
+  }
+  body.mobile .menu-drawer__inner-container {
+    background-color: rgb(255,255,255);
+  }
+  body.mobile .announcement-bar #Icons {
+    display: none;
+  }
+  body.mobile  .announcement-bar__message {
+    max-width: unset;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 0;
+  }
+  body.mobile .announcement-bar {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  body.mobile sticky-header .search-modal {
+    display: none;
+  }
+  body.mobile .header__heading, .header__heading-link {
+      grid-area: a2;
+      justify-self: center;
+  }
+  body.mobile .modal__content {
+      background: transparent;
+      top: 0px;
+      left: unset;
+      right: 10px;
+      width: var(--scale-element);
+  }
+  body.mobile .modal__content * {
+    transform: scale(.99);
+  }
+  body.mobile .logo.link--text {
+      padding-bottom: unset;
+      border-bottom: unset;
+      top: -5px;
+  }
+  body.mobile .link {
+    padding-left: 0;
+  }
+
+   body.mobile #Nav {
+     display: none;
+   }
+
 </style>
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
@@ -225,6 +405,7 @@
     <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
   </symbol>
 </svg>
+
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %} {% if section.settings.color_scheme == 'light' %}light{% else %}dark{% endif %}">
     {%- if section.settings.menu != blank -%}
@@ -248,14 +429,17 @@
       <h1 class="header__heading">
     {%- endif -%}
         <a href="{{ routes.root_url }}" class="logo header__heading-link link link--text focus-inset">
-            {%- render "logo.svg" -%}
+          {%- render "logo.svg" -%}
         </a>
     {%- if request.page_type == 'index' -%}
       </h1>
     {%- endif -%}
 
-        {% include 'nav-menu' %}
-        {% include 'search' %}
+
+      {% include 'nav-menu' %}
+      {% include 'search' %}
+
+
 
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>

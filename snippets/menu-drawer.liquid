@@ -1,6 +1,9 @@
 <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
   <div class="menu-drawer__inner-container">
     <div class="menu-drawer__navigation-container">
+      <div class="menu-drawer__heading">
+
+      </div>
       <nav class="menu-drawer__navigation">
         <ul class="menu-drawer__menu list-menu" role="list">
           {%- for link in section.settings.menu.links -%}
@@ -156,10 +159,26 @@
   </div>
 </div>
 
-{% style %}
+<style type="text/css">
 
   .menu-drawer-container {
     display: flex;
   }
+  .menu-drawer-container ul {
+    list-style-type: none;
+  }
+  .menu-drawer__navigation {
+      padding: 2rem 0;
+  }
+  .menu-drawer__navigation-container {
+    grid-template-rows: 20% 60% 20%;
+  }
+  .menu-drawer__utility-links {
+      margin-left: 20px;
+      padding-top: 0;
+  }
+  .menu-drawer__heading {
+      background-image: url('https://cdn.shopify.com/s/files/1/2380/1623/files/HomeBannerMobile_c787dc27-49f7-49e7-8b59-d9d3f61e20c8.jpg_165x?v=1623371786');
+  }
 
-{% endstyle %}
+</style>

@@ -73,84 +73,8 @@ body {
        BREAKPOINT: 1100px
    ===============================
 */
-body.mobile .announcement-bar__message {
-  margin: 0 auto !important;
-}
-body.mobile .shopify-section-header-sticky .header {
-    background-color: white;
-    border-bottom: 1px solid rgba(18,18,18,.75);
-}
-body.mobile .header__icon {
-    color: rgba(18,18,18, .75);
-    border-bottom: unset;
-    height: 4.4rem;
-    width: 4.4rem;
-    top: 2px;
-    position: relative !important;
-}
-body.mobile #shopify-section-header {
-  position: fixed !important;
-}
-body.mobile #shopify-section-header.shopify-section-header-sticky .header__icon {
-  color: rgba(18,18,18,.75);
-}
-body.mobile .announcement-bar__message {
-    font-size: 1rem;
-}
-body.mobile .announcement-bar .header__icon {
-  color: white !important;
-  top: unset;
-  position: unset !important;
-}
-body.mobile #shopify-section-header:not(.shopify-section-header-sticky) .header {
-  border-bottom: 1px solid transparent !important;
-}
-body.mobile #shopify-section-header:not(.shopify-section-header-sticky) {
-    width: 100%;
-    margin-top: 30px;
-}
-body.mobile #shopify-section-header.shopify-section-header-sticky {
-    width: 100%;
-    margin-top: 0px;
-    border-bottom: 1px solid rgb(18,18,18) !important;
-}
-body.mobile #shopify-section-header.shopify-section-header-sticky.shopify-section-header-hidden {
-  margin-top: -40px;
-  transition: margin-top 0.25s ease;
-}
-body.mobile .header {
-    grid-template-columns: 10% 90%;
-    justify-content: flex-start;
-    align-items: middle;
-}
-body.mobile header-drawer {
-  display: block;
-}
-body.mobile nav.header__inline-menu {
-  display: none;
-}
-body.mobile .menu-drawer__inner-container {
-  background-color: rgb(255,255,255);
-}
-body.mobile .header__heading, .header__heading-link {
-    grid-area: heading;
-    justify-self: flex-start;
-}
-body.mobile .modal__content {
-    background: transparent;
-    top: 0px;
-    left: unset;
-    right: 10px;
-    width: var(--scale-element);
-}
-body.mobile .modal__content * {
-  transform: scale(.99);
-}
-body.mobile .logo.link--text {
-    padding-bottom: unset;
-    border-bottom: unset;
-    top: -11px;
-}
+
+
 body.mobile .collection-hero--with-image .collection-hero__title {
     top: 18vh;
     left: unset;
