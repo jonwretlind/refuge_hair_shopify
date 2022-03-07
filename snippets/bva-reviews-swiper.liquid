@@ -72,6 +72,10 @@
             padding: unset;
             text-align: center;
         }
+        body.mobile #ReviewsSwiper {
+          overflow-x: scroll;
+          padding: 0 15%;
+        }
         #ReviewsSwiper .flex, #ReviewsSwiper .flex > figure {
             display: flex;
         }
@@ -104,9 +108,19 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
+        body.mobile .swiper-wrapper {
+            transform: translate3d(0px, 0px, 0px);
+            transition-duration: 0ms;
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+        }
         .fifty-quote__slide-inner {
           overflow: hidden;
           width: 100%;
+        }
+        body.mobile .fifty-quote__slide-inner {
+            min-width: 300px;
         }
         figcaption.fifty-quote__slide-caption {
           display: block;
@@ -133,14 +147,13 @@
     </style>
 
     <script type="text/javascript">
-    var reviews = () => {
-      jQuery(document).ready(function( $ ) {
+      jQuery(window).ready(function( $ ) {
         console.log('Reviews widget...');
-        var modelPic = $('#ModelPic').width();
-        console.log("Model Pic = "+modelPic);
-        $('.fifty-quote__slide').css("width", modelPic+"px");
+        if ( ! $('body#Desktop') ) {
+          var modelPic = $('#ModelPic').width();
+          console.log("Model Pic = "+modelPic);
+          $('.fifty-quote__slide').css("width", modelPic+"px");
+        }
       });
-    }
-    reviews();
 
     </script>

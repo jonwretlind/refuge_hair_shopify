@@ -102,7 +102,7 @@ body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
 }
 @media screen and ( max-width: 768px ) {
   body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
-      margin-top: -50%;
+      margin-top: -100%;
   }
 }
 body.mobile .banner__box {
@@ -127,7 +127,7 @@ body.mobile slider-component.home-slider .grid {
 }
 
 body.mobile slider-component.home-slider .card-title {
-  font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 @media screen and (max-width: 1100px) {
