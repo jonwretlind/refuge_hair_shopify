@@ -200,12 +200,28 @@
         $('body').attr("id", "Desktop");
       }) };
       if ( vh <= 700 ) { $('body').addClass('small-ht') } else { $('body').removeClass('small-ht') };
+      menuSwap();
     });
 
     jQuery(window).ready(function() {
       $('svg').css('visibility', 'visible');
-    })
+      menuSwap();
+    });
+
+    function menuSwap() {
+      if ($('body').hasClass('mobile')) {
+        console.log('Mobile');
+        $('#Nav, .header__search').detach();
+        $('#menu-drawer').appendTo('.menu-drawer-container');
+      } else {
+        console.log('Desktop');
+        $('#menu-drawer').detach();
+        $('#Nav, .header__search').appendTo('.header');
+      }
+    }
+
     </script>
     {% include 'subscription-theme-footer' %}
+
   </body>
 </html>

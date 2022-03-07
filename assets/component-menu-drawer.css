@@ -53,7 +53,9 @@ menu-drawer > details[open] > summary::before {
 .js details[open] > .menu-drawer,
 .js details[open] > .menu-drawer__submenu {
   transition: transform var(--duration-default) ease,
-    visibility var(--duration-default) ease;
+    visibility var(--duration-default) ease !important;
+    transform: translateX(0);
+    visibility: visible;
 }
 
 .no-js details[open] > .menu-drawer,
@@ -74,26 +76,44 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__inner-container {
-  position: relative;
-  height: 100%;
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 86% 14%;
+    background-color: #eadfda !important;
 }
 
 .menu-drawer__navigation-container {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  align-content: space-between;
-  overflow-y: auto;
-  height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: start;
+    overflow-y: auto;
+    height: 100%;
+    background-color: white;
 }
 
 .menu-drawer__navigation {
-  padding: 5.6rem 0;
+    padding: 2rem 2rem 0 2rem;
 }
 
 .menu-drawer__inner-submenu {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.menu-drawer__inner-submenu .list-menu .link--text,
+.menu-drawer__inner-submenu .list-menu__item.link {
+    color: rgba(255,255,255,1);
+    font-weight: 400 !important;
+    padding-bottom: 38px;
+    padding-left: 2rem;
+    border-bottom: 2px solid rgba(18,18,18,0);
+    font-size: 1rem;
+}
+
+details[open] .menu-drawer__inner-submenu > button {
+  display: none;
 }
 
 .no-js .menu-drawer__navigation {
@@ -164,7 +184,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .js .menu-drawer__submenu {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   bottom: 0;
@@ -203,18 +223,16 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__utility-links {
-  padding: 2rem;
-  background-color: rgba(var(--color-foreground), 0.03);
+    padding: 2rem;
 }
 
 .menu-drawer__account {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 1.2rem;
-  margin-left: -1.2rem;
-  font-size: 1.4rem;
-  color: rgb(var(--color-foreground));
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 0 3rem 0;
+    color: rgb(var(--color-foreground));
+    border-bottom: none;
 }
 
 .menu-drawer__account .icon-account {
@@ -239,4 +257,27 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer .list-social__link {
   padding: 1.3rem 1.25rem;
+}
+
+.menu-drawer-container {
+  display: flex;
+}
+.menu-drawer-container ul {
+  list-style-type: none;
+}
+.menu-drawer__navigation-container {
+    grid-template-rows: 20% 71%;
+}
+.menu-drawer__utility-links {
+    padding-top: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+.menu-drawer__utility-links a {
+  font-size: 1rem;
+}
+.menu-drawer__heading {
+    background-image: url('https://cdn.shopify.com/s/files/1/2380/1623/files/HomeBannerMobile_c787dc27-49f7-49e7-8b59-d9d3f61e20c8_165x.jpg?v=1623371786');
 }

@@ -58,6 +58,17 @@
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
+  .list-menu .link--text,
+  .list-menu__item.link {
+      color: rgba(255,255,255,1);
+      font-weight: 400;
+      padding-bottom: 38px;
+      border-bottom: 2px solid rgba(18,18,18,0);
+      font-size: 1.1rem;
+  }
+  .list-menu__item.no-sublinks {
+    padding-bottom: 54px;
+  }
   .menu-link {
     height: 40px;
     margin-bottom: -25px;
@@ -67,6 +78,20 @@
  .header .menu-link > span {
       display: inline-block;
       height: 0px;
+  }
+  /* ======= MOBILE ========== */
+  body.mobile .list-menu__item.no-sublinks {
+    padding-bottom: 74px;
+    padding-left: unset;
+  }
+  body.mobile .list-menu--inline {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+  }
+  body.mobile .list-menu .link--text,
+  body.mobile .list-menu__item.link {
+      font-weight: 700;
   }
 
 </style>
@@ -81,5 +106,5 @@
         });
       };
     });
-  });
+  });//document.ready
 </script>

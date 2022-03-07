@@ -37,6 +37,7 @@
   }
   .header__inline-menu {
       width: unset !important;
+      grid-area: a2;
   }
   .header__menu-item {
     padding: 1.2rem;
@@ -63,7 +64,13 @@
       margin-bottom: -10%;
       border-bottom: 1px solid transparent;
       padding-bottom: 0px;
+      display: grid;
+      grid-template-areas: 'a1 a2 a3';
+      grid-template-columns: auto auto 1fr;
+      align-items: center;
+    }
   }
+
   .header.page-width {
     max-width: unset;
   }
@@ -75,7 +82,7 @@
     background-color: white !important;
   }
   .header__heading {
-      height: 23px;
+      grid-area: a1;
   }
   .header__icon {
       color: rgba(255,255,255,1);
@@ -211,17 +218,6 @@
       width: 100px;
   }
 
-  .list-menu .link--text,
-  .list-menu__item.link {
-      color: rgba(255,255,255,1);
-      font-weight: 400;
-      padding-bottom: 38px;
-      border-bottom: 2px solid rgba(18,18,18,0);
-      font-size: 1.1rem;
-  }
-  .list-menu__item.no-sublinks {
-    padding-bottom: 54px;
-  }
   .shopify-section-header-sticky .list-menu .link--text,
   .shopify-section-header-sticky .list-menu__item.link,
   li.dark .list-menu .link--text,
@@ -234,12 +230,12 @@
       color: rgba(18,18,18,1);
   }
   .logo.link--text {
+      grid-area: a1;
+      justify-self: left;
       color: rgb(255,255,255);
-      padding-bottom: 38px;
       border-bottom: 2px solid rgba(18,18,18,0);
       padding-bottom: 36px;
       position: relative;
-      top: 2px;
   }
   header.dark .logo.link--text,
   body.product-page .logo.link--text
@@ -329,17 +325,15 @@
       grid-template-areas: 'a1 a2 a3'
                            'nav nav nav';
       grid-template-columns: 20% 60% 20%;
-      justify-content: center;
+      grid-template-rows: auto 0%;
       align-items: center;
       padding: 0;
   }
   body.mobile header-drawer {
     display: block;
     grid-area: a3;
-  }
-  body.mobile nav.header__inline-menu {
-    grid-area: nav;
-    display: none;
+    justify-self: right;
+    margin-right: 1.5rem;
   }
   body.mobile .menu-drawer__inner-container {
     background-color: rgb(255,255,255);
@@ -386,10 +380,6 @@
   body.mobile .link {
     padding-left: 0;
   }
-
-   body.mobile #Nav {
-     display: none;
-   }
 
 </style>
 
@@ -445,10 +435,9 @@
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
 
 {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
-
 {% include 'megamenu' %}
 
-{% javascript %}
+<script type='text/javascript'>
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
@@ -538,7 +527,8 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
-{% endjavascript %}
+
+</script>
 
 <script type="application/ld+json">
   {
