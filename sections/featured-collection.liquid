@@ -39,18 +39,57 @@
   {%- endif -%}
 </div>
 
+
+<style type="text/css">
+  h2.title, .title-wrapper-with-link { display: none; }
+  #shopify-section-template--14417539596367__featured_products.spaced-section {
+    margin-top: unset;
+  }
+  .shopify-section.spaced-section .price {
+    display: none;
+  }
+  .card-title {
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      font-weight: 700;
+      line-height: 2;
+      letter-spacing: .25em;
+      margin-bottom: -25%;
+      z-index: 2;
+      white-space: nowrap;
+      font-size: 2.2rem;
+  }
+  .card-title span {
+    font-size: 1rem;
+    letter-spacing: .05em;
+  }
+  body.mobile .card-title {
+    margin-bottom: -10%;
+    transform: scale(2.5);
+  }
+</style>
+
 {% comment %} MANIPULATE PRODUCT TITLE TEXT {% endcomment %}
 <script type="text/javascript" >
 
-  jQuery('.card-title').each(function() {
-    var val = jQuery(this).text();
-    var rep = val.replace("3-STEP HAIR CARE SYSTEM", "<span>3-STEP HAIR CARE SYSTEM</span>");
-    jQuery(this).html(rep);
-  });
+$(window).ready(function() { formatText(); });
+$(window).on('resize', function() { formatText(); });
 
-
-
-
+function formatText() {
+    $('.card-title').each(function() {
+      var scaling = $(window).width() / 1920;
+      var val = $(this).text();
+      var rep = val.replace("3-STEP HAIR CARE SYSTEM", "<span>3-STEP HAIR CARE SYSTEM</span>");
+      $(this).html(rep);
+      $('body#Desktop .card-title').css({
+        fontSize: 2.8*scaling + 'rem'
+      });
+      $('body#Desktop .card-title span').css({
+        fontSize: 1.5*scaling + 'rem'
+      });
+    });
+  }
 </script>
 
 {% schema %}
@@ -154,30 +193,3 @@
   ]
 }
 {% endschema %}
-
-{% style %}
-  h2.title, .title-wrapper-with-link { display: none; }
-  #shopify-section-template--14417539596367__featured_products.spaced-section {
-    margin-top: unset;
-  }
-  .shopify-section.spaced-section .price {
-    display: none;
-  }
-  .card-title {
-    position: relative;
-    display: flex;
-    flex-direction: column-reverse;
-    font-weight: 700;
-    line-height: 2;
-    font-size: 2.2rem;
-    letter-spacing: .25em;
-    margin-bottom: -80px;
-    padding-top: 20px;
-    z-index: 2;
-    white-space: nowrap;
-  }
-  .card-title span {
-    font-size: 1rem;
-    letter-spacing: .05em;
-  }
-{% endstyle %}

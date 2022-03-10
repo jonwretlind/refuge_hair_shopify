@@ -1,9 +1,13 @@
 {% assign tabs = product.metafields.custom_fields["tabs"] %}
 {% assign headline = product.metafields.custom_fields["tabs_headline"] %}
 
-
-<div id="ProductTabs" class="tabbed-section">
-  <tabs class="container" id="product-tabs">
+{%- if tabs != blank -%}
+<div id="ProductTabs" class="tabbed-section has-tabs">
+{%- else -%}
+<div id="ProductTabs" class="tabbed-section" style="background: #f6f5f2"> &nbsp;
+{%- endif -%}
+  {%- if tabs != blank -%}
+  <tabs class="container" id="product-tabs has-tabs">
       {%- if headline != blank -%}
         <div class="custom-field custom-field__tabs-headline custom-field__type--text">
           <div class="custom-field--value heading">
@@ -26,14 +30,17 @@
         </tab>
       {%- endfor -%}
   </tabs>
+  {%- endif -%}
 </div>
 
 <style type="text/css">
   #ProductTabs {
     width: 100%;
     background-color: rgb(246, 246,246);
-    margin: 0;
     padding: 5rem;
+  }
+  #ProductTabs:not(.has-tabs) {
+    margin: 0 0 4rem 0;
   }
   #ProductTabs tabs {
     display: block;

@@ -42,8 +42,12 @@
 
 <style type="text/css">
   #Steps {
-    padding: 20rem;
+    padding: 3rem;
     background-color: rgb(246, 246,246);
+    margin-bottom: 4rem;
+  }
+  body.mobile #Steps {
+    padding: 1rem;
   }
   #Steps .step-image {
     max-height: 600px;
@@ -51,6 +55,11 @@
   #Steps .container {
     width: 100%;
     display: flex;
+  }
+  body.mobile #Steps .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   #Steps .card {
     display: flex;
@@ -61,6 +70,9 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+  }
+  body.mobile #Steps .card .interior-container {
+    flex-direction: column;
   }
   #Steps .slide {
     overflow: hidden;
@@ -92,6 +104,10 @@
       flex-direction: column;
       align-items: center;
   }
+  body.mobile #Steps .step-pane {
+    flex-direction: row;
+    align-items: start;
+  }
   #Steps .slide.open .step-pane {
     margin-top: 3rem;
     animation-name: fade-in;
@@ -101,12 +117,26 @@
     margin-top: auto;
     margin-bottom: 3rem;
   }
+  body.mobile #Steps .slide.closed .step-copy {
+      opacity: 0;
+      display: none;
+  }
   #Steps .slide.closed .step-pane img {
     margin-top: 60px;
   }
+  body.mobile .field__image .custom-field--value,
+  body.mobile #Steps .step-image {
+    height: 50vh;
+  }
+  body.mobile #Steps .slide.closed .step-image {
+    display: none;
+  }
+  body.mobile .field__image .custom-field--value {
+    height: unset;
+  }
   #Steps .step-pane h3 {
-    font-size: 1.5rem;
-    padding-left: 10rem;
+    font-size: 1.1rem;
+    padding-left: 9rem;
   }
   #Steps .slide.closed h3 {
     transform: rotate(90deg);
@@ -117,8 +147,7 @@
     min-width: 150px;
   }
   #Steps .step-copy {
-    padding: 5rem;
-    margin-right: 10%;
+    padding: 5rem 2rem;
     align-self: flex-end;
   }
   #Steps .step-copy p {

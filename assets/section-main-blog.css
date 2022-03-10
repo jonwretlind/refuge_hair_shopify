@@ -1,6 +1,15 @@
+.main-blog {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+
 .blog-articles {
   display: grid;
   grid-gap: 1rem;
+}
+
+.article-card__excerpt {
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 750px) {

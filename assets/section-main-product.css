@@ -160,6 +160,10 @@
   min-width: fit-content;
   border: none;
 }
+body.mobile .product-form__input {
+  max-width: 100%;
+  min-width: unset;
+}
 
 variant-radios,
 variant-selects {

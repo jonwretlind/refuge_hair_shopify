@@ -275,8 +275,3 @@
   margin-left: 0.8rem;
   white-space: nowrap;
 }
-
-/* OVERRIDES */
-.multicolumn-card__info.reviews {
-  overflow: hidden;
-}

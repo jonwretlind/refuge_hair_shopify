@@ -2,10 +2,10 @@
   padding-bottom: 2rem;
 }
 
-.product-grid.negative-margin {
+body.collection .product-grid.negative-margin {
   margin-bottom: -2rem;
 }
-
+/*
 @media screen and (min-width: 750px) {
   .product-grid .grid__item {
     padding-bottom: calc(5rem + var(--page-width-margin));
@@ -19,3 +19,4 @@
     margin-bottom: calc(-1rem - var(--page-width-margin));
   }
 }
+*/

@@ -206,3 +206,7 @@ cart-items {
     gap: 1rem;
   }
 }
+
+svg {
+  visibility: visible;
+}

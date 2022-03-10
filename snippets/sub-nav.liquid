@@ -8,7 +8,8 @@
               <li>
                 {%- if childlink.links == blank -%}
                   <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                    <div style="width: 160px">{%- include 'icon-unavailable' -%}</div>
+                    <div style="width: 160px" class="lg-icon icon-{{ forloop.index }}">
+                    </div>
                     <div>{{ childlink.title | escape }}</div>
                   </a>
                 {%- endif -%}
@@ -76,3 +77,32 @@
       }
 
       </style>
+
+      <script type='text/javascript'>
+        $(window).ready(function() {
+          var iconsList = $('.lg-icon');
+          for (i=0; i < iconsList.length; i++) {
+            idx = i+1;
+            switch (idx) {
+              case 1:
+                var imgURL = "https://cdn.shopify.com/s/files/1/2380/1623/t/19/assets/6ccf381ce1bd--DRY-FRIZZY-SS-950.jpg?v=1646699417";
+                break;
+              case 2:
+                var imgURL = "https://cdn.shopify.com/s/files/1/2380/1623/t/19/assets/80305de5b4b7--FINE-THINING-SS-950.jpg?v=1646699450";
+                break;
+              case 3:
+                var imgURL = "https://cdn.shopify.com/s/files/1/2380/1623/t/19/assets/17f047ef1e4e--FRAGILE-DAMAGED-SS-950.jpg?v=1646699487";
+                break;
+              case 4:
+                var imgURL = "https://cdn.shopify.com/s/files/1/2380/1623/t/19/assets/d334d756d6c3--GROWTH-PROMOTION-SS-950.jpg?v=1646699510";
+                break;
+              case 5:
+                var imgURL = "https://cdn.shopify.com/s/files/1/2380/1623/t/19/assets/ae9347b30e8f--OVERPROCESSED-SS-950.jpg?v=1646699538";
+                break;
+            }
+            var htm = "<img src='" + imgURL + "' class='thumb-image' />"
+            $('.lg-icon.icon-'+idx).html(htm);
+          };
+
+        });
+      </script>

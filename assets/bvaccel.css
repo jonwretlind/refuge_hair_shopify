@@ -4459,3 +4459,71 @@ div.yotpo-pictures-widget .yotpo-pictures-gallery-header-wrapper span.yotpo-pict
   color: rgba(18,18,18,1);
   font-size: 1.1rem !important;
 }
+
+body.mobile #BVAFooter .container {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: unset;
+    width: 100vw;
+    margin-left: 0;
+    padding-top: 0;
+    padding-left: 20px;
+}
+
+body.mobile .footer__logo {
+    max-width: 200px;
+    align-self: center;
+    width: 200px;
+    margin: 0 auto;
+}
+
+body.mobile #BVAFooter .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.mobile .newsletter__form-text {
+  text-align: center
+}
+
+body.mobile .footer__linklist-link {
+  color: white;
+}
+
+body.mobile #BVAFooter .input--text {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    border: 0;
+    border-bottom: 1px solid #000;
+    width: 100%;
+}
+body.mobile #ProductTabs {
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+body.mobile #ProductTabs h3 {
+  line-height: 2.6rem;
+}
+body.mobile #ProductTabs .tab-labels {
+    display: flex;
+}
+body.mobile #ProductTabs .tab-btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+body.mobile #ProductTabs accordion.collapse .wysiwyg::before {
+    font-size: 3rem;
+    left: 81%;
+    margin-top: -0.9rem;
+}
+body.mobile #ProductTabs accordion > div {
+    font-size: 1.2rem;
+    padding-right: 10vw;
+}
+.footer__subfooter-inner p,
+.footer__subfooter-inner a,
+.footer__subfooter-inner li {
+    color: white;
+}

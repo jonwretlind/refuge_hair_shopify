@@ -154,9 +154,15 @@
       flex-direction: row;
       width: 100%;
   }
+  body.mobile .ping-pong__card .card__inner {
+    flex-direction: column-reverse;
+  }
   .ping-pong__item:nth-child(even) .ping-pong__card .card__inner {
       flex-direction: row-reverse;
       width: 100%;
+  }
+  body.mobile .ping-pong__item:nth-child(even) .ping-pong__card .card__inner {
+    flex-direction: column-reverse;
   }
   .ping-pong .grid__item {
       padding-left: unset;
@@ -167,11 +173,16 @@
   .ping-pong .card-info {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
       width: 60%;
       padding: 0 15%;
       text-align: left;
+  }
+  body.mobile .ping-pong .card-info {
+    width: 100%;
+  }
+  body.mobile .ping-pong .card__content.card-info {
+    margin: 2rem 0;
   }
   .ping-pong .media {
     position: relative;
@@ -192,5 +203,9 @@
   .ping-pong .media > *:not(.zoom):not(.deferred-media__poster-button) {
     display: inline-block;
     position: relative;
+  }
+  body.mobile .ping-pong .media,
+  body.mobile .ping-pong .ping-pong__item:nth-child(even) .media {
+    width: 100%;
   }
 </style>

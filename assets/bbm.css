@@ -67,6 +67,12 @@ body {
   margin-top: 150px;
 }
 
+.is-empty .cart__empty-text, .is-empty .cart__warnings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* ===============================
        MOBILE OPTIMIZATIONS
        USES: body.mobile
@@ -109,6 +115,7 @@ body.mobile .banner__box {
     padding: 4rem 5rem;
     max-width: 95%;
     min-width: 20rem;
+    top: 2rem;
 }
 body.mobile .banner__buttons {
     justify-content: center;
@@ -136,6 +143,19 @@ body.mobile slider-component.home-slider .card-title {
   }
 }
 
-.product-page a.menu-link:visited, .product-page a.menu-link span {
-  color: rgba(18,18,18,.75);
+body.page #MainContent {
+  margin-top: 15rem;
+  margin-bottom: 5rem;
+}
+
+body.mobile.article,
+body.mobile.blog
+{
+    color: rgba(18,18,18,0.7);
+}
+body.collection .collection-product-card {
+  margin-bottom: 1rem;
+}
+body.collection ul#product-grid {
+  margin-bottom: 5rem;
 }

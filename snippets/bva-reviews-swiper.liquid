@@ -1,7 +1,8 @@
 
 <div id="ReviewsSwiper" class="swiper-container swiper-container-initialized swiper-container-horizontal">
+  <button type="button" class="slider-button slider-button--prev left">{% render 'icon-caret' %}</button>
     <div class="swiper-wrapper">
-        <div  class="fifty-quote__slide swiper-slide swiper-slide-active" >
+        <div  class="fifty-quote__slide swiper-slide swiper-slide-active index-1" >
             <div  class="fifty-quote__slide-inner flex flex-column flex-align-center">
                 <a  href="/products/hydrate-balance" class="fifty-quote__slide-link">
                     <figure  class="fifty-quote__slide-image"><img  alt="HYDRATE + BALANCE 3-STEP HAIR CARE SYSTEM" data-src="//cdn.shopify.com/s/files/1/2380/1623/files/HBMenu400x400.png?v=1619636298" src="//cdn.shopify.com/s/files/1/2380/1623/files/HBMenu400x400.png?v=1619636298" lazy="loaded"></figure>
@@ -14,7 +15,7 @@
                 </figure>
             </div>
         </div>
-        <div  class="fifty-quote__slide swiper-slide swiper-slide-next" >
+        <div  class="fifty-quote__slide swiper-slide swiper-slide-next index-2" >
             <div  class="fifty-quote__slide-inner flex flex-column flex-align-center">
                 <a  href="/products/nourish-grow" class="fifty-quote__slide-link">
                     <figure  class="fifty-quote__slide-image"><img  alt="NOURISH + GROW 3-STEP HAIR CARE SYSTEM" data-src="//cdn.shopify.com/s/files/1/2380/1623/files/NGMenu400x400.png?v=1619636329" src="//cdn.shopify.com/s/files/1/2380/1623/files/NGMenu400x400.png?v=1619636329" lazy="loaded"></figure>
@@ -27,7 +28,7 @@
                 </figure>
             </div>
         </div>
-        <div  class="fifty-quote__slide swiper-slide" >
+        <div  class="fifty-quote__slide swiper-slide index-3" >
             <div  class="fifty-quote__slide-inner flex flex-column flex-align-center">
                 <a  href="/products/repair-protect" class="fifty-quote__slide-link">
                     <figure  class="fifty-quote__slide-image"><img  alt="REPAIR + PROTECT 3-STEP HAIR CARE SYSTEM" data-src="//cdn.shopify.com/s/files/1/2380/1623/files/RPMenu400x400.png?v=1619635910" src="//cdn.shopify.com/s/files/1/2380/1623/files/RPMenu400x400.png?v=1619635910" lazy="loaded"></figure>
@@ -40,7 +41,7 @@
                 </figure>
             </div>
         </div>
-        <div  class="fifty-quote__slide swiper-slide" >
+        <div  class="fifty-quote__slide swiper-slide index-4" >
             <div  class="fifty-quote__slide-inner flex flex-column flex-align-center">
                 <a  href="/products/nourish-grow" class="fifty-quote__slide-link">
                     <figure  class="fifty-quote__slide-image"><img  alt="NOURISH + GROW 3-STEP HAIR CARE SYSTEM" data-src="//cdn.shopify.com/s/files/1/2380/1623/files/NGMenu400x400.png?v=1619636329" src="//cdn.shopify.com/s/files/1/2380/1623/files/NGMenu400x400.png?v=1619636329" lazy="loaded"></figure>
@@ -53,7 +54,10 @@
                 </figure>
             </div>
         </div>
-    </div> <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+    <button type="button" class="slider-button slider-button--next right">{% render 'icon-caret' %}</button>
+  </div>
+  <div id="ReviewsPagination" class="product-gallery__pagination swiper-pagination flex flex-justify-center flex-align-end swiper-pagination-clickable swiper-pagination-bullets">
   </div>
 
 
@@ -64,6 +68,26 @@
         #ReviewsBlock .multicolumn-list.grid {
           display: flex;
         }
+        #ReviewsBlock p {
+          font-size: 1.3rem;
+          color: rgba(18,18,18,.7);
+        }
+        #ReviewsBlock a {
+          color: rgba(18,18,18,.7);
+          text-decoration: underline;
+        }
+        #ReviewsBlock a:hover {
+          color: rgba(18,18,18,1);
+          text-decoration: none;
+        }
+
+        #ReviewsSwiper {
+          display: grid;
+          grid-template-columns: 10% 80% 10%;
+        }
+        body.mobile #ReviewsSwiper {
+          width: 100vw;
+        }
 
         #ReviewsSwiper blockquote {
             font-style: unset;
@@ -72,9 +96,16 @@
             padding: unset;
             text-align: center;
         }
-        body.mobile #ReviewsSwiper {
-          overflow-x: scroll;
-          padding: 0 15%;
+        #ReviewsSwiper .slider-button {
+            align-self: center;
+            justify-self: center;
+        }
+        #ReviewsSwiper .slider-button .icon {
+          height: 30px;
+          opacity: .4;
+        }
+        #ReviewsSwiper .swiper-slide:not(.swiper-slide-active) {
+          display: none;
         }
         #ReviewsSwiper .flex, #ReviewsSwiper .flex > figure {
             display: flex;
@@ -105,23 +136,15 @@
         .swiper-wrapper {
             transform: translate3d(0px, 0px, 0px);
             transition-duration: 0ms;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-        body.mobile .swiper-wrapper {
-            transform: translate3d(0px, 0px, 0px);
-            transition-duration: 0ms;
-            display: flex;
-            flex-direction: row;
-            width: fit-content;
         }
         .fifty-quote__slide-inner {
           overflow: hidden;
           width: 100%;
         }
-        body.mobile .fifty-quote__slide-inner {
-            min-width: 300px;
+        body.mobile #ReviewsSwiper .swiper-slide {
+          width: 100% !important;
         }
+
         figcaption.fifty-quote__slide-caption {
           display: block;
           margin-top: -1em;
@@ -144,16 +167,130 @@
           justify-content: center;
           flex-direction: column;
         }
+        #ReviewsPagination {
+          margin: 1rem auto;
+          width: 100%;
+          display: flex;
+          position: absolute;
+          bottom: 0;
+        }
+        #ReviewsPagination .swiper-pagination-bullet {
+            border-top: 2px solid rgba(18,18,18,.4);
+            height: 20px;
+            width: 100%;
+            display: block;
+            margin: 0 5px;
+        }
+        #ReviewsPagination .swiper-pagination-bullet.active {
+            border-top: 4px solid rgba(18,18,18,.7);
+        }
+
+        body.mobile #ReviewsPagination {
+            margin: 1rem auto;
+            position: relative;
+            width: unset;
+            justify-content: center;
+        }
     </style>
 
     <script type="text/javascript">
       jQuery(window).ready(function( $ ) {
-        console.log('Reviews widget...');
-        if ( ! $('body#Desktop') ) {
-          var modelPic = $('#ModelPic').width();
-          console.log("Model Pic = "+modelPic);
+          var modelPic = ($('#ModelPic').width())-($('#ModelPic').width()*.2);
           $('.fifty-quote__slide').css("width", modelPic+"px");
-        }
-      });
 
+          var sliderArr = $('.swiper-slide');
+          var sliderLength = sliderArr.length;
+          var sliderIdx = 1;
+          $('.slider-button.right').on('click tap', function() {
+            sliderIdx ++;
+            if (sliderIdx > sliderLength) sliderIdx = 1;
+            newSlide(sliderArr, sliderIdx);
+          });
+          $('.slider-button.left').on('click tap', function() {
+            sliderIdx --;
+            if (sliderIdx < 0 ) sliderIdx = sliderLength;
+            newSlide(sliderArr, sliderIdx);
+          });
+
+
+
+          /* ======= PAGINATION ======= */
+            var winWd = $('.multicolumn-card__info').width();
+            var viewPort = $(window).width();
+            var ct = $('.fifty-quote__slide-figure').length;
+            var bulletWd = winWd / ct;
+            var pginWidth = $('#ReviewsPagination').width();
+            var revWidth = $('#ReviewsSwiper .swiper-wrapper').width();
+            for (i=1; i <= ct; i++) {
+              if ( i == 1 ) {
+                var bullet = "<span class='swiper-pagination-bullet active index-"+ i + "'></span>";
+              } else {
+                var bullet = "<span class='swiper-pagination-bullet index-"+ i + "'></span>";
+              }
+              $('.swiper-pagination-bullets').append(bullet);
+            }
+            console.log('Number of swiper bullets: ' + ct + ", Window Width: " + viewPort);
+            if ( viewPort > 768 ) {
+              console.log("not small mobile device");
+              $('.swiper-pagination').css({
+                maxWidth: revWidth+"px",
+                left: (revWidth / 2 - pginWidth / 6)
+              });
+            } else {
+              console.log("small mobile device");
+              $('.swiper-pagination').css({
+                marginLeft: "3rem",
+                marginRight: "3rem"
+              });
+            }
+            $('.swiper-pagination-bullet').css({
+              maxWidth: bulletWd+"px"
+            });
+
+            // Bullets
+            $('.swiper-pagination-bullet').click(function() {
+              removeActive(sliderArr, bullIdx);
+              var classList = $(this).attr("class").split(/\s+/);
+              var bullIdx = Number(classList[1].substr(-1, 1));
+              addActive(sliderArr, bullIdx)
+            });
+
+
+            // ======= TRANSITION FUNCTIONS =======
+            // Swipes todo
+            /*
+            $('body.mobile .product__media img').swipe(function() {
+              console.log("swipe detected");
+              removeActive();
+              changeSlide(this);
+              addActive();
+            });
+            */
+            function removeActive(sl, bullIdx) {
+              newSlide(sl, bullIdx);
+              chgBullet(bullIdx);
+            }
+            function addActive(sl, bullIdx) {
+              newSlide(sl, bullIdx);
+              chgBullet(bullIdx);
+            }
+            function chgBullet(bullIdx) {
+              console.log(bullIdx)
+              if (bullIdx < 1) bullIdx = sliderLength;
+              $('#ReviewsPagination .swiper-pagination-bullet').removeClass("active");
+              $('#ReviewsPagination .swiper-pagination-bullet.index-'+bullIdx).addClass("active");
+            }
+            function newSlide(sl, idx) {
+                sl.animate({
+                  opacity: 0
+                }, 500, function() {
+                  sl.removeClass('swiper-slide-active');
+                  sl.eq(idx-1).addClass('swiper-slide-active');
+                  sl.eq(idx-1).animate({
+                    opacity: 1
+                  }, 500)
+              });
+              chgBullet(idx);
+            };
+      });
     </script>

@@ -191,7 +191,7 @@ cite {
   font-style: unset;
 }
 a.menu-link:visited,
-a.menu-link span { color: white; }
+a.menu-link span { color: rgba(18,18,18,1); }
 
 @media screen and (min-width: 750px) {
   .page-width {
@@ -1162,6 +1162,10 @@ summary::-webkit-details-marker {
   height: 100%;
   width: 100%;
 }
+body.mobile .media > *:not(.zoom):not(.deferred-media__poster-button) {
+  object-fit: cover;
+  object-position: 65%;
+}
 
 .media > img {
   object-fit: cover;
@@ -2037,16 +2041,21 @@ input[type='checkbox'] {
 }
 
 .header__icon .icon {
-  height: 2rem;
-  width: 2rem;
+  height: 1.7rem;
+  width: 1.7rem;
   fill: none;
   vertical-align: middle;
 }
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 3.4rem;
+  width: 3.4rem;
+  top: 2px;
+}
+
+#shopify-section-announcement-bar .link {
+  border-bottom: unset;
 }
 
 .header__icon--cart {
