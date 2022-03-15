@@ -1,5 +1,6 @@
 {%- if cart != empty -%}
   {%- for item in cart.items -%}
+  console.log("item: " + item);
     <div id="cart-notification-product-{{ item.id }}" class="cart-item">
       {% if item.image %}
         <img class="cart-notification-product__image"

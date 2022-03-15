@@ -2,7 +2,15 @@
   <div id="Steps" class="custom-field custom-field__steps custom-field__type--field-collection-json {{ item['background_color'] }}">
     <div class="custom-field--value container">
       {% for item in product.metafields.custom_fields["steps"] %}
-        <div class="slide {% if forloop.first == true %}open{% else %}closed{% endif %}" style="background-color: {% if item['background_color']=='waterscape' %}#CCD5D3{% elsif item['background_color']=='watermist' %}#e3eeef{% elsif item['background_color']=='cream' %}#eadfda{% endif %};">
+        <div class="slide {% if forloop.first == true %}open{% else %}closed{% endif %}" style="background-color:
+          {% if item['background_color']=='waterscape' %}#abbab1
+          {% elsif item['background_color']=='watermist' %}#bcc4bd
+          {% elsif item['background_color']=='cream' %}#d8d8d4
+          {% elsif item['background_color']=='coralclay' %}#e0b19d
+          {% elsif item['background_color']=='rosybrown' %}#e0c0b1
+          {% elsif item['background_color']=='dryrock' %}#bcb8b5
+          {% elsif item['background_color']=='sepia' %}#bfbbac
+          {% endif %};">
           <div class="fc-item fc-index--{{ forloop.index0 }} card">
               <div class="interior-container">
                {% if item["copy"] != blank %}

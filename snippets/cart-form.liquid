@@ -1,0 +1,62 @@
+<form  method="post" action="/cart/add" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="novalidate" class="rc">
+    <!---->
+    {% form 'product', product, data-productid: product.id, class: productClasses %}
+    {% if product.available %}{% include 'subscription-product' %}{% endif %}
+    {% endform %}
+    <!---->
+</form>
+
+<style type="text/css">
+        .rc .rc-template {
+          font-size: 1.1rem;
+        }
+        .rc .rc-container {
+            margin-bottom: 0;
+        }
+        .rc .rc_widget__option__selector {
+            text-align: center;
+        }
+        .rc .rc-template__legacy-radio {
+            display: flex;
+            width: 100%;
+            border: 1px solid silver;
+            justify-content: center;
+            align-items: center;
+        }
+        body.mobile .rc .rc-template__legacy-radio {
+            flex-direction: column;
+        }
+
+        .rc-template__legacy-radio .rc .rc-radio {
+          margin: 0 auto;
+          margin-left: -5px;
+        }
+        body.mobile .rc .rc-template__legacy-radio .rc-radio {
+          margin-left: unset;
+        }
+        .rc .rc-template__legacy-radio > div:first-child {
+          border-right: 1px solid silver;
+          width: 50%;
+        }
+        body.mobile .rc .rc-template__legacy-radio > div{
+          border-right: unset;
+          width: 100%;
+        }
+        .rc div.rc_popup,
+        .rc .rc-option__price {
+          display: none;
+        }
+        .rc .rc-template__legacy-radio .rc-radio__input, .rc .rc-template__legacy-radio .rc-radio__label {
+          display: inline-block !important;
+        }
+        .rc .rc-widget .rc-option--active {
+            background-color: transparent;
+        }
+        body.mobile .rc .rc_widget__option__selector {
+            text-align: left;
+        }
+        .rc .rc-selling-plans__dropdown {
+            font-size: 1.1rem;
+            background-color: transparent;
+        }
+</style>
