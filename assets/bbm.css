@@ -64,7 +64,7 @@ body {
 
 /* === INELEGANT HACKS === */
 #shopify-section-template--14417539498063__cart-items {
-  margin-top: 150px;
+  /* margin-top: 150px; */
 }
 
 .is-empty .cart__empty-text, .is-empty .cart__warnings {

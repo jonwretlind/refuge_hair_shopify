@@ -19,6 +19,12 @@ header-drawer {
 body.cart #MainContent {
   margin-top: 15rem;
 }
+body.mobile.cart #MainContent {
+  margin-top: unset;
+  position: relative;
+  padding-top: 3;
+  z-index: 1;
+}
 .header {
   align-items: baseline;
 }
@@ -423,9 +429,6 @@ body.mobile.product-page {
 body.cart {
     color: rgba(18,18,18,.75);
 }
-body.mobile #shopify-section-header {
-  position: fixed !important;
-}
 body.mobile #shopify-section-header.shopify-section-header-sticky .header__icon {
   color: rgba(18,18,18,.75);
 }
@@ -439,7 +442,6 @@ body.mobile #shopify-section-header:not(.shopify-section-header-sticky) .header 
 }
 body.mobile #shopify-section-header:not(.shopify-section-header-sticky) {
     width: 100%;
-    margin-top: 30px;
 }
 body.mobile #shopify-section-header.shopify-section-header-sticky {
     width: 100%;

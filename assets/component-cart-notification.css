@@ -1,3 +1,15 @@
+cart-notification {
+  position: absolute;
+  z-index: 10;
+  right: -50px;
+  width: 25%;
+  top: 10px;
+}
+
+#cart-notification * {
+  font-size: 1rem;
+}
+
 .cart-notification-wrapper {
   position: relative;
 }
@@ -38,9 +50,10 @@
 }
 
 .cart-notification.active {
-  transform: translateY(0);
-  transition: transform var(--duration-default) ease, visibility 0s;
-  visibility: visible;
+    transform: translateY(0);
+    transition: transform var(--duration-default) ease,visibility 0s;
+    visibility: visible;
+    background-color: white;
 }
 
 .cart-notification__header {
@@ -72,7 +85,8 @@
 }
 
 .cart-notification__links > * {
-  margin-top: 1rem;
+    margin-top: 1rem;
+    display: flex;
 }
 
 .cart-notification-product {
