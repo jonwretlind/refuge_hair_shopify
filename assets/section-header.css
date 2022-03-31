@@ -115,6 +115,9 @@ body.mobile .contact-form {
 .header__icon {
     color: rgba(255,255,255,1);
 }
+body.mobile .header__icon {
+    color: rgba(18,18,18,1);
+}
 .header:hover .header__icon {
     color: rgba(18,18,18,1);
 }
@@ -139,18 +142,6 @@ div#shopify-section-header * {
   color: rgba(18,18,18,.75);
 }
 
-body.mobile .menu-drawer__heading .field__input {
-  color: white !important;
-}
-body.mobile div#shopify-section-header .color-background-1,
-body.mobile div#shopify-section-header .field__input,
-body.mobile div#shopify-section-header .field__label,
-body.mobile div#shopify-section-header .link--text:hover,
-body.mobile div#shopify-section-header .predictive-search__item.link--text,
-body.mobile div#shopify-section-header .search__button .icon
-{
-    color: rgb(255,255,255);
-}
 div#shopify-section-header .color-background-1,
 div#shopify-section-header .field__input,
 div#shopify-section-header .field__label,
@@ -206,6 +197,25 @@ div#shopify-section-header.shopify-section-header-sticky .link--text:hover,
 div#shopify-section-header.shopify-section-header-sticky .predictive-search__item.link--text,
 div#shopify-section-header.shopify-section-header-sticky .search__button .icon {
   color: rgba(18,18,18,0.5) !important;
+}
+
+body.mobile .menu-drawer__heading .field__input {
+  color: white !important;
+}
+body.mobile div#shopify-section-header .color-background-1,
+body.mobile div#shopify-section-header .field__input,
+body.mobile div#shopify-section-header .field__label,
+body.mobile div#shopify-section-header .predictive-search__item.link--text:hover,
+body.mobile div#shopify-section-header .predictive-search__item.link--text,
+body.mobile div#shopify-section-header .search__button .icon
+body.mobile div#shopify-section-header.shopify-section-header-sticky  .color-background-1,
+body.mobile div#shopify-section-header.shopify-section-header-sticky  .field__input,
+body.mobile div#shopify-section-header.shopify-section-header-sticky  .field__label,
+body.mobile div#shopify-section-header.shopify-section-header-sticky  .predictive-search__item.link--text:hover,
+body.mobile div#shopify-section-header.shopify-section-header-sticky  .predictive-search__item.link--text,
+body.mobile div#shopify-section-header.shopify-section-header-sticky  .search__button .icon
+{
+    color: rgb(255,255,255) !important;
 }
 
 body.product-page .search-modal .header:hover .search__button .icon,
@@ -352,12 +362,14 @@ div#shopify-section-header:not(.shopify-section-header-sticky) .header.active .m
     padding-bottom: 36px;
     position: relative;
 }
+
 header.dark .logo.link--text,
 body.product-page .logo.link--text,
 body.cart .logo.link--text,
 body.page .logo.link--text,
 body.article .logo.link--text,
-body.blog .logo.link--text
+body.blog .logo.link--text,
+body.mobile .logo.link--text
 {
    color: rgba(18,18,18,1) !important;
 }

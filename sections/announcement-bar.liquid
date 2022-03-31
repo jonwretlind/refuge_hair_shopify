@@ -38,6 +38,38 @@
   {%- endcase -%}
 {%- endfor -%}
 
+
+<style type="text/css">
+
+.announcement-bar {
+    background-color: black;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+  .announcement-bar__message {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    letter-spacing: 1.1px;
+    line-height: 1.27;
+    max-width: 1700px;
+    position: relative;
+    padding-left: unset !important;
+  }
+  #Message {
+    display: inline-block;
+  }
+
+  .header__icons {
+    margin: 0 0 0 auto;
+  }
+
+</style>
+
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
@@ -98,32 +130,3 @@
   }
 }
 {% endschema %}
-
-{% style %}
-.announcement-bar {
-    background-color: black;
-    border-bottom: none;
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
-}
-
-  .announcement-bar__message {
-    color: white;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    font-weight: bolder;
-    letter-spacing: 1.1px;
-    line-height: 1.27;
-    max-width: 1700px;
-    position: relative;
-    padding-left: unset !important;
-  }
-  #Message {
-    display: inline-block;
-  }
-
-  .header__icons {
-    margin: 0 0 0 auto;
-  }
-{% endstyle %}

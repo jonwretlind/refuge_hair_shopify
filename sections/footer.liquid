@@ -26,71 +26,15 @@
       </div>
       {%- include "alt-menu"-%}
       <div data-v-cad5eb62="" class="footer__social-container">
-        <p data-v-cad5eb62="" class="footer__social-title accent">
-          Connect With Us
-        </p>
-        <p data-v-cad5eb62="" class="footer__social-text footer__body-text">
-          Follow us on social to stay connected.
-        </p>
-        <ul data-v-cad5eb62="" class="u-list-inline footer__social-list">
-          <li data-v-cad5eb62="" class="footer__social-link">
-            <a
-              data-v-cad5eb62=""
-              target="_blank"
-              href="https://www.instagram.com/refugehair/"
-              aria-label="instagram"
-              ><svg
-                width="24px"
-                height="24px"
-                class="fill-brand-secondary icon icon--instagram"
-                data-v-cad5eb62=""
-                style="height: 24px; width: 24px;"
-              >
-                <use
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  xlink:href="#instagram"
-                ></use></svg
-            ></a>
-          </li>
-          <li data-v-cad5eb62="" class="footer__social-link">
-            <a
-              data-v-cad5eb62=""
-              target="_blank"
-              href="https://www.facebook.com/refugehair/"
-              aria-label="facebook"
-              ><svg
-                width="24px"
-                height="24px"
-                class="fill-brand-secondary icon icon--facebook"
-                data-v-cad5eb62=""
-                style="height: 24px; width: 24px;"
-              >
-                <use
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  xlink:href="#facebook"
-                ></use></svg
-            ></a>
-          </li>
-          <li data-v-cad5eb62="" class="footer__social-link">
-            <a
-              data-v-cad5eb62=""
-              target="_blank"
-              href="https://www.pinterest.com/refugehair/"
-              aria-label="pinterest"
-              ><svg
-                width="24px"
-                height="24px"
-                class="fill-brand-secondary icon icon--pinterest"
-                data-v-cad5eb62=""
-                style="height: 24px; width: 24px;"
-              >
-                <use
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  xlink:href="#pinterest"
-                ></use></svg
-            ></a>
-          </li>
-        </ul>
+        {%- if section.settings.show_social -%}
+          <p data-v-cad5eb62="" class="footer__social-title accent">
+            Connect With Us
+          </p>
+          <p data-v-cad5eb62="" class="footer__social-text footer__body-text">
+            Follow us on social to stay connected.
+          </p>
+          {%- include "social" -%}
+        {%- endif -%}
       </div>
       <div data-v-cad5eb62="" class="newsletter">
         <p data-v-cad5eb62="" class="newsletter__form-text footer__body-text">

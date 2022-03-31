@@ -1,0 +1,37 @@
+<div class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+    {%- liquid
+      if cart == empty
+        render 'icon-cart-empty'
+      else
+        render 'icon-cart'
+      endif
+    -%}
+    <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+    {%- if cart != empty -%}
+      <div class="cart-count-bubble">
+        {%- if cart.item_count < 100 -%}
+          <span aria-hidden="true">{{ cart.item_count }}</span>
+        {%- endif -%}
+        <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+      </div>
+    {%- endif -%}
+  </a>
+</div>
+
+<style type="text/css">
+  body.mobile #cart-icon-bubble .icon,
+  body.mobile #cart-icon-bubble {
+    height: unset;
+    width: unset;
+    top: unset;
+  }
+  body.mobile #cart-icon-bubble {
+      width: 4.3rem;
+      display: block;
+      margin-right: auto;
+      margin-top: -15px;
+  }
+  body.mobile sticky-header #cart-icon-bubble {
+      left: 10px;
+  }
+</style>

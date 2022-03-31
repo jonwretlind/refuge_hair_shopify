@@ -9,7 +9,12 @@
     "colors_background_2": "#F3F3F3",
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
+    "social_facebook_link": "https:\/\/www.facebook.com\/refugehair\/",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/refugehair\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/refugehair\/",
+    "social_tiktok_link": "https:\/\/tiktok.com\/@refugehair",
     "favicon": "shopify:\/\/shop_images\/Mark240x240.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Refuge_logo_lockup_5071d7ee-b41a-4263-83a4-b8edb1c54824.png",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -68,10 +73,10 @@
           "color_scheme": "background-1",
           "newsletter_enable": true,
           "newsletter_heading": "Subscribe to our emails",
-          "show_social": false,
-          "enable_country_selector": true,
-          "enable_language_selector": true,
-          "payment_enable": true
+          "show_social": true,
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": false
         }
       }
     },

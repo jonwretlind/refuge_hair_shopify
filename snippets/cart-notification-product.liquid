@@ -1,0 +1,186 @@
+{%- if cart != empty -%}
+  {%- for item in cart.items -%}
+    <div id="cart-notification-product-{{ item.id }}" class="cart-item">
+      {% if item.image %}
+        <img class="cart-notification-product__image"
+          src="{{ item.image | img_url: '140x' }}"
+          alt="{{ item.image.alt | escape }}"
+          width="70"
+          height="{{ 70 | divided_by: item.image.aspect_ratio | ceil }}"
+          loading="lazy"
+        >
+      {% endif %}
+      <div class="prod-info">
+          <div class="prod-info-wrapper">
+            <div class="prod-info-header">
+            <h3 class="cart-notification-product__name h4">{{ item.product.title | escape }}</h3>
+              <dl>
+                {%- unless item.product.has_only_default_variant -%}
+                  {%- for option in item.options_with_values -%}
+                    <div class="product-option">
+                      <dt>{{ option.name }}: </dt>
+                      <dd>{{ option.value }}</dd>
+                    </div>
+                  {%- endfor -%}
+                {%- endunless -%}
+                {%- for property in item.properties -%}
+                  {%- assign property_first_char = property.first | slice: 0 -%}
+                  {%- if property.last != blank and property_first_char != '_' -%}
+                    <div class="product-option">
+                      <dt>{{ property.first }}: </dt>
+                      <dd>
+                        {%- if property.last contains '/uploads/' -%}
+                          <a href="{{ property.last }}" class="link" target="_blank">
+                            {{ property.last | split: '/' | last }}
+                          </a>
+                        {%- else -%}
+                          {{ property.last }}
+                        {%- endif -%}
+                      </dd>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </dl>
+
+            {%- if item.selling_plan_allocation != nil -%}
+              <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+            {%- endif -%}
+
+            {%- if product.metafields.reviews.rating.value != blank -%}
+              {% liquid
+               assign rating_decimal = 0
+               assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+               if decimal >= 0.3 and decimal <= 0.7
+                assign rating_decimal = 0.5
+              elsif decimal > 0.7
+                assign rating_decimal = 1
+               endif
+              %}
+              <div class="rating" role="img" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}">
+                <span aria-hidden="true" class="rating-star color-icon-{{ settings.accent_icons }}" style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
+              </div>
+            {%- endif -%}
+
+            {% comment %} ----- REMOVE BUTTON ------ {% endcomment %}
+            <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+              <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}" onclick="return false;">
+                {% render 'icon-remove' %}
+              </a>
+            </cart-remove-button>
+
+          </div>
+
+          {% comment %} ----- QUANTITY SELECTOR ------ {% endcomment %}
+          <div class="prod-info-footer">
+            <div class="qty">
+              <div id="Mini" class="cart-item__quantity-wrapper">
+                <quantity-input class="quantity">
+                  <button class="quantity__button no-js-hidden minus" name="minus" type="button" onclick="addItem('minus'); return false;">
+                    <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                    {% render 'icon-minus' %}
+                  </button>
+                  <input class="quantity__input"
+                    type="number"
+                    name="updates[]"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                    id="Quantity-{{ item.index | plus: 1 }}"
+                    data-index="{{ item.index | plus: 1 }}"
+                  >
+                  <button class="quantity__button no-js-hidden plus" name="plus" type="button" onclick="clickItem('plus'); return false;">
+                    <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                    {% render 'icon-plus' %}
+                  </button>
+                </quantity-input>
+              </div>
+
+
+              <style type="text/css">
+
+                #Mini .cart-item__quantity-wrapper * {
+                  font-size: 0.8rem;
+                }
+                #Mini .quantity {
+                  border: none;
+                  height: 4.5rem;
+                  width: 30%;
+                  display: flex;
+                }
+                #Mini .quantity__button {
+                  width: 1rem;
+                }
+                #Mini .quantity__button svg {
+                  font-size: 0.7rem;
+                }
+              </style>
+
+              <script type="text/javascript">
+                jQuery(document).ready(function( $ ) {
+                  var val = Number($('.quantity__input').val());
+
+                  $('.quantity__button.plus').click(function() {
+                    val = val +  1;
+                    $('.quantity__input').val(val);
+                  });
+
+                  $('.quantity__button.minus').click(function() {
+                    val = val - 1;
+                    if ( val <= 1 ) val = 1;
+                    $('.quantity__input').val(val);
+                  });
+                });
+
+                function clickItem(ev) {
+                  alert(ev);
+                }
+
+                var cartCount = {{ cart.item_count }};
+                console.log("Cart Count: " + cartCount);
+
+                {% if cart.item_count != 0 %}
+                  $('.cart-count-bubble > span').text(cartCount);
+                {% endif %}
+
+                function addItem(form_id) {
+                 $.ajax({
+                    type: 'POST',
+                    url: '/cart/add.js',
+                    dataType: 'json',
+                    data: $('#'+form_id).serialize(),
+                    success: addToCartOk,
+                    error: addToCartFail
+                 });
+                }
+                function addToCartOk(product) {
+                   cartCount++;
+                   $('.cart-count-bubble > span').text(cartCount);
+                }
+                function addToCartFail(product) {
+                   //
+                }
+              </script>
+            </div>
+
+            <div class="price">
+              <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                {{ item.final_line_price | money }}
+              </div>
+              {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+                <div class="product__tax caption rte">
+                  {%- if shop.taxes_included -%}
+                    {{ 'products.product.include_taxes' | t }}
+                  {%- endif -%}
+                  {%- if shop.shipping_policy.body != blank -%}
+                    {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- endif -%}
+                </div>
+                {%- endif -%}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+{%- endif -%}

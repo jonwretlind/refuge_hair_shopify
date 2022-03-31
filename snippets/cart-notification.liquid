@@ -12,19 +12,55 @@
   <div class="cart-notification-wrapper page-width{% if color_scheme %} color-{{ color_scheme }}{% endif %}">
     <div id="cart-notification" class="cart-notification focus-inset" aria-modal="true" aria-label="{{ 'general.cart.item_added' | t }}" role="dialog" tabindex="-1">
       <div class="cart-notification__header">
-        <h2 class="cart-notification__heading caption-large text-body">{%- render 'icon-checkmark' -%} {{ 'general.cart.item_added' | t }}</h2>
         <button type="button" class="cart-notification__close modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
           <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="#icon-close"></svg>
         </button>
+        <h2 class="cart-notification__heading caption-large text-body">SHOPPING CART</h2>
       </div>
-      <div id="cart-notification-product" class="cart-notification-product"></div>
+      <div id="cart-notification-product" class="cart-notification-product">
+        {% render 'cart-notification-product' %}
+      </div>
+      <div id="cart-notification-subtotal">
+        <div class="sub">SUBTOTAL: </div>
+        <div class="tot">
+            {% render 'cart-notification-subtotals' %}
+        </div>
+      </div>
+      {% render 'cart-notification-note' %}
+
       <div class="cart-notification__links">
         <a href="{{ routes.cart_url }}" id="cart-notification-button" class="button button--secondary button--full-width"></a>
         <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
           <button class="button button--primary button--full-width" name="checkout">{{ 'sections.cart.checkout' | t }}</button>
         </form>
-        <button type="button" class="link button-label">{{ 'general.continue_shopping' | t }}</button>
+        {% comment %} <button type="button" class="link button-label">{{ 'general.continue_shopping' | t }}</button> {% endcomment %}
       </div>
     </div>
   </div>
 </cart-notification>
+
+<style type="text/css">
+  body.mobile .cart-notification {
+    background-color: #fff;
+  }
+</style>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#cart-notification .icon-close').css({ visibility: "hidden" });
+      $('.cart-notification-wrapper .modal__close-button').css({ display: 'none'});
+      $('.header__icon--cart').click(function() {
+        console.log("cart-notification toggled.");
+        $('.cart-notification').toggleClass('active');
+        $('#cart-notification .icon-close').css({ visibility: "visible" });
+        $('.cart-notification-wrapper .modal__close-button').css({ display: 'flex'});
+      });
+      $('.cart-notification__header').click(function() {
+        console.log("cart-notification closed.");
+        $('.cart-notification').removeClass('active');
+        $('#cart-notification .icon-close').css({ visibility: "hidden" });
+        $('.cart-notification-wrapper .modal__close-button').css({ display: 'none'});
+      });
+    })
+  </script>
