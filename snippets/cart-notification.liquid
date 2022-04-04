@@ -18,12 +18,34 @@
         <h2 class="cart-notification__heading caption-large text-body">SHOPPING CART</h2>
       </div>
       <div id="cart-notification-product" class="cart-notification-product">
-        {% render 'cart-notification-product' %}
+          {% comment %} PRODUCT {% endcomment %}
+          {%- render 'cart-notification-product' -%}
       </div>
       <div id="cart-notification-subtotal">
         <div class="sub">SUBTOTAL: </div>
         <div class="tot">
-            {% render 'cart-notification-subtotals' %}
+          {% comment %} SUBTOTALS {% endcomment %}
+
+                <div class="js-contents" {{ block.shopify_attributes }}>
+                  <div class="totals">
+                    <p class="totals__subtotal-value">{{ cart.total_price | money }}</p>
+                  </div>
+
+                  <div>
+                    {%- if cart.cart_level_discount_applications.size > 0 -%}
+                      <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                        {%- for discount in cart.cart_level_discount_applications -%}
+                          <li class="discounts__discount discounts__discount--end">
+                            {%- render 'icon-discount' -%}
+                            {{ discount.title }}
+                            (-{{ discount.total_allocated_amount | money }})
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </div>
+              </div>
+
         </div>
       </div>
       {% render 'cart-notification-note' %}
@@ -39,12 +61,26 @@
   </div>
 </cart-notification>
 
-<style type="text/css">
-  body.mobile .cart-notification {
-    background-color: #fff;
-  }
-</style>
-
+  <style type="text/css">
+    body.mobile .cart-notification {
+      background-color: #fff;
+    }
+    #Mini .cart-item__quantity-wrapper * {
+      font-size: 0.8rem;
+    }
+    #Mini .quantity {
+      border: none;
+      height: 4.5rem;
+      width: 30%;
+      display: flex;
+    }
+    #Mini .quantity__button {
+      width: 1rem;
+    }
+    #Mini .quantity__button svg {
+      font-size: 0.7rem;
+    }
+  </style>
 
   <script type="text/javascript">
     $(document).ready(function() {

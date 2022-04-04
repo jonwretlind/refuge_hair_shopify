@@ -164,9 +164,12 @@
         width: 95%;
         margin-left: 10px;
     }
-    .header__icon .icon-search, .modal__close-button {
+    body:not(.mobile) .header__icon .icon-search,
+    body:not(.mobile) .modal__close-button,
+    body:not(.mobile) .modal__close-button.link  {
         display: none;
     }
+
     .search-modal__content .search__input.field__input{
       box-shadow: unset;
     }

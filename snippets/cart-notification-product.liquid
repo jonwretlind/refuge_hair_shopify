@@ -1,3 +1,6 @@
+{% comment %} PRODUCT {% endcomment %}
+
+
 {%- if cart != empty -%}
   {%- for item in cart.items -%}
     <div id="cart-notification-product-{{ item.id }}" class="cart-item">
@@ -75,11 +78,11 @@
             <div class="qty">
               <div id="Mini" class="cart-item__quantity-wrapper">
                 <quantity-input class="quantity">
-                  <button class="quantity__button no-js-hidden minus" name="minus" type="button" onclick="addItem('minus'); return false;">
+                  <button class="quantity__button no-js-hidden minus" name="minus" type="button">
                     <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                     {% render 'icon-minus' %}
                   </button>
-                  <input class="quantity__input"
+                  <input class="quantity__input item-{{ item.index }}"
                     type="number"
                     name="updates[]"
                     value="{{ item.quantity }}"
@@ -88,78 +91,13 @@
                     id="Quantity-{{ item.index | plus: 1 }}"
                     data-index="{{ item.index | plus: 1 }}"
                   >
-                  <button class="quantity__button no-js-hidden plus" name="plus" type="button" onclick="clickItem('plus'); return false;">
+                  <button class="quantity__button no-js-hidden plus" name="plus" type="button" onclick="addItem({{ item.id }}, {{ item.index | plus: 1 }});">
                     <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                     {% render 'icon-plus' %}
                   </button>
                 </quantity-input>
               </div>
 
-
-              <style type="text/css">
-
-                #Mini .cart-item__quantity-wrapper * {
-                  font-size: 0.8rem;
-                }
-                #Mini .quantity {
-                  border: none;
-                  height: 4.5rem;
-                  width: 30%;
-                  display: flex;
-                }
-                #Mini .quantity__button {
-                  width: 1rem;
-                }
-                #Mini .quantity__button svg {
-                  font-size: 0.7rem;
-                }
-              </style>
-
-              <script type="text/javascript">
-                jQuery(document).ready(function( $ ) {
-                  var val = Number($('.quantity__input').val());
-
-                  $('.quantity__button.plus').click(function() {
-                    val = val +  1;
-                    $('.quantity__input').val(val);
-                  });
-
-                  $('.quantity__button.minus').click(function() {
-                    val = val - 1;
-                    if ( val <= 1 ) val = 1;
-                    $('.quantity__input').val(val);
-                  });
-                });
-
-                function clickItem(ev) {
-                  alert(ev);
-                }
-
-                var cartCount = {{ cart.item_count }};
-                console.log("Cart Count: " + cartCount);
-
-                {% if cart.item_count != 0 %}
-                  $('.cart-count-bubble > span').text(cartCount);
-                {% endif %}
-
-                function addItem(form_id) {
-                 $.ajax({
-                    type: 'POST',
-                    url: '/cart/add.js',
-                    dataType: 'json',
-                    data: $('#'+form_id).serialize(),
-                    success: addToCartOk,
-                    error: addToCartFail
-                 });
-                }
-                function addToCartOk(product) {
-                   cartCount++;
-                   $('.cart-count-bubble > span').text(cartCount);
-                }
-                function addToCartFail(product) {
-                   //
-                }
-              </script>
             </div>
 
             <div class="price">
@@ -184,3 +122,37 @@
     </div>
   {%- endfor -%}
 {%- endif -%}
+
+
+<script type="text/javascript">
+
+    // ADD / SUB PRODUCTS FROM CART
+
+      jQuery(document).ready(function( $ ) {
+        var val = Number($('.quantity__input').val());
+
+        $('.quantity__button.plus').click(function() {
+          val = val +  1;
+          $('.quantity__input').val(val);
+        });
+
+        $('.quantity__button.minus').click(function() {
+          val = val - 1;
+          if ( val <= 1 ) val = 1;
+          $('.quantity__input').val(val);
+        });
+      });
+
+      function addItem(id, qty) {
+            jQuery.post(window.Shopify.routes.root + 'cart/add.json', {
+            id: id,
+            quantity: qty,
+            dataType: 'json',
+            data: $('form[action="/cart/add"]').serialize()
+          }
+        );
+
+        $('.cart-count-bubble > span').text({{ cart.item_count }}+qty);
+        console.log(id, qty, 'Updated!', {{ cart.item_count }}+qty + " In Cart");
+      };
+</script>
