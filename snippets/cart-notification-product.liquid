@@ -78,11 +78,11 @@
             <div class="qty">
               <div id="Mini" class="cart-item__quantity-wrapper">
                 <quantity-input class="quantity">
-                  <button class="quantity__button no-js-hidden minus" name="minus" type="button">
+                  <button class="qtybtn-{{ item.index }} quantity__button no-js-hidden minus" name="minus" type="button">
                     <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                     {% render 'icon-minus' %}
                   </button>
-                  <input class="quantity__input item-{{ item.index }}"
+                  <input class="qtyinput-{{ item.index }} quantity__input item-{{ item.index }}"
                     type="number"
                     name="updates[]"
                     value="{{ item.quantity }}"
@@ -91,7 +91,7 @@
                     id="Quantity-{{ item.index | plus: 1 }}"
                     data-index="{{ item.index | plus: 1 }}"
                   >
-                  <button class="quantity__button no-js-hidden plus" name="plus" type="button" onclick="addItem({{ item.id }}, {{ item.index | plus: 1 }});">
+                  <button class="qtybtn-{{ item.index }} quantity__button no-js-hidden plus" name="plus" type="button" onclick="addItem({{ item.index }}, {{ item.id }}, {{ line_item.quantity | plus: 1 }});">
                     <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                     {% render 'icon-plus' %}
                   </button>
@@ -129,21 +129,27 @@
     // ADD / SUB PRODUCTS FROM CART
 
       jQuery(document).ready(function( $ ) {
-        var val = Number($('.quantity__input').val());
+        var val;
 
         $('.quantity__button.plus').click(function() {
-          val = val +  1;
-          $('.quantity__input').val(val);
+          var classList = $(this).attr("class").split(/\s+/);
+          var bullIdx = Number(classList[0].substr(-1, 1));
+          idx = bullIdx;
+          val = Number($('.qtyinput-' + idx).val()) + 1;
+          $('.qtyinput-' + idx).val(val);
         });
 
         $('.quantity__button.minus').click(function() {
-          val = val - 1;
+          var classList = $(this).attr("class").split(/\s+/);
+          var bullIdx = Number(classList[0].substr(-1, 1));
+          idx = bullIdx;
+          val = Number($('.qtyinput-' + idx).val()) - 1;
           if ( val <= 1 ) val = 1;
-          $('.quantity__input').val(val);
+          $('.qtyinput-' + idx).val(val);
         });
       });
 
-      function addItem(id, qty) {
+      function addItem(idx, id, qty) {
             jQuery.post(window.Shopify.routes.root + 'cart/add.json', {
             id: id,
             quantity: qty,
@@ -151,8 +157,8 @@
             data: $('form[action="/cart/add"]').serialize()
           }
         );
-
-        $('.cart-count-bubble > span').text({{ cart.item_count }}+qty);
-        console.log(id, qty, 'Updated!', {{ cart.item_count }}+qty + " In Cart");
+        var ct = Number($('.cart-count-bubble > span:first-child').text()) + qty;
+        $('.cart-count-bubble > span').text(ct);
+        console.log(idx, id, qty, 'Updated!', ct + " In Cart");
       };
 </script>
