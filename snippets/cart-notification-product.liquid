@@ -3,7 +3,7 @@
 
 {%- if cart != empty -%}
   {%- for item in cart.items -%}
-    <div id="cart-notification-product-{{ item.id }}" class="cart-item">
+    <div id="cart-notification-product-{{ item.id }}" class="item-{{ item.index }} cart-item">
       {% if item.image %}
         <img class="cart-notification-product__image"
           src="{{ item.image | img_url: '140x' }}"
@@ -66,7 +66,7 @@
 
             {% comment %} ----- REMOVE BUTTON ------ {% endcomment %}
             <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-              <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}" onclick="return false;">
+              <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}" onclick="updateItem({{ item.index }}, {{ item.id }}, {{ line_item.quantity | plus: 1 }}, 'rem' ); return false;">
                 {% render 'icon-remove' %}
               </a>
             </cart-remove-button>
@@ -78,7 +78,7 @@
             <div class="qty">
               <div id="Mini" class="cart-item__quantity-wrapper">
                 <quantity-input class="quantity">
-                  <button class="qtybtn-{{ item.index }} quantity__button no-js-hidden minus" name="minus" type="button">
+                  <button class="qtybtn-{{ item.index }} quantity__button no-js-hidden minus" name="minus" type="button" onclick="updateItem({{ item.index }}, {{ item.id }}, {{ line_item.quantity | plus: 1 }}, 'sub' )">
                     <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                     {% render 'icon-minus' %}
                   </button>
@@ -91,7 +91,7 @@
                     id="Quantity-{{ item.index | plus: 1 }}"
                     data-index="{{ item.index | plus: 1 }}"
                   >
-                  <button class="qtybtn-{{ item.index }} quantity__button no-js-hidden plus" name="plus" type="button" onclick="addItem({{ item.index }}, {{ item.id }}, {{ line_item.quantity | plus: 1 }});">
+                  <button class="qtybtn-{{ item.index }} quantity__button no-js-hidden plus" name="plus" type="button" onclick="updateItem({{ item.index }}, {{ item.id }}, {{ line_item.quantity | plus: 1 }}, 'add' )">
                     <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                     {% render 'icon-plus' %}
                   </button>
@@ -101,7 +101,7 @@
             </div>
 
             <div class="price">
-              <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+              <div class="itemprice-{{ item.index }} no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {{ item.final_line_price | money }}
               </div>
               {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -149,16 +149,41 @@
         });
       });
 
-      function addItem(idx, id, qty) {
-            jQuery.post(window.Shopify.routes.root + 'cart/add.json', {
-            id: id,
-            quantity: qty,
-            dataType: 'json',
-            data: $('form[action="/cart/add"]').serialize()
-          }
-        );
-        var ct = Number($('.cart-count-bubble > span:first-child').text()) + qty;
+      function updateItem(idx, id, qty, op) {
+
+        if (op == "add") {
+          //add
+          jQuery.post(window.Shopify.routes.root + 'cart/add.json', {
+            'id': id,
+            'quantity': qty,
+            'dataType': 'json',
+            'data': $('form[action="/cart/add"]').serialize()
+          });
+        } else if (op == "sub") {
+          //subtract
+          var val = Number($('.qtyinput-' + idx).val()) - 1;
+          jQuery.post(window.Shopify.routes.root + 'cart/change.json', {
+            'id': id,
+            'quantity': val,
+            'dataType': 'json',
+            'data': $('form[action="/cart/change"]').serialize()
+          });
+        } else {
+          //remove
+          jQuery.post(window.Shopify.routes.root + 'cart/change.json', {
+            'id': id,
+            'quantity': 0,
+            'dataType': 'json',
+            'data': $('form[action="/cart/change"]').serialize()
+          });
+        }
+
+        /*
         $('.cart-count-bubble > span').text(ct);
         console.log(idx, id, qty, 'Updated!', ct + " In Cart");
+        */
+
+        setTimeout(function() { window.location.reload(true); }, 500);
       };
+
 </script>
