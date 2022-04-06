@@ -1,5 +1,5 @@
 #MultiColumn {
-  margin-top: -2.8em;
+  margin-top: calc(var(--unit) * -5);
 }
 
 .multicolumn.title {
@@ -64,11 +64,11 @@
   .multicolumn.button {
     margin-top: 4rem;
   }
-}
 
+}
 .multicolumn-list {
-  margin-bottom: 0;
-  padding: 0;
+    margin-bottom: 0;
+    padding: 0 var(--unitSm);
 }
 
 .multicolumn-list__item:only-child {
@@ -126,9 +126,7 @@
 }
 
 .multicolumn-card-spacing {
-  /* padding-top: 2.5rem;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem; */
+    flex: 1;
 }
 
 .multicolumn-card__info > :nth-child(2) {

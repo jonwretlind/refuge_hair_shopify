@@ -97,8 +97,11 @@
 }
 
 .card__content {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  margin: auto;
+}
+
+body.mobile .card__content {
+    padding-top: var(--unitXL);
 }
 
 .card__content > * {

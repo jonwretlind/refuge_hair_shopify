@@ -18,6 +18,9 @@
     top: 140px;
     overflow: hidden;
   }
+  #Megamenu.active {
+    height: 300px !important;
+  }
   .shopify-section-header-sticky #Megamenu {
     top: 111px;
   }
@@ -28,6 +31,37 @@
       margin: 0 auto;
       padding-left: 10%;
   }
+
+  @media screen and (max-width: 1200px) {
+    #Megamenu.active {
+      height: 530px !important;
+    }
+    #Megamenu.active .wrapper {
+        display: grid;
+        grid-template-columns: unset;
+        grid-template-areas: "menu1 menu2"
+                             "tnails tnails";
+        max-width: 95%;
+        margin: 0 auto;
+        padding-left: 10%;
+    }
+    #Megamenu .alt-menu {
+      grid-area: menu1;
+    }
+    #Megamenu ul:not() .submenu{
+      grid-area: menu2;
+    }
+    #Megamenu .megathumb{
+      grid-area: tnails;
+      margin-top: var(--unit2XL);
+    }
+    #Megamenu ul:not(#HeaderMenu-MenuList-2) .megathumb{
+      grid-area: unset;
+      margin-top: var(--unit2XL);
+    }
+
+  }
+
   #Megamenu .wrapper.icons-menu {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;

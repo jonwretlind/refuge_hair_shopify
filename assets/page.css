@@ -11,6 +11,9 @@
 .banner__box .button--primary {
   color: rgba(255,255,255,1) !important;
 }
+body.mobile .banner__box .button--primary {
+    min-height: 4rem;
+}
 .banner__box .button--secondary {
   color: rgba(18,18,18, 1);
 }

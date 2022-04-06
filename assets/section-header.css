@@ -100,8 +100,10 @@ body.mobile .contact-form {
 }
 
 .header.page-width {
-  max-width: unset;
+  padding: 4rem var(--unit2XL) 0 var(--unit2XL);
 }
+
+
 .header:hover {
     background-color: rgba(255,255,255,1) !important;
     border-bottom: 1px solid rgba(18,18,18,.7);
@@ -124,7 +126,7 @@ body.mobile .header__icon {
 
 .field__label, .customer .field label {
     font-size: 1.2rem;
-    top: 2.4rem;
+    /* top: 2.4rem; */
     font-weight: 300;
 }
 .search-modal__content {
@@ -273,6 +275,7 @@ body.cart .search-modal .field__button .icon {
 div#shopify-section-header:not(.shopify-section-header-sticky) .header-wrapper.gradient {
   background-color: transparent;
 }
+
 .shopify-section-header-sticky {
   top: 30px;
   z-index: 6;
@@ -283,12 +286,20 @@ sticky-header:not(.shopify-section-header-sticky) {
 .shopify-section-header-sticky .header {
   background-color: transparent;
 }
+
 div#shopify-section-header:not(.shopify-section-header-sticky) .header:not(.active) {
   background-color: transparent !important;
 }
+
+div#shopify-section-header.dark:not(.shopify-section-header-sticky) .header:not(.active) {
+  background-color: rgba(18,18,18,.8) !important;
+}
+
 body.article div#shopify-section-header:not(.shopify-section-header-sticky) .header:not(.active){
     background-color: rgba(255,255,255,0.5) !important;
 }
+
+
 div#shopify-section-header:not(.shopify-section-header-sticky) .header:not(.active):hover
 {
   background-color: white !important;

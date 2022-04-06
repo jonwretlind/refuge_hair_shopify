@@ -108,7 +108,7 @@ body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
 }
 @media screen and ( max-width: 768px ) {
   body.mobile .banner--mobile-bottom:not(.banner--stacked) .banner__content {
-      margin-top: -100%;
+      margin-top: -195%;
   }
 }
 body.mobile .banner__box {

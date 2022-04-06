@@ -15,6 +15,11 @@
   display: flex;
 }
 
+body.mobile #cart-notification:not(.active) .cart-item__quantity-wrapper,
+body.mobile #cart-notification:not(.active) .cart-item cart-remove-button  {
+  display: none;
+}
+
 .cart-item__totals {
   position: relative;
 }

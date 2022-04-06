@@ -52,4 +52,24 @@ body.mobile .swipe-view li {
     flex:0 0 360px;
     scroll-snap-align: start;
 }
+.home-slider > .product-grid .grid__item {
+    flex: 1;
+}
+body.mobile .home-slider > .product-grid .grid__item {
+    flex: 0 0 360px;
+}
+.home-slider .media {
+    position: unset;
+}
+.home-slider .media--portrait {
+    padding-bottom: 100%;
+}
+.home-slider .standard-btn {
+    position: relative;
+    z-index: 2;
+    top: calc(var(--unit) *  -1);
+}
+.home-slider .featured_card_title {
+    padding-top: var(--unitSm);
+}
 </style>

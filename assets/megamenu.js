@@ -18,11 +18,10 @@
         });
         megaMenu.animate({
           transition: "height 1s ease",
-          height: "300px",
           padding: "20px 50px",
         }, .5, function() {
           wrapper.css('display', 'grid');
-        });
+        }).addClass('active');
       } else {
         menuOff();
       }
@@ -65,7 +64,7 @@
         padding: "0px 50px"
       }, .5, function() {
         wrapper.css('display', 'none');
-      });
+      }).removeClass('active');
     };
 
     function removeActive() {

@@ -80,14 +80,14 @@ body.mobile .cart-notification.active {
     visibility: visible;
     background-color: #fff;
     z-index: 10;
-    max-width: unset;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     transition: transform var(--duration-short) ease,
       visibility 0.5s var(--duration-short) ease;
+    left: 0;
 }
-
 .cart-notification.animate {
   transition: transform var(--duration-short) ease,
     visibility 0s var(--duration-short) ease;
