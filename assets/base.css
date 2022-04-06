@@ -998,7 +998,8 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 750px) {
   .grid__item {
-      padding-left: var(--unitLg);
+      padding-left: var(--unit);
+      padding-right: var(--unit);
       padding-bottom: var(--unit);
       width: calc(25% - var(--unit) * 3 / 4);
       max-width: 50%;
@@ -1006,6 +1007,10 @@ summary::-webkit-details-marker {
   }
   .grid__item:first-child {
     padding-left: 0;
+  }
+  body.collection .grid__item:first-child {
+    padding-left: var(--unit);
+    padding-right: var(--unit);
   }
 }
 
@@ -1023,13 +1028,19 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .grid--one-third-max.grid--3-col-tablet .grid__item {
-    max-width: 33.33%;
-  }
+    max-width: 33%;
+    flex: 1;
+    flex-grow: inherit;
+    flex-basis: max-content;  }
 }
 
 @media screen and (min-width: 990px) {
   .grid--quarter-max.grid--4-col-desktop .grid__item {
-    max-width: 25%;
+      flex: 1;
+      flex-grow: inherit;
+      flex-basis: max-content;
+      display: flex;
+      max-width: 33%;
   }
 }
 
@@ -1058,7 +1069,7 @@ summary::-webkit-details-marker {
   }
 
   .grid--4-col-tablet .grid__item {
-    width: calc(25% - var(--unit) * 3 / 4);
+    width: calc(33% - var(--unit) * 3 / 4);
   }
 
   .grid--3-col-tablet .grid__item {
@@ -1072,7 +1083,7 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 990px) {
   .grid--4-col-desktop .grid__item {
-    width: calc(25% - var(--unit) * 3 / 4);
+    width: calc(33% - var(--unit) * 3 / 4);
   }
 
   .grid--3-col-desktop .grid__item {
@@ -1158,6 +1169,10 @@ summary::-webkit-details-marker {
     position: relative;
     overflow: hidden;
     height: 100%;
+}
+body.collection .collection-product-card .media {
+    position: unset;
+    min-height: 350px;
 }
 
 .media--transparent {

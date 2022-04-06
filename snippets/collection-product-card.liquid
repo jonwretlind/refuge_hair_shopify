@@ -164,26 +164,31 @@
     z-index: 2;
     top: 0rem;
     width: 100%;
+    margin-bottom: var(--unitXL); 
   }
   .collection-product-card .standard-btn-label {
     margin: 0 auto;
     padding: 0.1rem 3rem .1rem;
-    min-height: 2.5rem;
+    min-height: 40px;
   }
-  .collection-product-card .card__content {
-      background-color: #F2F2F2;
+  body.collection .collection-product-card .card__content {
+    background-color: #CDD5D3;
+    padding: var(--unit);
       width: 100%;
       margin: unset;
       height: 6rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 1;
+      position: relative;
   }
   .collection-product-card .featured_card_title {
     text-align: center;
   }
   .collection-product-card .card .media {
-    padding: 3rem 0;
+    /*padding: 3rem 0;*/
+
   }
   .collection-product-card .card .media > img {
     object-fit: cover;
