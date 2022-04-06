@@ -152,6 +152,7 @@ div#shopify-section-header .predictive-search__item.link--text,
 div#shopify-section-header .search__button .icon
 {
     color: rgb(255,255,255);
+  	border: none;
 }
 body:not(.mobile) div#shopify-section-header .header:hover .color-background-1,
 body:not(.mobile) div#shopify-section-header .header:hover .field__input,
@@ -372,6 +373,7 @@ div#shopify-section-header:not(.shopify-section-header-sticky) .header.active .m
     border-bottom: 2px solid rgba(18,18,18,0);
     padding-bottom: 36px;
     position: relative;
+    top: 5px;
 }
 
 header.dark .logo.link--text,
