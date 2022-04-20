@@ -18,11 +18,20 @@
                   <h3>STEP</h3>
                   <div class="number">
                     {% if forloop.index == 1 %}
-                    <img src="https://cdn.shopify.com/s/files/1/2380/1623/t/22/assets/one.png?v=8370369740517163423" />
+                    <img src="https://cdn.shopify.com/s/files/1/2380/1623/t/22/assets/one.png?v=8370369740517163423"/>
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret right step-1" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                    </svg>
                     {% elsif forloop.index == 2 %}
                     <img src="https://cdn.shopify.com/s/files/1/2380/1623/t/22/assets/two.png?v=10915717322054849032" />
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret right step-2" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                    </svg>
                     {% elsif forloop.index == 3 %}
                     <img src="https://cdn.shopify.com/s/files/1/2380/1623/t/22/assets/three.png?v=4138632505702058250" />
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret right step-3" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                    </svg>
                     {% endif %}
                   </div>
                 </div>
@@ -33,7 +42,7 @@
                  </div>
                {% endif %}
                {% if item["image"] != blank %}
-                 <div class="fc-field field__image field-type--image">
+                 <div class="fc-field field__image field-type--image image-col">
                    <div class="custom-field--value">
                      <img src='{{ item["image"] }}' class='step-image' alt='{{ item["alt_text"] }}'/>
                    </div>
@@ -132,6 +141,11 @@
   #Steps .slide.closed .step-pane img {
     margin-top: 60px;
   }
+  #Steps .image-col {
+      margin-top: 0;
+      margin-bottom: -10px;
+      margin-left: auto;
+  }
   body.mobile .field__image .custom-field--value,
   body.mobile #Steps .step-image {
     height: 50vh;
@@ -162,7 +176,7 @@
     margin: 0;
     font-size: 1.3rem !important;
     position: static;
-    min-width: 205px;
+    width: 215px;
   }
   #Steps .slide.open .step-copy {
     opacity: 1;
@@ -200,6 +214,34 @@
     }
   }
 
+  #Steps .number {
+    display: flex;
+  }
+  #Steps .number .icon.right {
+    width: 20px;
+    transform: rotate(-90deg);
+    margin-left: 10px;
+    opacity: .5;
+    margin-top: 40px;
+  }
+  #Steps .number:hover .icon.right {
+    opacity: 1;
+  }
+  #Steps .open .number .icon.right {
+    width: 30px;
+    transform: rotate(-90deg);
+    margin-top: unset;
+    visibility: hidden !important;
+  }
+  #Steps .closed + .closed .number .icon.step-2 {
+    transform: rotate(-90deg);
+  }
+  #Steps .closed .number .icon.step-2 {
+    transform: rotate(90deg);
+  }
+  #Steps .closed .number .icon.step-3 {
+    transform: rotate(90deg);
+  }
 </style>
 
 <script type="text/javascript">

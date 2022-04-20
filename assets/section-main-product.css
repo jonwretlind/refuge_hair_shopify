@@ -16,7 +16,7 @@
   padding-bottom: 0;
 }
 .product-section {
-  background-color: #ccd5d3;
+  background-color: #F6F5F2;
 }
 
 @media screen and (max-width: 749px) {
@@ -157,14 +157,18 @@
   padding: 0;
   margin: 0 0 1.2rem 0;
   max-width: unset;
-  min-width: fit-content;
   border: none;
 }
 body.mobile .product-form__input {
   max-width: 100%;
   min-width: unset;
 }
-
+body.product .rc-option__text {
+  font-size: .9rem;
+}
+body.product .rc-radio__label {
+    margin-left: unset;
+}
 variant-radios,
 variant-selects {
   display: block;

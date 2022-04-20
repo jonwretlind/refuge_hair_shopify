@@ -73,16 +73,8 @@
           endif
         -%}
 
-        <div{% if add_image_padding %} class="card__media-full-spacer"{% endif %}>
-        <div class="card__content">
-          <h2 class="featured_card_title card__text h3">
-            <a href="{{ product_card_product.url | default: '#' }}" class="full-unstyled-link card-title">
-              {{ product_card_product.title }}
-            </a>
-          </h2>
-        </div>
-
          {% comment %} PRODUCT IMAGE {% endcomment %}
+         <a href="{{ product_card_product.url | default: '#' }}" class="">
           <div class="media media--transparent media--{{ media_size }} media--hover-effect"
             {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
           >
@@ -122,37 +114,66 @@
               >
             {%- endif -%}
           </div>
+        </a>
 
-          <div class="standard-btn center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
-            <a href="{{ product_card_product.url | default: '#' }}"
-              class="standard-btn-label button"
-              aria-label="{{ product_card_product.title }}"
-            >
-            {{ 'sections.featured_collection.view_all_label' | t }}
-            </a>
+          <div{% if add_image_padding %} class="card__media-full-spacer"{% endif %}>
+          <div class="card__content">
+            <h2 class="featured_card_title card__text h3">
+              <a href="{{ product_card_product.url | default: '#' }}" class="full-unstyled-link card-title">
+                {{ product_card_product.title }}
+              </a>
+            </h2>
+            <div class="price">
+              {% render 'price', product: product_card_product, price_class: '' %}
+            </div>
           </div>
 
+          <div class="card__badge">
+            {%- if product_card_product.available == false -%}
+              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
+            {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
+              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
+            {%- endif -%}
+          </div>
+
+          {% comment %}
+            <div class="standard-btn center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
+              <a href="{{ product_card_product.url | default: '#' }}"
+                class="standard-btn-label button"
+                aria-label="{{ product_card_product.title }}"
+              >
+              {{ 'sections.featured_collection.view_all_label' | t }}
+              </a>
+            </div>
+            {% endcomment %}
+
+            <div {{ block.shopify_attributes }} class="card-btn-wrapper">
+            {% comment %} ADD TO CART BUTTON {% endcomment %}
+            <form method="post" action="/cart/add">
+              <input type="hidden" name="id" value="{{ product_card_product.first_available_variant.id }}" />
+              <input type="hidden" type="number" id="quantity" name="quantity" value="1"/>
+              <button
+                type="submit"
+                name="add"
+                class="product-form__submit button button--full-width add-to-cart {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+              {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                onclick="setTimeout(function() { window.location.reload(true); }, 500);"
+                >
+                  <span>
+                      {{ 'products.product.add_to_cart' | t }}
+                  </span>
+              </button>
+            </form>
         </div>
       {%- else -%}
 
       {%- endif -%}
-
-
-
-      <div class="card__badge">
-        {%- if product_card_product.available == false -%}
-          <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
-        {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
-          <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-        {%- endif -%}
-      </div>
     </div>
   </div>
 </div>
 
 <style type="text/css">
   .collection-product-card {
-    background-color: #E4E4E4;
     margin-bottom: 8rem;
   }
   .collection-product-card * {
@@ -162,9 +183,8 @@
   .collection-product-card .standard-btn {
     position: relative;
     z-index: 2;
-    top: 0rem;
     width: 100%;
-    margin-bottom: var(--unitXL); 
+    margin-bottom: var(--unit);
   }
   .collection-product-card .standard-btn-label {
     margin: 0 auto;
@@ -172,26 +192,57 @@
     min-height: 40px;
   }
   body.collection .collection-product-card .card__content {
-    background-color: #CDD5D3;
-    padding: var(--unit);
+      padding: var(--unit) 0;
       width: 100%;
       margin: unset;
-      height: 6rem;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
-      z-index: 1;
+      z-index: 1; 
       position: relative;
+      align-items: flex-start;
+  }
+  body.collection .collection-product-card .card__content .price .price-item {
+      margin: 0 0 0 auto;
   }
   .collection-product-card .featured_card_title {
-    text-align: center;
+      text-align: left;
+      margin-bottom: unset;
+      padding-right: 1.5rem;
+  }
+  body.collection .collection-product-card .featured_card_title {
+      text-align: left;
+      margin-bottom: unset;
+      padding-right: 0.5rem;
   }
   .collection-product-card .card .media {
     /*padding: 3rem 0;*/
-
+  }
+  .collection-product-card  .price {
+    margin-top: -0.5px;
   }
   .collection-product-card .card .media > img {
-    object-fit: cover;
-    object-position: center 0px;
+    object-fit: contain;
+    object-position: center;
+  }
+  body.collection .collection-product-card .media {
+      min-height: 350px;
+  }
+  body.collection .collection-product-card  .button {
+    max-width: unset;
+    border: 0;
+  }
+  body.collection .collection-product-card  .button:not(.add-to-cart) {
+    background-color: white;
+    border: .5px solid rgba(18,18,18,.75);
+    color: rgba(18,18,18,1);
+  }
+  body.collection .collection-product-card  .button:not(.add-to-cart):hover {
+    border: .5px solid rgba(18,18,18,1);
+    color: rgba(18,18,18,.75);
+  }
+  .card-btn-wrapper {
+      z-index: 1;
+      position: relative;
   }
 </style>

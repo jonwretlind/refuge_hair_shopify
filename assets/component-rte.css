@@ -12,6 +12,13 @@
   margin-bottom: 0;
 }
 
+body.product .product__description.rte > p:last-child {
+  margin-bottom: 0;
+  font-size: 1rem !important;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
 .rte table {
   table-layout: fixed;
 }

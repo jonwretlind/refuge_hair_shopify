@@ -2,15 +2,62 @@
   <ul id="Slider-{{ section.id }}" class="grid grid--2-col product-grid{% if products_to_display == 4 or section.settings.collection == blank %} grid--2-col-tablet grid--4-col-desktop{% else %} grid--3-col-tablet{% endif %}{% if products_to_display > 5 %} grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider slider--tablet grid--peek{% endif %}{% if section.settings.show_view_all == false or section.settings.collection.products.size < section.settings.products_to_show %} negative-margin{% endif %}{% if section.settings.show_view_all and section.settings.collection.products.size > section.settings.products_to_show %} negative-margin--small{% endif %} swipe-view" role="list">
     {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
       <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__item{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider__slide{% endif %}">
-        {% render 'product-card',
-          product_card_product: product,
-          media_size: section.settings.image_ratio,
-          show_secondary_image: section.settings.show_secondary_image,
-          add_image_padding: section.settings.add_image_padding,
-          show_vendor: section.settings.show_vendor,
-          show_image_outline: section.settings.show_image_outline,
-          show_rating: section.settings.show_rating
-        %}
+        {% if section.settings.use_alternate_cf_images %}
+          {% render 'product-card',
+            product_card_product: product,
+            media_size: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            add_image_padding: section.settings.add_image_padding,
+            show_vendor: section.settings.show_vendor,
+            show_image_outline: section.settings.show_image_outline,
+            show_rating: section.settings.show_rating
+          %}
+        {% else %}
+          {% render 'collection-product-card',
+            product_card_product: product,
+            media_size: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            add_image_padding: section.settings.add_image_padding,
+            show_vendor: section.settings.show_vendor,
+            show_image_outline: section.settings.show_image_outline,
+            show_rating: section.settings.show_rating
+          %}
+        <style type="text/css">
+            body.index .collection-product-card {
+                margin-bottom: var(--unit);
+                margin-top: -8rem;
+            }
+            body.index .collection-product-card .card__content {
+                width: 100%;
+                margin: unset;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10rem;
+                margin-bottom: var(--unit);
+                align-items: flex-start;
+            }
+            body.index .collection-product-card .card__content .price .price-item {
+                margin: 0 0 0 auto;
+            }
+            body.index .collection-product-card .media {
+                min-height: unset;
+            }
+            body.index .collection-product-card  .button {
+              max-width: unset;
+              border: 0;
+            }
+            body.index .collection-product-card  .button:not(.add-to-cart) {
+              background-color: white;
+              border: .5px solid rgba(18,18,18,.75);
+              color: rgba(18,18,18,1);
+            }
+            body.index .collection-product-card  .button:not(.add-to-cart):hover {
+              border: .5px solid rgba(18,18,18,1);
+              color: rgba(18,18,18,.75);
+            }
+        </style>
+        {% endif %}
       </li>
     {%- else -%}
       {%- for i in (1..4) -%}
@@ -35,41 +82,38 @@
 </slider-component>
 
 <style>
-body.mobile .swipe-view {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-coordinate: 0 0;
-  scroll-snap-points-x: repeat(100%);
-  scroll-snap-type: x mandatory;
-  flex: 1;
-  display:flex;
-  -webkit-overflow-scrolling: touch;
-  justify-content: flex-start !important;
-}
-body.mobile .swipe-view li {
-    width: 360px;
-    height: 100%;
-    flex:0 0 360px;
-    scroll-snap-align: start;
-}
-.home-slider > .product-grid .grid__item {
-    flex: 1;
-}
-body.mobile .home-slider > .product-grid .grid__item {
-    flex: 0 0 360px;
-}
-.home-slider .media {
-    position: unset;
-}
-.home-slider .media--portrait {
-    padding-bottom: 100%;
-}
-.home-slider .standard-btn {
-    position: relative;
-    z-index: 2;
-    top: calc(var(--unit) *  -1);
-}
-.home-slider .featured_card_title {
-    padding-top: var(--unitSm);
-}
+    body.mobile .swipe-view {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-coordinate: 0 0;
+      scroll-snap-points-x: repeat(100%);
+      scroll-snap-type: x mandatory;
+      flex: 1;
+      display:flex;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start !important;
+    }
+    body.mobile .swipe-view li {
+        width: 360px;
+        height: 100%;
+        flex:0 0 360px;
+        scroll-snap-align: start;
+    }
+    .home-slider > .product-grid .grid__item {
+        flex: 1;
+    }
+    body.mobile .home-slider > .product-grid .grid__item {
+        flex: 0 0 360px;
+    }
+    .home-slider .media {
+        position: unset;
+    }
+    .home-slider .media--portrait {
+        padding-bottom: 100%;
+    }
+    .home-slider .standard-btn {
+        position: relative;
+        z-index: 2;
+        /*top: calc(var(--unit) *  -4);*/
+    }
 </style>

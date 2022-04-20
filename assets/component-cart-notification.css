@@ -67,7 +67,7 @@ body.mobile .cart-notification {
     visibility: visible;
     background-color: #fff;
     z-index: 10;
-    max-width: 370px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

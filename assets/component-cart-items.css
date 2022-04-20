@@ -193,6 +193,7 @@ cart-remove-button .icon-remove {
 
 .product-option {
   color: rgba(var(--color-foreground), 0.7);
+  word-break: keep-all;
 }
 
 .product-option + .product-option {

@@ -46,7 +46,7 @@
         "buy_buttons"
       ],
       "settings": {
-        "enable_sticky_info": true,
+        "enable_sticky_info": false,
         "gallery_layout": "large_carousel",
         "media_size": "large",
         "mobile_thumbnails": "hide",
@@ -54,30 +54,40 @@
         "enable_video_looping": false
       }
     },
-    "16443733720776e058": {
-      "type": "image-banner",
+    "1650465740bba9a6c3": {
+      "type": "product-image-banner",
       "blocks": {
-        "1644373372e695c188-0": {
+        "16504657402e2c3659-0": {
           "type": "heading",
           "settings": {
-            "heading": "HEALTHY HAIR STARTS HERE",
+            "heading": "Product Promo Banner",
             "heading_size": "medium"
           }
         },
-        "1644373372e695c188-1": {
+        "16504657402e2c3659-1": {
           "type": "text",
           "settings": {
-            "text": "Turn your shower into your own personal salon with Hydrate + Balance, the 3-Step Hair Care system that targets your specific hair challenges and nurtures each strand back to its healthy best.",
+            "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body"
+          }
+        },
+        "16504657402e2c3659-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "1644373372e695c188-0",
-        "1644373372e695c188-1"
+        "16504657402e2c3659-0",
+        "16504657402e2c3659-1",
+        "16504657402e2c3659-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/7a126def8be4--HBPromobanner-2a2773.jpg",
+        "use_custom_fields": true,
         "image_overlay_opacity": 0,
         "image_height": "small",
         "adapt_height_first_image": false,
@@ -174,7 +184,7 @@
   },
   "order": [
     "main",
-    "16443733720776e058",
+    "1650465740bba9a6c3",
     "164441910638377b3a",
     "product-recommendations",
     "16444586258c6899d4",

@@ -11,6 +11,14 @@
 .banner__box .button--primary {
   color: rgba(255,255,255,1) !important;
 }
+.inverse .banner__box .button--primary {
+    color: rgba(18,18,18, 1) !important;
+    background-color: white;
+}
+.inverse .banner__box .button--primary:hover {
+    color: rgba(255,255,255,1) !important;
+    background-color: rgba(18,18,18, 1);
+}
 body.mobile .banner__box .button--primary {
     min-height: 4rem;
 }

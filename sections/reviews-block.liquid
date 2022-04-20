@@ -28,9 +28,9 @@
         <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}" {{ block.shopify_attributes }}>
           <div class="multicolumn-card reviews">
             <div class="multicolumn-card__info swiper reviews">
+              {% comment %} REVIEWS SWIPER {% endcomment %}
               {% include 'reviews-swiper' %}
             </div>
-
             {%- for block in section.blocks -%}
 
             {% comment %} CARD {% endcomment %}
@@ -38,7 +38,7 @@
                 {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
                   {% assign spaced_image = true %}
                 {% endif %}
-                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %} swiper-img {% if forloop.index0 == 0 %}swiper-slide-active{% endif %} index-{{ forloop.index }}">
                   <div class="media media--transparent media--{{ section.settings.image_ratio }}"
                     {% if section.settings.image_ratio == 'adapt' %}
                       style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
@@ -86,6 +86,257 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+    <!-- OVERRIDES AND CUSTOM SCRIPTS -->
+    <style rel="stylesheet" type="text/css">
+
+        #ReviewsBlock .multicolumn-list.grid {
+          display: flex;
+        }
+        #ReviewsBlock p {
+          font-size: 1.1rem;
+          line-height: 1.3rem;
+          color: rgba(18,18,18,.7);
+        }
+        #ReviewsBlock a {
+          color: rgba(18,18,18,.7);
+          text-decoration: underline;
+        }
+        #ReviewsBlock a:hover {
+          color: rgba(18,18,18,1);
+          text-decoration: none;
+        }
+
+        #ReviewsSwiper {
+          display: grid;
+          grid-template-columns: 10% 80% 10%;
+        }
+        body.mobile #ReviewsSwiper {
+          width: 90vw;
+        }
+
+        #ReviewsSwiper blockquote {
+            font-style: unset;
+            color: rgba(18,18,18,1);
+            border-left: unset;
+            padding: unset;
+            text-align: center;
+        }
+        #ReviewsSwiper .slider-button {
+            align-self: center;
+            justify-self: center;
+        }
+        #ReviewsSwiper .slider-button .icon {
+          height: 30px;
+          opacity: .4;
+        }
+        #ReviewsSwiper .swiper-slide:not(.swiper-slide-active),
+        #ReviewsBlock .multicolumn-card__image-wrapper:not(.swiper-slide-active) {
+          display: none;
+        }
+        #ReviewsSwiper .flex, #ReviewsSwiper .flex > figure {
+            display: flex;
+        }
+        #ReviewsSwiper .flex-column, #ReviewsSwiper .flex-column > figure {
+            flex-direction: column;
+        }
+        #ReviewsSwiper .flex-align-center, #ReviewsSwiper .flex-align-center > figure {
+            align-items: center;
+        }
+        .fifty-quote__slide-image img {
+            width: calc(50vw - 500px);
+            height: unset;
+            object-fit: unset;
+            max-width: 300px;
+            min-width: 150px;
+        }
+        .fifty-quote__slide-quote {
+            font-size: calc(var(--font-body-scale) * 85%);
+            letter-spacing: 0.05187rem;
+            line-height: 1.7rem;
+            margin: -2.5rem auto 0 auto;
+            max-width: 84.87395%;
+        }
+        .fifty-quote__slide-quotemark {
+          font-size: 8rem;
+          font-weight: 200;
+          line-height: 8.5rem;
+        }
+        .swiper-wrapper {
+            transform: translate3d(0px, 0px, 0px);
+            transition-duration: 0ms;
+            min-height: 650px;
+        }
+        .fifty-quote__slide-inner {
+          overflow: hidden;
+          width: 100%;
+        }
+        body.mobile #ReviewsSwiper .swiper-slide {
+          width: 100% !important;
+        }
+
+        figcaption.fifty-quote__slide-caption {
+          display: block;
+          margin-top: -1em;
+        }
+        cite.fifty-quote__slide-cite {
+          font-size: calc(var(--font-body-scale) * 75%);
+          font-weight: 700 !important;
+          text-transform: uppercase;
+          display: inline-block;
+        }
+        .multicolumn-card.reviews {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        #ReviewsBlock .multicolumn-list__item:only-child {
+          max-width: unset;
+        }
+        #ReviewsBlock .multicolumn-card__info.swiper {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+        #ReviewsPagination {
+          margin: 1rem auto;
+          width: 100%;
+          display: flex;
+          bottom: 0;
+        }
+        #ReviewsPagination .swiper-pagination-bullet {
+            border-top: 2px solid rgba(18,18,18,.4);
+            height: 20px;
+            width: 100%;
+            display: block;
+            margin: 0 5px;
+        }
+        #ReviewsPagination .swiper-pagination-bullet.active {
+            border-top: 4px solid rgba(18,18,18,.7);
+        }
+
+        body.mobile #ReviewsPagination {
+            margin: 1rem auto;
+            position: relative;
+            width: unset;
+            justify-content: center;
+        }
+
+        .swiper-slide {
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+
+    <script type="text/javascript">
+      jQuery(window).ready(function( $ ) {
+          var modelPic = ($('#ModelPic').width())-($('#ModelPic').width()*.2);
+          $('.fifty-quote__slide').css("width", modelPic+"px");
+
+          var sliderArr = $('.swiper-slide');
+          var sliderPic = $('.swiper-img');
+          var sliderLength = sliderArr.length;
+          var sliderIdx = 1;
+          $('.slider-button.right').on('click tap', function() {
+            sliderIdx ++;
+            if (sliderIdx > sliderLength) sliderIdx = 1;
+            newSlide(sliderArr, sliderIdx);
+            newSlide(sliderPic, sliderIdx);
+          });
+          $('.slider-button.left').on('click tap', function() {
+            sliderIdx --;
+            if (sliderIdx < 0 ) sliderIdx = sliderLength;
+            newSlide(sliderArr, sliderIdx);
+            newSlide(sliderPic, sliderIdx);
+          });
+
+
+
+          /* ======= PAGINATION ======= */
+            var winWd = $('.multicolumn-card__info').width();
+            var viewPort = $(window).width();
+            var ct = $('.fifty-quote__slide-figure').length;
+            var bulletWd = winWd / ct;
+            var pginWidth = $('#ReviewsPagination').width();
+            var revWidth = $('#ReviewsSwiper .swiper-wrapper').width();
+            for (i=1; i <= ct; i++) {
+              if ( i == 1 ) {
+                var bullet = "<span class='swiper-pagination-bullet active index-"+ i + "'></span>";
+              } else {
+                var bullet = "<span class='swiper-pagination-bullet index-"+ i + "'></span>";
+              }
+              $('.swiper-pagination-bullets').append(bullet);
+            }
+            console.log('Number of swiper bullets: ' + ct + ", Window Width: " + viewPort);
+            if ( viewPort > 768 ) {
+              console.log("not small mobile device");
+              $('.swiper-pagination').css({
+                maxWidth: revWidth+"px",
+                left: (revWidth / 2 - pginWidth / 6)
+              });
+            } else {
+              console.log("small mobile device");
+              $('.swiper-pagination').css({
+                marginLeft: "3rem",
+                marginRight: "3rem"
+              });
+            }
+            $('.swiper-pagination-bullet').css({
+              maxWidth: bulletWd+"px"
+            });
+
+            // Bullets
+            $('.swiper-pagination-bullet').click(function() {
+              removeActive(sliderArr, bullIdx);
+              removeActive(sliderPic, bullIdx);
+              var classList = $(this).attr("class").split(/\s+/);
+              var bullIdx = Number(classList[1].substr(-1, 1));
+              addActive(sliderArr, bullIdx);
+              addActive(sliderPic, bullIdx);
+            });
+
+
+            // ======= TRANSITION FUNCTIONS =======
+            // Swipes todo
+            /*
+            $('body.mobile .product__media img').swipe(function() {
+              console.log("swipe detected");
+              removeActive();
+              changeSlide(this);
+              addActive();
+            });
+            */
+            function removeActive(sl, bullIdx) {
+              newSlide(sl, bullIdx);
+              chgBullet(bullIdx);
+            }
+            function addActive(sl, bullIdx) {
+              newSlide(sl, bullIdx);
+              chgBullet(bullIdx);
+            }
+            function chgBullet(bullIdx) {
+              console.log(bullIdx)
+              if (bullIdx < 1) bullIdx = sliderLength;
+              $('#ReviewsPagination .swiper-pagination-bullet').removeClass("active");
+              $('#ReviewsPagination .swiper-pagination-bullet.index-'+bullIdx).addClass("active");
+            }
+            function newSlide(sl, idx) {
+                sl.animate({
+                  opacity: 0
+                }, 500, function() {
+                  sl.removeClass('swiper-slide-active');
+                  sl.eq(idx-1).addClass('swiper-slide-active');
+                  sl.eq(idx-1).animate({
+                    opacity: 1
+                  }, 500)
+              });
+              chgBullet(idx);
+            };
+      });
+    </script>
 
 {% schema %}
 {
@@ -186,6 +437,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image Picker"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
         },
         {
           "type": "text",

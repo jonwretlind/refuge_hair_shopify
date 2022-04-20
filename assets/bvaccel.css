@@ -386,9 +386,11 @@ a.accent {
 .yotpo-widget-referral-widget.yotpo-widget-override-css .yotpo-title-text,
 .yotpo-widget-referred-friend.yotpo-widget-override-css .yotpo-title-text,
 h1 {
-    font-size: 1.5rem;
-    letter-spacing: 0.15063rem;
+    font-size: 2rem;
+    letter-spacing: .5px;
     line-height: 1.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 #BVAFooter .h2,
 .yotpo-coupons-redemption-widget.yotpo-widget-override-css .yotpo-redemption-option-reward,
@@ -1113,9 +1115,14 @@ label {
 .input--text textarea {
     background: 0;
     border: 0;
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     padding: 0.9375rem 0;
     color: #000;
+    opacity: .5;
+}
+#BVAFooter .input--text input:focus,
+.input--text textarea:focus {
+    opacity: 1;
 }
 #BVAFooter .input--text input::-webkit-input-placeholder,
 .input--text textarea::-webkit-input-placeholder {
@@ -1646,9 +1653,12 @@ div.errors ul li:not(:last-child) {
         flex-grow: 2;
     }
 }
+/*
 #BVAFooter .newsletter__form-actions {
     margin-top: 1.125rem;
 }
+*/
+
 @media (min-width:600px) {
     .newsletter__form-actions {
         margin: 0 0 0 1.25rem;

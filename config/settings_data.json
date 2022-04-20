@@ -14,6 +14,7 @@
     "social_instagram_link": "https:\/\/www.instagram.com\/refugehair\/",
     "social_tiktok_link": "https:\/\/tiktok.com\/@refugehair",
     "favicon": "shopify:\/\/shop_images\/Mark240x240.png",
+    "currency_code_enabled": false,
     "checkout_logo_image": "shopify:\/\/shop_images\/Refuge_logo_lockup_5071d7ee-b41a-4263-83a4-b8edb1c54824.png",
     "sections": {
       "announcement-bar": {
@@ -22,7 +23,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Free shippping on all orders",
+              "text": "Free shipping on all orders",
               "color_scheme": "background-1",
               "link": ""
             }

@@ -42,7 +42,7 @@
         "desktop_content_position": "middle-left",
         "show_text_box": true,
         "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
+        "color_scheme": "inverse",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": true
@@ -52,11 +52,13 @@
       "type": "featured-collection",
       "settings": {
         "title": "",
-        "collection": "all",
+        "collection": "featured",
         "products_to_show": 3,
         "show_view_all": false,
         "swipe_on_mobile": false,
-        "image_ratio": "portrait",
+        "show_shop_now_buttons": false,
+        "use_alternate_cf_images": false,
+        "image_ratio": "adapt",
         "show_secondary_image": false,
         "add_image_padding": false,
         "show_image_outline": false,
@@ -71,25 +73,52 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/SageReview1024x1024.jpg",
+            "product_image": "shopify:\/\/shop_images\/NGMenu400x400_1299561d-962f-40ee-a8b0-4cdf46566ffe.png",
             "title": "",
-            "text": "",
-            "link_label": "",
+            "text": "<p>Being a full time model requires a lot of travel which keeps me out of the salon longer than I’d like to be. But thanks to Refuge and their amazing <a href=\"\/products\/hydrate-balance\" title=\"HYDRATE + BALANCE 3-STEP HAIR CARE SYSTEM\">Hydrate + Balance<\/a> system, combined with adorable packaging, I’m able to keep my curls hydrated and defined everywhere I go!<br\/><br\/><a href=\"https:\/\/www.instagram.com\/sagetheworld\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/sagetheworld\">@sagetheworld<\/a><\/p>",
+            "link_label": "Sage W",
+            "link": "shopify:\/\/products\/hydrate-balance"
+          }
+        },
+        "911398bd-12cc-465c-93a7-f85947091105": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/JennyReview1024x1024.jpg",
+            "product_image": "shopify:\/\/shop_images\/HBMenu400x400_19a810db-4531-4791-9a8b-21bdd7f7347f.png",
+            "title": "",
+            "text": "<p>It’s my favorite new form of self care! The smell is invigorating, the process is so relaxing, and it leaves my hair so soft and smooth! It’s the only product I trust to repair my dry and damaged locks and it leaves my hair feeling revitalized with that fresh out of the salon look. 10 out of 10 would recommend!<br\/><br\/><a href=\"https:\/\/www.instagram.com\/jennieleehealth\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/jennieleehealth\">@jennieleehealth<\/a><\/p>",
+            "link_label": "Jennie L",
             "link": ""
           }
         },
-        "1644029245207c873d-1": {
+        "1a344c51-9a6d-4c91-a031-381371eb3de2": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/PaigeReview1024x1024.jpg",
+            "product_image": "shopify:\/\/shop_images\/SystemMenu400x400_9fd9816d-e8fe-489e-a1d8-1d6a9e14546f.png",
             "title": "",
-            "text": "",
-            "link_label": "",
+            "text": "<p>As a bottle blonde, I've put my hair through the worst of the worst. Refuge <a href=\"\/products\/repair-protect\" title=\"REPAIR + PROTECT 3-STEP HAIR CARE SYSTEM\">Repair + Protect<\/a> has literally saved my hair.<br\/><br\/><a href=\"https:\/\/www.instagram.com\/paige_chanell\/\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/paige_chanell\/\">@paige_chanell <\/a><\/p>",
+            "link_label": "Paige C",
+            "link": ""
+          }
+        },
+        "dfc315a2-0487-4fa5-a97a-853827dda366": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/WhitneyReview1024x1024.jpg",
+            "product_image": "shopify:\/\/shop_images\/NGMenu400x400_1299561d-962f-40ee-a8b0-4cdf46566ffe.png",
+            "title": "",
+            "text": "<p>I don’t typically do hair treatments, however when they smell as amazing as refuge hair does I’ll give it a go. The 3-step system was easy and left my hair shiny, silky smooth and luscious feeling, even days after.<br\/><br\/><a href=\"https:\/\/www.instagram.com\/whitsa_gram\/\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/whitsa_gram\/\">@whitsa_gram<\/a><\/p>",
+            "link_label": "Whitney G",
             "link": ""
           }
         }
       },
       "block_order": [
         "1644029245207c873d-0",
-        "1644029245207c873d-1"
+        "911398bd-12cc-465c-93a7-f85947091105",
+        "1a344c51-9a6d-4c91-a031-381371eb3de2",
+        "dfc315a2-0487-4fa5-a97a-853827dda366"
       ],
       "settings": {
         "title": "",

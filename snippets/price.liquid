@@ -21,7 +21,7 @@
   assign price = target.price | default: 1999
   assign available = target.available | default: false
   assign money_price = price | money
-  
+
 
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
@@ -88,4 +88,17 @@
       {{ 'products.product.sold_out' | t }}
     </span>
   {%- endif -%}
+  <p class="free-shipping">+ Free Shipping</p>
 </div>
+
+<style type="text/css">
+  .free-shipping {
+    display: none;
+  }
+  body.product .free-shipping {
+    display: inline-block;
+    font-size: 1rem;
+    letter-spacing: 0;
+    font-weight: inherit;
+  }
+</style>
