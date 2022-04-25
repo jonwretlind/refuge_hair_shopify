@@ -316,3 +316,13 @@ body.collection ul#product-grid {
 body.collection .ping-pong ul#product-grid {
     max-width: unset;
 }
+
+/* LANDING PAGES */
+body.page .banner {
+  margin-top: -5.3rem;
+  margin-bottom: var(--unit2XL);
+}
+
+body.page .rich-text {
+  font-size: 1.4rem;
+}

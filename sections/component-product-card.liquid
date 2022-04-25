@@ -1,0 +1,110 @@
+{% comment %}
+    Renders a product card for component
+{% endcomment %}
+
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+{%- assign product = section.settings.product -%}
+
+<div class="component card-wrapper">
+  {% render 'collection-product-card', product_card_product: product %}
+</div>
+
+
+<style type="text/css">
+  
+  .component.card-wrapper {
+    max-width: 50%;
+  }
+  
+  .component.card-wrapper .collection-product-card {
+    margin-bottom: var(--unit);
+      margin-top: -8rem;
+      }
+  .component.card-wrapper .collection-product-card .card__content {
+    width: 100%;
+    margin: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10rem;
+    margin-bottom: var(--unit);
+      align-items: flex-start;
+      }
+  .component.card-wrapper .collection-product-card .card__content .price .price-item {
+    margin: 0 0 0 auto;
+  }
+  .component.card-wrapper .collection-product-card .media {
+    min-height: unset;
+  }
+  .component.card-wrapper .collection-product-card  .button {
+    max-width: unset;
+    border: 0;
+  }
+  .component.card-wrapper .collection-product-card  .button:not(.add-to-cart) {
+    background-color: white;
+    border: .5px solid rgba(18,18,18,.75);
+    color: rgba(18,18,18,1);
+  }
+  .component.card-wrapper .collection-product-card  .button:not(.add-to-cart):hover {
+    border: .5px solid rgba(18,18,18,1);
+    color: rgba(18,18,18,.75);
+  }
+  
+  .standard-btn {
+    position: relative;
+    z-index: 2;
+  }
+  .standard-btn-label {
+    width: 240px;
+    margin: 0 auto;
+    padding: 0.9rem 3rem .9rem;
+    min-height: 3.5rem;
+  }
+  .featured_card_title {
+    text-align: center;
+  }
+  .card .media > img {
+    object-fit: contain;
+    object-position: center;
+  }
+  .alt-image > img {
+    object-fit: cover;
+    object-position: top center;
+    width: 100%;
+    overflow: hidden;
+  }
+  .alt-image:hover > img {
+    transform: scale(1.025);
+    transition: transform 0.15s ease-out;
+  }
+
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Featured Product Card",
+  "tag": "section",
+  "class": "featured-product-card",
+  "blocks": [
+
+  ],
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.featured-product.settings.product.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product Card",
+      "blocks": [
+
+      ]
+    }
+  ]
+}
+{% endschema %}
