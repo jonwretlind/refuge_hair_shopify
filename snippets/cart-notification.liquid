@@ -89,12 +89,14 @@
       $('.header__icon--cart').click(function() {
         console.log("cart-notification toggled.");
         $('.cart-notification').toggleClass('active');
+        $('body').toggleClass('menu-open');
         $('#cart-notification .icon-close').css({ visibility: "visible" });
         $('.cart-notification-wrapper .modal__close-button').css({ display: 'flex'});
       });
       $('.cart-notification__header').click(function() {
         console.log("cart-notification closed.");
         $('.cart-notification').removeClass('active');
+        $('body').removeClass('menu-open');
         $('#cart-notification .icon-close').css({ visibility: "hidden" });
         $('.cart-notification-wrapper .modal__close-button').css({ display: 'none'});
       });

@@ -166,6 +166,11 @@ body.page #MainContent button
 {
     font-size: 1.2rem;
 }
+body.page.mobile #MainContent .rte span,
+body.page.mobile #MainContent .rte a
+{
+    font-size: 1.1rem;
+}
 body.page #MainContent .contact__button
 {
     margin-top: 0;
@@ -196,6 +201,10 @@ body.contact-us #MainContent {
     margin-bottom: calc(5rem - 8px);
 }
 
+body.contact-us.mobile #MainContent {
+    margin-top: 0px;
+}
+
 body.contact-us #MainContent h2 {
     font-weight: 900;
     text-transform: uppercase;
@@ -210,13 +219,29 @@ body.contact-us #MainContent section {
 body.contact-us #MainContent section:last-child {
     flex-direction: row;
 }
+
+body.contact-us.mobile #MainContent section:last-child {
+    flex-direction: column-reverse;
+}
 body.contact-us #MainContent section:first-child {
     width: 50%;
     padding-left: 5%;
     margin-bottom: -114px;
 }
+body.contact-us.mobile #MainContent section:first-child {
+    margin-bottom: 0px;
+}
 body.contact-us #MainContent .col1 {
    width: 50%;
+   padding-left: 5%;
+}
+body.contact-us.mobile #MainContent section:first-child {
+    width: 93%;
+    padding-left: 5%;
+    margin-bottom: 0px;
+}
+body.contact-us.mobile #MainContent .col1 {
+   width: 93%;
    padding-left: 5%;
 }
 body.contact-us #MainContent .col1 form {
@@ -225,11 +250,18 @@ body.contact-us #MainContent .col1 form {
     padding-left: unset;
     padding-top: 100px;
 }
+body.contact-us.mobile #MainContent .col1 form {
+    padding-top: 0px;
+}
 body.contact-us #MainContent .col2 {
     width: 50%;
     overflow: hidden;
     margin-top: -61px;
     padding-left: var(--unit2XL);
+}
+body.contact-us.mobile #MainContent .col2 {
+    width: 89%;
+    margin-top: 10px;
 }
 body.contact-us #MainContent .col2 img {
     width: 100%;

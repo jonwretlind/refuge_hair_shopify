@@ -1,3 +1,8 @@
+body.menu-open {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .header__icon--menu {
   position: initial;
 }
@@ -37,16 +42,23 @@ menu-drawer > details[open] > summary::before {
   top: 100%;
   width: calc(100vw - 4rem);
   padding: 0;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
   border-left: 0;
   background-color: rgb(var(--color-background));
   overflow-x: hidden;
+  overflow-y: hidden;
+  box-shadow: 5px 5px 5px rgba(18,18,18,.5);
 }
 
 .js .menu-drawer {
   height: calc(100vh - 100%);
   height: calc(
     var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%))
+  );
+}
+body.mobile .menu-drawer {
+  height: calc(86vh - 100%);
+  height: calc(
+    var(--viewport-height, 86vh) - (var(--header-bottom-position, 86%))
   );
 }
 
@@ -57,6 +69,19 @@ menu-drawer > details[open] > summary::before {
     transform: translateX(0);
     visibility: visible;
 }
+/*
+body.mobile details[open]::before {
+    content: " ";
+    width: 100vh;
+    height: 100vh;
+    display: block;
+    background-color: rgba(18,18,18,.5);
+    position: fixed;
+    top: 84px;
+    left: 0px;
+    z-index: 1;
+}
+*/
 
 .no-js details[open] > .menu-drawer,
 .js details[open].menu-opening > .menu-drawer,
@@ -288,7 +313,7 @@ details[open] .menu-drawer__inner-submenu > button {
 .menu-drawer__utility-links {
     padding-top: 0;
     position: absolute;
-    bottom: 0;
+    bottom: -2%;
     width: 100%;
     z-index: 10;
 }

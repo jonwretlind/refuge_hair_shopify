@@ -556,6 +556,7 @@ body.mobile sticky-header .menu-drawer__heading .search-modal {
 body.mobile .header__heading, .header__heading-link {
     grid-area: a2;
     justify-self: center;
+    margin-top: 8px;
 }
 body.mobile .modal__content {
     background: transparent;

@@ -924,12 +924,6 @@ summary::-webkit-details-marker {
   flex-wrap: wrap;
 }
 
-body.mobile .title-wrapper-with-link {
-  display: unset;
-  gap: unset;
-  margin: var(--unit) 0;
-  flex-wrap: wrap;
-}
 
 .title--primary {
   margin: 4rem 0;
