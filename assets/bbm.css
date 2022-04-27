@@ -123,7 +123,7 @@ body.mobile .banner__box {
 }
 body.page.mobile .banner__box {
     padding: 4rem 3rem;
-    top: 15rem;
+    top: 17rem;
 }
 body.page.mobile .banner__box h2 {
     font-size: 2rem;
@@ -325,6 +325,16 @@ body.collection ul#product-grid {
 }
 body.collection .ping-pong ul#product-grid {
     max-width: unset;
+}
+
+/* BLOG */
+body.article h3 {
+	font-size: 2rem;
+  line-height: 2.125rem;
+}
+
+body.article b {
+	color: black;
 }
 
 /* LANDING PAGES */

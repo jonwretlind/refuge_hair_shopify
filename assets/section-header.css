@@ -356,6 +356,10 @@ body.cart #shopify-section-announcement-bar {
 div#shopify-section-header:not(.shopify-section-header-sticky) .menu-link span {
     color: white;
 }
+body.article div#shopify-section-header:not(.shopify-section-header-sticky) .menu-link span {
+    color: rgba(18,18,18,1);
+}
+
 
 body.cart div#shopify-section-header:not(.shopify-section-header-sticky) .menu-link span {
     color: rgba(18,18,18,1);

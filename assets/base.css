@@ -951,6 +951,11 @@ summary::-webkit-details-marker {
   .title--primary {
     margin: var(--unitLg) 0;
   }
+  
+  body.blog .title--primary {
+    margin: var(--unitLg) 5%;
+  }
+
 
   .title-wrapper-with-link {
     align-items: center;
