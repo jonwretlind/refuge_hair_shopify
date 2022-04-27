@@ -1303,7 +1303,7 @@ deferred-media {
 .button:hover,
 .shopify-challenge__button:hover,
 .customer button:hover {
-  background-color: rgba(18,18,18,.75);
+  background-color: #222;
 }
 
 .button:focus-visible {

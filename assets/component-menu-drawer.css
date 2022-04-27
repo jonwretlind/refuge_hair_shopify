@@ -56,10 +56,8 @@ menu-drawer > details[open] > summary::before {
   );
 }
 body.mobile .menu-drawer {
-  height: calc(86vh - 100%);
-  height: calc(
-    var(--viewport-height, 86vh) - (var(--header-bottom-position, 86%))
-  );
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 80);
 }
 
 .js details[open] > .menu-drawer,
@@ -313,9 +311,14 @@ details[open] .menu-drawer__inner-submenu > button {
 .menu-drawer__utility-links {
     padding-top: 0;
     position: absolute;
-    bottom: -2%;
+    bottom: -3%;
     width: 100%;
     z-index: 10;
+}
+@media screen and (max-height: 400px) {
+  .menu-drawer__utility-links {
+      bottom: 0;
+  }
 }
 .menu-drawer__utility-links a {
   font-size: 1rem;

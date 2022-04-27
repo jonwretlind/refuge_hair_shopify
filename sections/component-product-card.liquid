@@ -4,33 +4,54 @@
 
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-{%- assign product = section.settings.product -%}
 
-<div class="component card-wrapper">
-  {% render 'collection-product-card', product_card_product: product %}
+<div class="section-page-width">
+      <div class="component card-wrapper">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'product' -%}
+            {%- assign product = block.settings.product -%}
+            {% render 'collection-product-card', product_card_product: product %}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
 </div>
 
 
 <style type="text/css">
-  
-  .component.card-wrapper {
-    max-width: 50%;
+
+  section.featured-product-card {
+    margin-bottom: var(--unitXL);
   }
-  
+  .section-page-width {
+      padding: 0 var(--unit);
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+  }
+  .component.card-wrapper {
+    display: flex;
+  }
+  body.mobile .component.card-wrapper {
+      flex-direction: column;
+  }
   .component.card-wrapper .collection-product-card {
-    margin-bottom: var(--unit);
-      margin-top: -8rem;
-      }
+      margin: 0 var(--unitLg) var(--unitXL) var(--unitLg);
+      max-width: 360px;
+  }
   .component.card-wrapper .collection-product-card .card__content {
     width: 100%;
     margin: unset;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 10rem;
+    margin-top: var(--unit);
     margin-bottom: var(--unit);
-      align-items: flex-start;
-      }
+    align-items: flex-start;
+  }
   .component.card-wrapper .collection-product-card .card__content .price .price-item {
     margin: 0 0 0 auto;
   }
@@ -50,7 +71,12 @@
     border: .5px solid rgba(18,18,18,1);
     color: rgba(18,18,18,.75);
   }
-  
+
+  .component.card-wrapper .collection-product-card .card .media {
+    padding-bottom: 100%;
+    min-height: 350px
+  }
+
   .standard-btn {
     position: relative;
     z-index: 2;
@@ -63,6 +89,7 @@
   }
   .featured_card_title {
     text-align: center;
+    margin-top: 0px;
   }
   .card .media > img {
     object-fit: contain;
@@ -89,20 +116,26 @@
   "tag": "section",
   "class": "featured-product-card",
   "blocks": [
-
-  ],
-  "settings": [
     {
       "type": "product",
-      "id": "product",
-      "label": "t:sections.featured-product.settings.product.label"
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.featured-product.settings.product.label"
+        }
+      ]
     }
   ],
+
   "presets": [
     {
       "name": "Featured Product Card",
       "blocks": [
-
+        {
+          "type": "product"
+        }
       ]
     }
   ]

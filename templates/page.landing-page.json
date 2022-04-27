@@ -64,69 +64,24 @@
     "1650923088e850f879": {
       "type": "component-product-card",
       "blocks": {
-        "1650923088f1365193-0": {
-          "type": "text",
+        "7896a2d5-86d6-4c53-985e-f3887beac3ce": {
+          "type": "product",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
+            "product": "repair-protect-clay-shampoo-concentrate"
           }
         },
-        "1650923088f1365193-1": {
-          "type": "title",
+        "d6f0af3b-ac50-4c74-86d8-f4d465ed79ff": {
+          "type": "product",
           "settings": {
-          }
-        },
-        "1650923088f1365193-2": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
-        },
-        "1650923088f1365193-3": {
-          "type": "price",
-          "settings": {
-          }
-        },
-        "1650923088f1365193-4": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "1650923088f1365193-5": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
-        "1650923088f1365193-6": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true
-          }
-        },
-        "1650923088f1365193-7": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
+            "product": "shine-seal-conditioning-balm-concentrate"
           }
         }
       },
       "block_order": [
-        "1650923088f1365193-0",
-        "1650923088f1365193-1",
-        "1650923088f1365193-2",
-        "1650923088f1365193-3",
-        "1650923088f1365193-4",
-        "1650923088f1365193-5",
-        "1650923088f1365193-6",
-        "1650923088f1365193-7"
+        "7896a2d5-86d6-4c53-985e-f3887beac3ce",
+        "d6f0af3b-ac50-4c74-86d8-f4d465ed79ff"
       ],
       "settings": {
-        "product": "repair-protect-clay-shampoo-concentrate",
-        "secondary_background": false,
-        "hide_variants": false,
-        "enable_video_looping": false
       }
     }
   },
