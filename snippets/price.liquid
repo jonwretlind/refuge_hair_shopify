@@ -88,7 +88,9 @@
       {{ 'products.product.sold_out' | t }}
     </span>
   {%- endif -%}
+                  {% unless product.title contains 'E-GIFT CARD' %}
   <p class="free-shipping">+ Free Shipping</p>
+  {% endunless %}
 </div>
 
 <style type="text/css">

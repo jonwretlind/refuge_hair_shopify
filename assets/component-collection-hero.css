@@ -48,7 +48,6 @@
 }
 
 .collection-hero__title + .collection-hero__description {
-  margin-top: 1.5rem;
   font-size: 1.6rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
 }
@@ -100,6 +99,7 @@ body.mobile .collection-hero--with-image .collection-hero__title {
   .collection-hero__image-container {
         width: 100vw;
         min-height: 22vw;
-        top: 0px;
+        top: -15px;
+   		margin-bottom: -15px;
   }
 }

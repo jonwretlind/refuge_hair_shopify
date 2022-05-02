@@ -95,7 +95,7 @@
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/PaigeReview1024x1024.jpg",
-            "product_image": "shopify:\/\/shop_images\/SystemMenu400x400_9fd9816d-e8fe-489e-a1d8-1d6a9e14546f.png",
+            "product_image": "shopify:\/\/shop_images\/fixed-image.png",
             "title": "",
             "text": "<p>As a bottle blonde, I've put my hair through the worst of the worst. Refuge <a href=\"\/products\/repair-protect\" title=\"REPAIR + PROTECT 3-STEP HAIR CARE SYSTEM\">Repair + Protect<\/a> has literally saved my hair.<br\/><br\/><a href=\"https:\/\/www.instagram.com\/paige_chanell\/\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/paige_chanell\/\">@paige_chanell <\/a><\/p>",
             "link_label": "Paige C",
@@ -168,12 +168,6 @@
         "swipe_on_mobile": false
       }
     },
-    "1644081879cb7506f7": {
-      "type": "yotopo-instagram-gallery",
-      "settings": {
-        "enable_widget": true
-      }
-    },
     "1644090947b3720f0a": {
       "type": "multicolumn-twothirds",
       "disabled": true,
@@ -219,7 +213,6 @@
     "featured_products",
     "16440292457d284087",
     "164408536003481d7a",
-    "1644081879cb7506f7",
     "1644090947b3720f0a"
   ]
 }

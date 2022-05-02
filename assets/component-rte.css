@@ -18,7 +18,9 @@ body.product .product__description.rte > p:last-child {
   letter-spacing: 0;
   white-space: nowrap;
 }
-
+body.mobile.product .product__description.rte > p:last-child {
+  white-space: unset;
+}
 .rte table {
   table-layout: fixed;
 }

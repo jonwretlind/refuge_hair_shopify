@@ -29,6 +29,9 @@ min-height: 39px;
   .slider.product__media-list .product__media-item:first-of-type {
   padding-left: 0em !important;
   }
+  body.mobile media-gallery[id^="MediaGallery-"] .large-carousel .carousel-window {
+      margin: 0 0rem !important;
+  }
   
   .main-blog, body.login #MainContent {
     margin-top: 0rem !important;
@@ -43,10 +46,65 @@ min-height: 39px;
   .mobile-cart-btns {
   top: 10px;
     position:relative;
+    grid-area: a3;
   }
+  #ProductTabs tabs {
+      border: 0px solid rgba(18,18,18,.2)  !important;
+    background-color: transparent  !important;
+    padding: 0rem  !important;
+  }
+  #ProductTabs .tab-btn {
+    color: #121212 !important;  }
+}
+body.mobile #ProductTabs accordion.collapse .wysiwyg:before {
+    left: 87% !important;
 }
 
-@media screen and (min-width:769px) {
+@media screen and (min-width:1101px) {
   .mobile-cart-btns {
 display: none !important;  }
 }
+
+
+/** code responsible to display seal on the slider of homepage on ipad **/
+@media screen and (min-width:769px) and (max-width:1000px) {
+  .contact-image {
+  width: 100% !important;
+    padding-left: 0px !important;
+  }
+}
+@media screen and (min-width:769px) and (max-width:1100px) {
+  .newsletter {
+  max-width: 100% !important;
+  }
+  .newsletter  .klaviyo-form__actions {
+  margin-top: 20px !important;
+  }
+  body.mobile .collection-hero--with-image .collection-hero__title {
+  left: 0 !important;
+  }
+  .cart-item {
+  justify-content: center;
+    width: 100%;
+  }
+  body.mobile .menu-drawer {
+  width: 90vw !important;
+  }
+  
+  .mobile-cart-btns .header__icon.header__icon--cart {
+  top: 12px !important;
+  }
+  .media>img {
+  object-position: center right !important;
+  }
+  #ReviewsBlock .multicolumn-list__item:only-child {
+      width: 100% !important;
+  }
+  .multicolumn-list li {
+      width: 100% !important;
+  }
+  body.mobile #ReviewsSwiper {
+  width: 95vw !important;
+  }
+}
+

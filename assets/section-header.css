@@ -402,7 +402,7 @@ div#shopify-section-header:not(.shopify-section-header-sticky) .header.active .m
     justify-self: left;
     color: rgb(255,255,255);
     border-bottom: 2px solid rgba(18,18,18,0);
-    padding-bottom: 36px;
+    padding-bottom: 25px;
     position: relative;
 }
 
@@ -509,6 +509,7 @@ body.mobile #shopify-section-header.shopify-section-header-sticky {
     width: 100%;
     margin-top: 0px;
     border-bottom: 1px solid rgb(18,18,18) !important;
+    display: none;
 }
 body.mobile #shopify-section-header.shopify-section-header-sticky.shopify-section-header-hidden {
   margin-top: -40px;
@@ -526,7 +527,7 @@ body.mobile .header {
 }
 body.mobile header-drawer {
   display: block;
-  grid-area: a3;
+  grid-area: a1;
   justify-self: right;
   margin-right: 1.5rem;
 }
@@ -572,7 +573,7 @@ body.mobile .modal__content {
 body.mobile .logo.link--text {
     padding-bottom: unset;
     border-bottom: unset;
-    top: -5px;
+    top: -3px;
     grid-area: a2;
     justify-self: center;
 }

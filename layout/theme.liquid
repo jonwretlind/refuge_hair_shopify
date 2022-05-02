@@ -29,9 +29,9 @@
 
     {% render 'meta-tags' %}
 
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" async ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <link media="print" onload="this.media='all'" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js">
     </script>
 
@@ -102,7 +102,7 @@
         content: '';
         width: 100vw;
         height: 100vh;
-        position: absolute;
+        position: fixed;
         z-index: 99;
         background-color: white;
       }
@@ -116,8 +116,9 @@
       }
     {% endstyle %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'bbm.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'bbm.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -127,7 +128,7 @@
     {%- endunless -%}
 
     {%- if settings.predictive_search_enabled -%}
-      <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}">
     {%- endif -%}
 
 
@@ -186,7 +187,7 @@
     </script>
 
     {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'predictive-search.js' | asset_url }}" async ></script>
     {%- endif -%}
     <script type="text/javascript">
 
@@ -220,10 +221,11 @@
 
     jQuery(window).ready(function() {
       $('svg').css('visibility', 'visible');
-      setTimeout(function() {
-           $('body .loading').fadeOut();
-       }, 2000); // using setTimeout to simulate page-load
       menuSwap();
+      setTimeout(function() {
+           $('body .loading').fadeOut('fast');
+           $('body.mobile #shopify-section-header.shopify-section-header-sticky').css("display", "block");
+       }, 500); // using setTimeout to simulate page-load
     });
 
     function menuSwap() {
@@ -237,22 +239,28 @@
         $('#Nav, .header__search').appendTo('.header');
       }
     }
-
+      
 
     </script>
     {% include 'subscription-theme-footer' %}
-
+    
     <!--  cquark jquery and css code -->
-    {{ 'custom.css' | asset_url | stylesheet_tag }}
     <script type="text/javascript">
       jQuery(document).ready(function() {
-      if($(".product__modal-opener .product__media").length == 1)
-		{
+    if($(".product__modal-opener .product__media").length == 1)
+	{
    		$(".icon.icon-caret.left").hide();
    		$(".icon.icon-caret.right").hide();
    		$(".product-gallery__pagination").hide();
-
-		}
+          
+    }
+    if ($(window).width() < 840)
+    {
+      $('.fc-index--0').find('.field__image').insertAfter('.pane-1'); 
+      $('.fc-index--1').find('.field__image').insertAfter('.pane-2'); 
+      $('.fc-index--2').find('.field__image').insertAfter('.pane-3'); 
+      }
+        
       });
     </script>
   </body>
