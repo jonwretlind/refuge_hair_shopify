@@ -4,10 +4,10 @@
 }
 
 .blog-articles {
-  display: grid;
-  grid-gap: 1rem;
+    display: grid;
+    grid-gap: var(--unit2XL);
+    margin: 0 5%;
 }
-
 .article-card__excerpt {
   font-size: 1.2rem;
 }

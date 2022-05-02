@@ -329,12 +329,13 @@ body.collection .ping-pong ul#product-grid {
 
 /* BLOG */
 body.article h3 {
-	font-size: 2rem;
+  font-size: 2rem;
   line-height: 2.125rem;
 }
 
+
 body.article b {
-	color: black;
+	color: black;  
 }
 
 /* LANDING PAGES */

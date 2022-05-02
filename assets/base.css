@@ -579,7 +579,7 @@ table:not([class]) th {
 }
 
 
-a:empty,
+/*a:empty,
 ul:empty,
 dl:empty,
 div:empty,
@@ -593,7 +593,7 @@ h4:empty,
 h5:empty,
 h6:empty {
   display: none;
-}
+}*/
 
 ul {
   margin-block-start: 0;
@@ -951,7 +951,7 @@ summary::-webkit-details-marker {
   .title--primary {
     margin: var(--unitLg) 0;
   }
-  
+
   body.blog .title--primary {
     margin: var(--unitLg) 5%;
   }

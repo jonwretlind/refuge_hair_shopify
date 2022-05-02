@@ -98,6 +98,14 @@
         font-size: 1.5rem;
         letter-spacing: 0.06rem;
       }
+      body .loading {
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 99;
+        background-color: white;
+      }
       svg {
         visibility: hidden;
       }
@@ -131,7 +139,8 @@
     <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/5FROBwiTMOts_B-1sG-VtQ" async></script>
 </head>
 
-  <body id="Desktop" class="gradient {{ page.handle }} {{ template.name }}">
+  <body id="Desktop" class="gradient {% if template.name contains 'account' or template.name contains 'search' %}login{% else %}{{ page.handle }} {{ template.name }}{% endif %}">
+    <div class="loading"></div>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -211,6 +220,9 @@
 
     jQuery(window).ready(function() {
       $('svg').css('visibility', 'visible');
+      setTimeout(function() {
+           $('body .loading').fadeOut();
+       }, 2000); // using setTimeout to simulate page-load
       menuSwap();
     });
 
@@ -226,8 +238,22 @@
       }
     }
 
+
     </script>
     {% include 'subscription-theme-footer' %}
 
+    <!--  cquark jquery and css code -->
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+      if($(".product__modal-opener .product__media").length == 1)
+		{
+   		$(".icon.icon-caret.left").hide();
+   		$(".icon.icon-caret.right").hide();
+   		$(".product-gallery__pagination").hide();
+
+		}
+      });
+    </script>
   </body>
 </html>

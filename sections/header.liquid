@@ -46,6 +46,11 @@
           {% include 'menu-drawer' %}
         </details>
       </header-drawer>
+    <div class="mobile-cart-btns">
+          {% render 'cart-button' %}
+
+    </div>
+
     {%- endif -%}
     {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
 

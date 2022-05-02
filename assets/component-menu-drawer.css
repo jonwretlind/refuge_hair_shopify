@@ -57,7 +57,8 @@ menu-drawer > details[open] > summary::before {
 }
 body.mobile .menu-drawer {
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 80);
+  height: calc(var(--vh, 1vh) * 84);
+    width: 100vw;
 }
 
 .js details[open] > .menu-drawer,
