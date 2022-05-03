@@ -119,6 +119,11 @@
   letter-spacing: .1em;
 }
 
+body.mobile #MultiColumn .multicolumn-list h3 {
+  font-size: 2rem !important;
+}
+
+
 #MultiColumn .multicolumn-list h3,
 #MultiColumn .multicolumn-list p {
   margin: 0;
@@ -214,11 +219,11 @@
 }
 
 #MultiColumn .multicolumn-card__info {
-  padding: 6rem;
+  padding: 1rem 6rem;
 }
 
 .background-none .multicolumn-card__info {
-  padding: 6rem;
+  padding: 1rem 6rem;
 }
 
 .background-none .slider .multicolumn-card__info {

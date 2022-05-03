@@ -16,6 +16,10 @@ header-drawer {
 #MainContent {
   margin-top: -1px;
 }
+
+body.mobile.article #MainContent {
+  margin-top: 75px;
+}
 body.cart #MainContent {
   margin-top: 15rem;
 }
@@ -93,7 +97,7 @@ body.article #MainContent {
   font-size: 1.1rem;
 }
 .contact-form .text-area {
-    padding: 1rem;
+    padding: 2rem 1rem;
     min-height: 8rem;
     resize: none;
 }
@@ -315,7 +319,7 @@ div#shopify-section-header.dark:not(.shopify-section-header-sticky) .header:not(
 }
 
 body.article div#shopify-section-header:not(.shopify-section-header-sticky) .header:not(.active){
-    background-color: rgba(255,255,255,0.5) !important;
+    background-color: rgba(255,255,255,1) !important;
 }
 
 
@@ -509,7 +513,6 @@ body.mobile #shopify-section-header.shopify-section-header-sticky {
     width: 100%;
     margin-top: 0px;
     border-bottom: 1px solid rgb(18,18,18) !important;
-    display: none;
 }
 body.mobile #shopify-section-header.shopify-section-header-sticky.shopify-section-header-hidden {
   margin-top: -40px;
@@ -582,4 +585,8 @@ body.mobile .link {
 }
 body.mobile .product-grid.negative-margin {
     margin-bottom: unset;
+}
+body.mobile.index .product-grid.negative-margin {
+    margin-bottom: -6rem;
+  	margin-top: -6rem;
 }

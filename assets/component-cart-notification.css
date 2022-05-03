@@ -118,16 +118,17 @@ body.mobile .cart-notification.active .cart-notification-secondary-wrapper {
     max-width: 36.8rem;
   }
 }
-
 .cart-notification__header {
     display: flex;
     align-items: center;
-    background-color: #9DAFAC;
+    background-color: #9dafac;
     height: 5rem;
     position: fixed;
     width: 100%;
 }
-
+.shopify-section-header-sticky .cart-notification__header {
+  top: 20px;
+}
 .cart-notification__heading {
     display: flex;
     flex-grow: 1;
@@ -194,7 +195,6 @@ body.mobile .cart-notification.active .cart-notification-secondary-wrapper {
 .cart-item {
     display: flex !important;
     padding: 0 2rem;
-    margin-top: var(--unitXL);
 }
 
 body.mobile.cart .cart-item {

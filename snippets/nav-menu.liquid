@@ -107,3 +107,16 @@
   }
 
 </style>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var header = $('.header');
+    header.on('scroll', function() {
+      if (! $('div#shopify-section-header').hasClass('shopify-section-header-sticky') ) {
+        header.css({
+          backgroundColor: 'transparent'
+        });
+      };
+    });
+  });//document.ready
+</script>

@@ -196,6 +196,7 @@
       const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
       console.log("Viewport Dimensions", vw, vh);
       if ( vw <= 1100  ) {  $('body').addClass('mobile').attr("id", "Mobile");
+        if ( vw >= 768 && vw <= 1100 ) {  $('body').addClass('tablet');} // add class for tablets        
       } else { $('body').removeClass('mobile').attr("id", "Desktop");
       };
       if ( vh <= 700 ) { $('body').addClass('small-ht') } else { $('body').removeClass('small-ht') };
