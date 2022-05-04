@@ -2,6 +2,12 @@
   margin-top: -4.5rem;
 }
 
+body.product-page #BVAFooter,
+body.mobile #BVAFooter {
+  margin-top: var(--unit);
+}
+
+
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }

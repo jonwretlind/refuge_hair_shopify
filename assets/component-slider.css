@@ -5,6 +5,17 @@ slider-component {
     padding-right: var(--unit);
 }
 
+body.tablet slider-component {
+    padding-left: unset;
+    padding-right: unset;
+}
+
+
+#ReviewsBlock slider-component {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 @media screen and (max-width: 989px) {
   .no-js slider-component .slider {
     padding-bottom: 3rem;

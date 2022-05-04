@@ -50,6 +50,9 @@
 .multicolumn-list .grid__item {
   padding: unset;
 }
+body.mobile.tablet .multicolumn-list .grid__item {
+    padding: 0 var(--unitXL);
+}
 #MultiColumn .multicolumn-list .grid__item .multicolumn-card {
   display: flex;
   flex-direction: column;

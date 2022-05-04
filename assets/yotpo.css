@@ -6,3 +6,19 @@
 .yotpo .promoted-products-box .promoted-products .yotpo-promoted-product .yotpo-review-stars {
     width: 75%;
 }
+
+.yotpo .yotpo-nav-content>div.yotpo-active {
+    overflow: auto;
+    max-height: 720px;
+}
+
+body.mobile .yotpo .yotpo-nav-content>div.yotpo-active {
+    max-height: 500px;
+}
+
+.main-widget .yotpo-reviews-filters {
+    border-bottom: unset;
+}
+.main-widget .yotpo-reviews-header, .main-widget .yotpo-reviews-filters {
+    margin: 0;
+}

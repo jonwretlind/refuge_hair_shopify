@@ -327,7 +327,8 @@ body.collection .collection-product-card {
     flex: 1;
     justify-content: space-between;
     min-width: 320px;
-    max-width: 350px;
+/*     max-width: 350px; */
+     max-width: 400px; 
 }
 body.tablet.collection .collection-product-card {
     max-width: unset;

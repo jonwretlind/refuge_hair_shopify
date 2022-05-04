@@ -144,10 +144,10 @@ body.mobile .header__icon {
 div#shopify-section-header {
     margin-top: 30px;
 }
-div#shopify-section-header * {
+/* div#shopify-section-header * {
     transition: all 0.1s ease;
 }
-
+ */
 .product-page a.menu-link:visited, .product-page a.menu-link span,
 .contact-us a.menu-link:visited, .contact-us a.menu-link span {
   color: rgba(18,18,18,.75);
@@ -406,7 +406,7 @@ div#shopify-section-header:not(.shopify-section-header-sticky) .header.active .m
     justify-self: left;
     color: rgb(255,255,255);
     border-bottom: 2px solid rgba(18,18,18,0);
-    padding-bottom: 25px;
+    padding-bottom: 33px;
     position: relative;
 }
 
